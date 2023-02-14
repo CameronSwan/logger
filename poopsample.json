@@ -1,0 +1,97 @@
+{
+    "roles": [
+        {
+            "roleId": 1,
+            "description": "Lorem ipsum dolor sit amet, adipiscing elit",
+            "name": "Kelly"
+        },
+        {
+            "roleId": 2,
+            "description": "Lorem ipsum dolor sit amet, adipiscing elit",
+            "name": "Kelly"
+        },
+        {
+            "roleId": 3,
+            "description": "Lorem ipsum dolor sit amet, adipiscing elit",
+            "name": "Kelly"
+        }
+    ],
+    "symptoms": [
+        {
+            "symptomId": 2,
+            "name": "runny",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            "userId": 1
+        }
+    ],
+    "users": [
+        {
+            "userId": 1,
+            "username": "Julie101",
+            "password": "password",
+            "phoneNumber": "781-567-5753",
+            "roleId": 7,
+            "email": "julie@gmail.com",
+            "isVerified": true,
+            "userSymptoms": [
+                "nausea",
+                "headache",
+                "vommiting"
+            ],
+            "verifiedBy": "2021-04-25",
+            "verifiedAy": "2021-05-01",
+            "createdBy": "2021-04-30"
+        }
+    ],
+    "bowelMovements": [
+        {
+            "BowelMovemenId": 1,
+            "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            "date": "2021-07-15",
+            "time": "1:15:00",
+            "userId": 1
+        }
+    ],
+    "colors": [
+        {
+            "colorId": 1,
+            "hexcode": "#EADDCA",
+            "name": "Almond",
+            "userId": 1
+        },
+        {
+            "colorId": 2,
+            "hexcode": "#E1C16E",
+            "name": "Brass",
+            "userId": 1
+        }
+    ],
+    "stoolTypes": [
+        {
+            "stoolTypeId": 1,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            "stoolSvg": "sample.jpg",
+            "userId": 1
+        }
+    ],
+    "posts": [
+        {
+            "postId": 1,
+            "title": "Lorem ipsum dolor",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        }
+    ],
+    "comments": [
+        {
+            "commentId": 1,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        }
+    ],
+    "facts": [
+        {
+            "factId": 1,
+            "title": "Lorem ipsum dolor",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        }
+    ]
+}
