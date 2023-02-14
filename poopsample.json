@@ -3,23 +3,24 @@
         {
             "roleId": 1,
             "description": "Lorem ipsum dolor sit amet, adipiscing elit",
-            "name": "Kelly"
+            "name": "Admin"
         },
         {
             "roleId": 2,
             "description": "Lorem ipsum dolor sit amet, adipiscing elit",
-            "name": "Kelly"
-        },
-        {
-            "roleId": 3,
-            "description": "Lorem ipsum dolor sit amet, adipiscing elit",
-            "name": "Kelly"
+            "name": "Moderator"
         }
     ],
     "symptoms": [
         {
-            "symptomId": 2,
+            "symptomId": 1,
             "name": "runny",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            "userId": 1
+        },
+        {
+            "symptomId": 2,
+            "name": "bloody",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
             "userId": 1
         }
