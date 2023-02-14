@@ -1,0 +1,146 @@
+/*  
+	Reset Style Sheet
+	Source: http://meyerweb.com/eric/tools/css/reset/ 
+	v2.0 | 20110126
+	License: none (public domain)
+*/
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet');
+@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Red+Hat+Display:wght@300;400;500&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  font-family: "Red Hat Display", sans-serif; }
+
+h1, .h1 {
+  font-size: 25px;
+  line-height: 1.2;
+  font-family: "Anonymous Pro", monospace;
+  color: #FAF9F6; }
+  @media screen and (min-width: 360px) {
+    h1, .h1 {
+      font-size: 25px; } }
+  @media screen and (min-width: 481px) {
+    h1, .h1 {
+      font-size: 30px; } }
+  @media screen and (min-width: 1024px) {
+    h1, .h1 {
+      font-size: 35px; } }
+  @media screen and (min-width: 1280px) {
+    h1, .h1 {
+      font-size: 40px; } }
+
+h2, .h2 {
+  font-size: 25px;
+  line-height: 1.2;
+  font-family: "Anonymous Pro", monospace;
+  color: #FAF9F6; }
+  @media screen and (min-width: 360px) {
+    h2, .h2 {
+      font-size: 25px; } }
+  @media screen and (min-width: 1024px) {
+    h2, .h2 {
+      font-size: 30px; } }
+  @media screen and (min-width: 1280px) {
+    h2, .h2 {
+      font-size: 40px; } }
+
+h3, .h3 {
+  font-size: 18px;
+  line-height: 1.2;
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: bold;
+  color: #FAF9F6; }
+  @media screen and (min-width: 360px) {
+    h3, .h3 {
+      font-size: 18px; } }
+  @media screen and (min-width: 1024px) {
+    h3, .h3 {
+      font-size: 20px; } }
+  @media screen and (min-width: 1280px) {
+    h3, .h3 {
+      font-size: 25px; } }
+
+h4, .h4, h5, .h5 {
+  margin-bottom: 2px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: bold;
+  font-family: "Red Hat Display", sans-serif; }
+  @media screen and (min-width: 768px) {
+    h4, .h4, h5, .h5 {
+      font-size: 16px; } }
+  @media screen and (min-width: 1280px) {
+    h4, .h4, h5, .h5 {
+      font-size: 20px; } }
+
+p, .p, li {
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: "Red Hat Display", sans-serif;
+  color: #FAF9F6; }
+  @media screen and (min-width: 768px) {
+    p, .p, li {
+      font-size: 16px; } }
+  @media screen and (min-width: 1280px) {
+    p, .p, li {
+      font-size: 20px; } }
+
+.cta {
+  font-size: 16px;
+  font-family: "Red Hat Display", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #FAF9F6; }
+  .cta:hover {
+    color: #FAF9F6; }
+
+a:not([class]) {
+  font-size: inherit;
+  text-transform: none;
+  text-decoration: underline;
+  color: inherit; }
+
+.button {
+  cursor: pointer;
+  font-family: "Red Hat Display", sans-serif; }
