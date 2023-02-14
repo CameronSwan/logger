@@ -69,7 +69,7 @@
     ],
     "stoolTypes": [
         {
-            "stoolTypeId": 1,
+            "stoolTypeId": "Type 1",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
             "stoolSvg": "sample.jpg",
             "userId": 1
