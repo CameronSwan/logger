@@ -3,18 +3,21 @@
 // Font imports
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet');
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Red+Hat+Display:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
 
 // Font Families
-$worksans : 'Work Sans', Arial,Helvetica,
-sans-serif;
+$poppins: 'Poppins', sans-serif;
+$montserrat: 'Montserrat', sans-serif;
 $red-hat: 'Red Hat Display', sans-serif;
 $anonymous-pro: 'Anonymous Pro', monospace;
 
 // Font assignments 
-$font-family-heading: $anonymous-pro;
+$font-family-heading: $poppins;
 $font-family-nav: $red-hat;
 $font-family-base: $red-hat;
-$font-family-CTA: $red-hat;
+$font-family-CTA: $montserrat;
 
 // Font sizes
 $h1-font-sizes: (

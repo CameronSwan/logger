@@ -6,6 +6,8 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet');
 @import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Red+Hat+Display:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -55,7 +57,7 @@ body {
 h1, .h1 {
   font-size: 25px;
   line-height: 1.2;
-  font-family: "Anonymous Pro", monospace;
+  font-family: "Montserrat", sans-serif;
   color: #FAF9F6; }
   @media screen and (min-width: 360px) {
     h1, .h1 {
@@ -73,7 +75,7 @@ h1, .h1 {
 h2, .h2 {
   font-size: 25px;
   line-height: 1.2;
-  font-family: "Anonymous Pro", monospace;
+  font-family: "Montserrat", sans-serif;
   color: #FAF9F6; }
   @media screen and (min-width: 360px) {
     h2, .h2 {
@@ -128,7 +130,7 @@ p, .p, li {
 
 .cta {
   font-size: 16px;
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   text-decoration: none;
   color: #FAF9F6; }
@@ -143,4 +145,4 @@ a:not([class]) {
 
 .button {
   cursor: pointer;
-  font-family: "Red Hat Display", sans-serif; }
+  font-family: "Montserrat", sans-serif; }
