@@ -1,6 +1,5 @@
 # logger
-A tracking app used to track BMs for health reasons.
-
+A tracking app used to track BMs for health reasons
 
 ## Install backend and frontend dependancies:
 
@@ -20,9 +19,5 @@ npm install
 
 ```
 cd backend
-
 npm run dev
 ```
-
-
-
