@@ -5,10 +5,15 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "frontend": "cd ../frontend && npm start && cd ../backend && grunt watch",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\" --kill-others --kill-others-on-fail"
+    
+    "frontend": "grunt build && cd ../frontend && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\" \"grunt watch\" --kill-others --kill-others-on-fail"
   },
   "dependencies": {
+    "@types/jest": "^29.4.0",
+    "@types/node": "^18.14.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
     "body-parser": "^1.20.1",
     "concurrently": "^7.6.0",
     "cookie-parser": "~1.4.4",
@@ -21,7 +26,8 @@
     "jade": "~1.11.0",
     "mongodb": "^5.0.1",
     "mongoose": "^6.9.1",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "typescript": "^4.9.5"
   },
   "devDependencies": {
     "grunt": "^1.6.1",
