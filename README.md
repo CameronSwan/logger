@@ -15,7 +15,7 @@ npm install
 ```
 
 
-## To run the app:
+## To run the app for development:
 
 ```
 cd backend
