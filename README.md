@@ -1,3 +1,23 @@
 # logger
-A tracking app used to track BMs for health reasons.
-#Maya added comment
+A tracking app used to track BMs for health reasons
+
+## Install backend and frontend dependancies:
+
+```
+cd frontend
+npm install
+```
+
+```
+cd ..
+cd backend
+npm install
+```
+
+
+## To run the app:
+
+```
+cd backend
+npm run dev
+```
