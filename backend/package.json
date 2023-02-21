@@ -1,0 +1,40 @@
+{
+  "name": "logger",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    
+    "frontend": "grunt build && cd ../frontend && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\" \"grunt watch\" --kill-others --kill-others-on-fail"
+  },
+  "dependencies": {
+    "@types/jest": "^29.4.0",
+    "@types/node": "^18.14.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "body-parser": "^1.20.1",
+    "concurrently": "^7.6.0",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
+    "express": "~4.16.1",
+    "grunt-express-server": "^0.5.4",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "mongodb": "^5.0.1",
+    "mongoose": "^6.9.1",
+    "morgan": "~1.9.1",
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "grunt": "^1.6.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-sass": "^3.1.0",
+    "load-grunt-tasks": "^5.1.0",
+    "node-sass": "^8.0.0",
+    "nodemon": "^2.0.20"
+  }
+}
