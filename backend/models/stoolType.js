@@ -3,10 +3,12 @@ const { Schema } = mongoose
 
 const stoolTypeSchema = new Schema({
     description: {
-        type: Text
+        type: Text,
+        unique: true
     },
     stoolSvg: {
-        type: String
+        type: String,
+        unqiue: true
     }
 })
 
