@@ -13,6 +13,9 @@ const bowelMovementSchema = new Schema({
     userId: {
         type: Number,
         required: [true, 'UserID is Required']
+    },
+    notes: {
+        type: Text
     }
 })
 
