@@ -3,11 +3,11 @@ const { Schema } = mongoose
 
 const bowelMovementSchema = new Schema({
     date: {
-        type: Date,
+        type: String,
         required: [true, 'Date is Required.']
     },
     time: {
-        type: Date,
+        type: String,
         required: [true, 'Time is Required.']
     },
     userId: {
