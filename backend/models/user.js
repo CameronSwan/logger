@@ -11,7 +11,7 @@ const userSchema = new Schema ({
     },
     password: {
         type: String,
-        required: true,
+        required: [true, 'Password is required'],
         min: [7,'Must be at least 7'],
         max: 20
     },
@@ -25,8 +25,14 @@ const userSchema = new Schema ({
     },
     email: {
         type: String,
-        required: true,
-        unique: true
+        required: [true, 'Email Address is required'],
+        unique: true,
+        validate: {
+            validator: v => {
+                return /[A-Za-z0-9.-]@[A-Za-z0-9.-]+\.[a-z]/.test(v)
+            },
+            message: "Must be a valid email address"
+        }
     },
     verifiedBy: {
         type: Number,
