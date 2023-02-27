@@ -2,10 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const symptomSchema = new Schema ({
-    symptomId: {
-        type: Number,
-        required: [true, 'Symptom ID is Required']
-    },
+
     name: {
         type: String,
         required: [true, 'Symptom Name is Required']
