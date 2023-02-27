@@ -4,8 +4,6 @@ const { Schema } = mongoose;
 const userSchema = new Schema ({
     username: {
         type: String,
-        required: true,
-        unique: true,
         min: [5,'Must be at least 5'],
         max: 20
     },
@@ -16,8 +14,7 @@ const userSchema = new Schema ({
         max: 20
     },
     phoneNumber: {
-        type: Number,
-        required: [true, 'Phone number is Required']
+        type: Number
     },
     roleId: {
         type: Number,
@@ -35,16 +32,13 @@ const userSchema = new Schema ({
         }
     },
     verifiedBy: {
-        type: Number,
-        required: true
+        type: Number
     },
     verifiedAt: {
-        type: Date,
-        required: [true, 'verifiedAt is Required.']
+        type: Date
     },
     createdBy: {
-        type: Number,
-        required: true
+        type: Number
     },
     createdAt: {
         type: Date,
