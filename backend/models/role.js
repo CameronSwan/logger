@@ -3,10 +3,6 @@ const { Schema } = mongoose;
 
 const roleSchema = new Schema ({
 
-    roleId: {
-        type: Number,
-        required: [true, 'RoleID is Required']
-    },
     description: {
         type: Text,
         unique: true
