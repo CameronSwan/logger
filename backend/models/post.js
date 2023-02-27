@@ -3,13 +3,9 @@ const { Schema } = mongoose;
 
 const postSchema = new Schema ({
 
-    postId: {
-        type: Number,
-        required: [true, 'Post ID is Required']
-    },
     title: {
         type: String,
-        required: [true, 'Post Name is Required']
+        required: [true, 'Post title is Required']
     },
     description: {
         type: Text,
