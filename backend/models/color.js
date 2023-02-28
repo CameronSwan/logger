@@ -4,12 +4,12 @@ const { Schema } = mongoose;
 const colorSchema = new Schema ({
 
     hexCode: {
+        unique: true,
         type: String,
-        required: [true, 'Color HexCode is Required']
     },
     name: {
         type: String,
-        required: [true, 'Color Name is Required']
+        unique: true
     }
 });
 
