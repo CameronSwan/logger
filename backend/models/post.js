@@ -8,8 +8,7 @@ const postSchema = new Schema ({
         required: [true, 'Post title is Required']
     },
     description: {
-        type: Text,
-        unique: true
+        type: Text
     }
 });
 
