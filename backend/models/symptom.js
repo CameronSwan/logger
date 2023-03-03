@@ -11,7 +11,7 @@ const symptomSchema = new Schema ({
         type: Text
     },
     userId: {
-        type: Number
+        type: Schema.Types.ObjectId, ref: 'User' 
     }
 });
 
