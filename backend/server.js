@@ -21,8 +21,7 @@ mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: tr
 
 //import routers
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-//var apiRouter = require('./routes/api')
+var apiRouter = require('./routes/api')
 
 //create an instance of our express app
 const app = express();
@@ -39,7 +38,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'frontend/public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
