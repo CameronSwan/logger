@@ -8,7 +8,8 @@ const roleSchema = new Schema ({
     },
     name: {
         unique: true,
-        // enum is a set of speicific nums, role can only be User, Moderator or Admin
+        // enum is used any time you need to represent a fixed set of constants
+        // role can only be User, Moderator or Admin
         type: string, enum: ['User', 'Moderator', 'Admin']
     }
 });
