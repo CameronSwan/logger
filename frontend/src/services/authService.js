@@ -1,7 +1,10 @@
-import axios from "axios";
+//import axios from "axios";
 
 class authService {
 
+  register(credentials, callback) {
+    
+  }
 }
 
 export default new authService();
