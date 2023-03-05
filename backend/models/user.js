@@ -17,7 +17,8 @@ const userSchema = new Schema ({
         type: Number
     },
     roleId: {
-        type: Schema.Types.ObjectId, ref: 'Role',
+        type: Schema.Types.ObjectId,
+        ref: 'Role',
         required: [true, 'Role ID is Required']
     },
     email: {
@@ -35,8 +36,7 @@ const userSchema = new Schema ({
         type: Schema.Types.ObjectId
     },
     verifiedAt: {
-        type: Date,
-        default: Date.now()
+        type: Date
     },
     createdBy: {
         type: Schema.Types.ObjectId
