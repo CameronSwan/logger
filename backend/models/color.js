@@ -2,17 +2,14 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const colorSchema = new Schema ({
-    colorId: {
-        type: Number,
-        required: [true, 'Color ID is Required']
-    },
+
     hexCode: {
+        unique: true,
         type: String,
-        required: [true, 'Color HexCode is Required']
     },
     name: {
         type: String,
-        required: [true, 'Color Name is Required']
+        unique: true
     }
 });
 
