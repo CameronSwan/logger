@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 })
 
 // Return StoolType With Provided _id
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
     StoolType.findById(req.params.id, (e, stoolType) => {
         if (e) res.status(400).send()
         if (stoolType) res.status(200).json(stoolType)
