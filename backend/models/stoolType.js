@@ -9,6 +9,11 @@ const stoolTypeSchema = new Schema({
     stoolSvg: {
         type: String,
         unqiue: true
+    },
+    name: {
+        type: String,
+        unique: true,
+        required: [true, 'Name is required'],
     }
 })
 
