@@ -16,7 +16,7 @@ const bowelMovementSchema = new Schema({
         required: [true, 'UserID is Required']
     },
     notes: {
-        type: Text
+        type: String
     }
 })
 
