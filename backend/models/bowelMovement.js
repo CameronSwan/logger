@@ -11,8 +11,12 @@ const bowelMovementSchema = new Schema({
         required: [true, 'Time is Required.']
     },
     userId: {
-        type: Number,
+        type: Schema.Types.ObjectId,
+        ref: 'User',
         required: [true, 'UserID is Required']
+    },
+    notes: {
+        type: Text
     }
 })
 
