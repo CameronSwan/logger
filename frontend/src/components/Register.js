@@ -35,7 +35,9 @@ const Register = () => {
       setTOSMessage("You must agree to the Terms of Service")
     } else {
       authService.register({ username, email, password }, error => {
-
+        // if (!error) {
+        //   navigate('/');
+        // }
       })
     }
   }
