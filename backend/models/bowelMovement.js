@@ -12,7 +12,7 @@ const bowelMovementSchema = new Schema({
     },
     userId: {
         type: Schema.Types.ObjectId,
-        ref: 'user',
+        ref: 'User',
         required: [true, 'UserID is Required']
     },
     notes: {
