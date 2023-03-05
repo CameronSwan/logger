@@ -32,16 +32,18 @@ const userSchema = new Schema ({
         }
     },
     verifiedBy: {
-        type: Number
+        type: Schema.Types.ObjectId
     },
     verifiedAt: {
-        type: Date
+        type: Date,
+        default: Date.now()
     },
     createdBy: {
-        type: Number
+        type: Schema.Types.ObjectId
     },
     createdAt: {
         type: Date,
+        default: Date.now(),
         required: [true, 'createdAt is Required.']
     }
 });
