@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Components
 import NavBar from './components/NavBar';
 import Main from './components/Main';
+import Register from './components/Register';
+import LogIn from './components/LogIn';
 
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
         <div id="main-content">
           <Routes>
             <Route path='/' element={ <Main /> }/>
+            <Route path='/register' element={ <Register />}/>
+            <Route path='/login' element={ <LogIn />}/>
             {/* <Route element={<ProtectedRoutes/>}>
             </Route> */}
             <Route path='*' element= {< NotFound />}/>
