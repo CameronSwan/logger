@@ -14,6 +14,10 @@ const LogIn = (props) => {
     event.preventDefault();
 
     setErrors({})
+
+    authService.login({ email, password }, error => {
+
+    })
   }
 
 
@@ -48,10 +52,12 @@ const LogIn = (props) => {
           </div>
         </div>
 
-        {
-          errors.serverMessage && <div>{errors.serverMessage}</div>
-        }
-
+        <div>
+          {
+            errors.serverMessage && <span>{errors.serverMessage}</span>
+          }
+        </div>
+        
         <button
           type="submit">
           Log In

@@ -9,20 +9,31 @@ const Register = (props) => {
   const [password, setPassword] = useState('');
   const [verification, setVerification] = useState('');
   const [verificationMessage, setVerificationMessage] = useState('');
+  const [agreeTOS, setAgreeTOS] = useState(false);
+  const [TOSMessage, setTOSMessage] = useState('');
   const [errors, setErrors] = useState({});
 
   //use the hook provided by react-router
   const navigate = useNavigate();
+
+  const handleChecked = () => {
+    setAgreeTOS(!agreeTOS)
+  };
 
   const handleSubmit = event => {
     event.preventDefault();
 
     //Reset validaition errors
     setErrors({});
+    setTOSMessage('');
     setVerificationMessage('');
 
     if (verification !== password) {
       setVerificationMessage("Passwords must match.")
+    }
+    else if (agreeTOS !== true) {
+      setTOSMessage("You must agree to the Terms of Service")
+
     } else {
       authService.register({ username, email, password }, error => {
         if (!error) {
@@ -54,9 +65,11 @@ const Register = (props) => {
               onChange={e => setUsername(e.target.value)}
               placeholder="Enter username"
             />
-            {
-              errors.username && <div>{errors.username.message}</div>
-            }
+            <div>
+              {
+                errors.username && <span>{errors.username.message}</span>
+              }
+            </div>
           </div>
         </div>
 
@@ -71,9 +84,11 @@ const Register = (props) => {
               onChange={e => setEmail(e.target.value)}
               placeholder="Enter email address"
             />
-            {
-              errors.email && <div>{errors.email.message}</div>
-            }
+            <div>
+              {
+                errors.email && <span>{errors.email.message}</span>
+              }
+            </div>
           </div>
         </div>
 
@@ -87,9 +102,11 @@ const Register = (props) => {
               name="password"
               onChange={e => setPassword(e.target.value)}
             />
-            {
-              errors.password && <div>{errors.password.message}</div>
-            }
+            <div>
+              {
+                errors.password && <span>{errors.password.message}</span>
+              }
+            </div>
           </div>
         </div>
 
@@ -103,9 +120,11 @@ const Register = (props) => {
               name="password"
               onChange={e => setVerification(e.target.value)}
             />
-            {
-              verificationMessage && <div>{verificationMessage}</div>
-            }
+            <div>
+              {
+                verificationMessage && <span>{verificationMessage}</span>
+              }
+            </div>
           </div>
         </div>
 
@@ -113,6 +132,8 @@ const Register = (props) => {
           <input type="checkbox"
             id="TOS"
             name="TOS"
+            checked={agreeTOS}
+            onChange={handleChecked}
           />
           <label htmlFor="TOS">
             I have read and agree to the Terms of Service, Privacy Policy and Community Guidelines.
@@ -126,10 +147,15 @@ const Register = (props) => {
           </label>
         </div>
 
-        {
-          errors.serverMessage && <div>{errors.serverMessage}</div>
-        }
-
+        <div>
+          {
+            errors.serverMessage && <span>{errors.serverMessage}</span>
+          }
+          {
+            TOSMessage && <span>{TOSMessage}</span>
+          }
+        </div>
+        
         <button type="submit">
           Sign Up
         </button>
