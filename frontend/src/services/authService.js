@@ -2,6 +2,11 @@
 
 class authService {
 
+  isAuthenticated(){
+    //TODO: Return true if authenticated
+    return true
+  }
+
   register(credentials, callback) {
     
   }
