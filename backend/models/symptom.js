@@ -8,7 +8,7 @@ const symptomSchema = new Schema ({
         required: [true, 'Symptom Name is Required']
     },
     description: {
-        type: Text
+        type: String
     },
     userId: {
         type: Schema.Types.ObjectId, 

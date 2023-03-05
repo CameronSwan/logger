@@ -3,7 +3,7 @@ const { Schema } = mongoose
 
 const stoolTypeSchema = new Schema({
     description: {
-        type: Text,
+        type: String,
         unique: true
     },
     stoolSvg: {

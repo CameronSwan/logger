@@ -8,7 +8,7 @@ const factSchema = new Schema ({
         required: [true, 'Title is Required']
     },
     description: {
-        type: Text,
+        type: String,
         required: [true, 'Description is Required'],
         unique: true
     }
