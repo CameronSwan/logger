@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import authService from '../services/authService';
+import Checkbox from "./Checkbox";
 
-const Register = (props) => {
+const Register = () => {
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -56,7 +57,7 @@ const Register = (props) => {
 
         <div>
           <label htmlFor="inputUsername">
-            Username *
+            Username
           </label>
           <div>
             <input type="text"
@@ -128,24 +129,18 @@ const Register = (props) => {
           </div>
         </div>
 
-        <div>
-          <input type="checkbox"
-            id="TOS"
-            name="TOS"
-            checked={agreeTOS}
-            onChange={handleChecked}
-          />
-          <label htmlFor="TOS">
-            I have read and agree to the Terms of Service, Privacy Policy and Community Guidelines.
-          </label>
-        </div>
 
-        <div>
-          <input type="checkbox" />
-          <label htmlFor="emailUpdates">
-            I would like to receive emails and updates about Logger.
-          </label>
-        </div>
+        <Checkbox
+          label="I have read and agree to the Terms of Service, Privacy Policy and Community Guidelines."
+          id="Terms Of Service"
+          value={agreeTOS}
+          onChange={handleChecked}
+        />
+
+        <Checkbox
+          id="Email Subscription"
+          label="I would like to receive emails and updates about Logger."
+        />
 
         <div>
           {
@@ -155,7 +150,7 @@ const Register = (props) => {
             TOSMessage && <span>{TOSMessage}</span>
           }
         </div>
-        
+
         <button type="submit">
           Sign Up
         </button>
