@@ -31,22 +31,11 @@ const Register = () => {
 
     if (verification !== password) {
       setVerificationMessage("Passwords must match.")
-    }
-    else if (agreeTOS !== true) {
+    } else if (agreeTOS !== true) {
       setTOSMessage("You must agree to the Terms of Service")
-
     } else {
       authService.register({ username, email, password }, error => {
-        if (!error) {
-          navigate('/');
-        } else {
-          //save our validation errors in state
-          if (error.status === 422) {
-            setErrors(error.data.errors)
-          } else {
-            setErrors(error.data)
-          }
-        }
+
       })
     }
   }
