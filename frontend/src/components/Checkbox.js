@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-
-const Checkbox = ({ id, label, value, onChange, className }) => {
+const Checkbox = ({ id, label, checked, value, onChange, className }) => {
   return (
     <div className={className}>
       <input 
         id={id} 
-        type="checkbox" 
-        checked={value} 
+        type="checkbox"
+        value={value} 
+        checked={checked} 
         onChange={onChange} 
       />
       <label htmlFor={id}>{label}</label>

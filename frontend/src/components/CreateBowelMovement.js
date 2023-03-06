@@ -13,11 +13,14 @@ const CreateBowelMovement = (props) => {
   const [time, setTime] = useState(new Date().toTimeString().split(' ')[0]);
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
   const [dateTimeWarning, setDateTimeWarning] = useState('');
+
   const [stoolTypes, setStoolTypes] = useState([]);
   const [stoolTypesSelected, setStoolTypesSelected] = useState([]);
 
   const [colors, setColors] = useState([]);
+  const [colorsSelected, setColorsSelected] = useState([]);
 
+  const [notes, setNotes] = useState([]);
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
@@ -38,9 +41,20 @@ const CreateBowelMovement = (props) => {
     if (event.target.checked) {
       setStoolTypesSelected([...stoolTypesSelected, event.target.value])
     }
-    if (!event.target.checked){
+    if (!event.target.checked) {
       setStoolTypesSelected(stoolTypesSelected.filter((types) => {
-        return types != event.target.value
+        return types !== event.target.value
+      }))
+    }
+  }
+
+  const handleColorSelection = event => {
+    if (event.target.checked) {
+      setColorsSelected([...colorsSelected, event.target.value])
+    }
+    if (!event.target.checked) {
+      setColorsSelected(colorsSelected.filter((types) => {
+        return types !== event.target.value
       }))
     }
   }
@@ -57,6 +71,7 @@ const CreateBowelMovement = (props) => {
     }
 
     console.log(stoolTypesSelected)
+    console.log(colorsSelected)
   }
 
   return (
@@ -93,36 +108,39 @@ const CreateBowelMovement = (props) => {
         <div>
           <fieldset>
             <legend>Bristol Stool Scale</legend>
-            {stoolTypes.map(stoolType => {
-            return (
-              <input 
-                key={stoolType.name}
-                id={stoolType.name}
-                type="checkbox"
-                value={stoolType._id}
-                onChange={handleStoolTypeSelection}
-              />
-            )
-          })
-          }
+            {
+              stoolTypes.map(stoolType => {
+                return (
+                  <Checkbox
+                    label={stoolType.name}
+                    key={stoolType.name}
+                    value={stoolType._id}
+                    className={"checkbox-stooltypes"}
+                    onChange={handleStoolTypeSelection}
+                  />
+                )
+              })
+            }
           </fieldset>
         </div>
 
-
         <div>
-          <label>
-            Color
-          </label>
-          {
-            colors.map(color => {
-              return (
-                <Checkbox
-                  label={color.name}
-                  key={color.name}
-                />
-              )
-            })
-          }
+          <fieldset>
+            <legend>Color</legend>
+            {
+              colors.map(color => {
+                return (
+                  <Checkbox
+                    label={color.name}
+                    key={color.name}
+                    value={color._id}
+                    className={"checkbox-colors"}
+                    onChange={handleColorSelection}
+                  />
+                )
+              })
+            }
+          </fieldset>
         </div>
 
         <div>
@@ -130,7 +148,27 @@ const CreateBowelMovement = (props) => {
         </div>
 
         <div>
-          {/*notes */}
+          <label htmlFor="inputNotes">
+            Notes
+          </label>
+          <div>
+            <input type="text"
+              id="inputNotes"
+              name="notes"
+              onChange={e => setNotes(e.target.value)}
+            />
+            <div>
+              {
+                errors.notes && <span>{errors.notes.message}</span>
+              }
+            </div>
+          </div>
+        </div>
+
+        <div>
+          {
+            errors.serverMessage && <span>{errors.serverMessage}</span>
+          }
         </div>
 
         <button type="submit">
@@ -138,8 +176,6 @@ const CreateBowelMovement = (props) => {
         </button>
 
       </form>
-
-
     </div>
   )
 }
