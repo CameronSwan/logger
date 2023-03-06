@@ -1,26 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// import DatePicker from 'react-date-picker'
-// import TimePicker from 'react-time-picker';
-// import 'react-date-picker/dist/DatePicker.css';
-// import 'react-calendar/dist/Calendar.css';
 import authService from '../services/authService';
 import dataService from '../services/dataService'
 import Checkbox from './Checkbox';
 
-const CreateBowelMovement = (props) => {
+const CreateBowelMovement = () => {
+  //Sets the value of the checkboxes to be sent as an array based on the name of the checkbox. Selections will be added to the array using handleSelection.
+  const checkboxValues = {
+    colorsSelected: [],
+    stoolTypesSelected: []
+  }
+  const [checkboxes, setCheckboxes] = useState(checkboxValues)
 
   const [time, setTime] = useState(new Date().toTimeString().split(' ')[0]);
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
   const [dateTimeWarning, setDateTimeWarning] = useState('');
-
   const [stoolTypes, setStoolTypes] = useState([]);
-  const [stoolTypesSelected, setStoolTypesSelected] = useState([]);
-
   const [colors, setColors] = useState([]);
-  const [colorsSelected, setColorsSelected] = useState([]);
-
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState('');
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
@@ -33,31 +30,24 @@ const CreateBowelMovement = (props) => {
     })
   }, [])
 
+  const handleSelection = event => {
+    const { name, value } = event.target;
+
+    if (event.target.checked) {
+      setCheckboxes({ ...checkboxes, [name]: [...checkboxes[name], value] })
+    }
+
+    if (!event.target.checked) {
+      setCheckboxes({
+        ...checkboxes, [name]: checkboxes[name].filter((selection) => {
+          return selection !== value
+        })
+      })
+    }
+  }
+
   //use the hook provided by react-router
   const navigate = useNavigate();
-
-  //Add the stool types to an array if checked. If un-checked, remove them from the array
-  const handleStoolTypeSelection = event => {
-    if (event.target.checked) {
-      setStoolTypesSelected([...stoolTypesSelected, event.target.value])
-    }
-    if (!event.target.checked) {
-      setStoolTypesSelected(stoolTypesSelected.filter((types) => {
-        return types !== event.target.value
-      }))
-    }
-  }
-
-  const handleColorSelection = event => {
-    if (event.target.checked) {
-      setColorsSelected([...colorsSelected, event.target.value])
-    }
-    if (!event.target.checked) {
-      setColorsSelected(colorsSelected.filter((types) => {
-        return types !== event.target.value
-      }))
-    }
-  }
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -70,8 +60,11 @@ const CreateBowelMovement = (props) => {
       setDateTimeWarning("That hasn't happened yet...")
     }
 
-    console.log(stoolTypesSelected)
-    console.log(colorsSelected)
+    console.log(date)
+    console.log(time)
+    console.log(checkboxes.stoolTypesSelected)
+    console.log(checkboxes.colorsSelected)
+    console.log(notes)
   }
 
   return (
@@ -115,8 +108,9 @@ const CreateBowelMovement = (props) => {
                     label={stoolType.name}
                     key={stoolType.name}
                     value={stoolType._id}
+                    name="stoolTypesSelected"
                     className={"checkbox-stooltypes"}
-                    onChange={handleStoolTypeSelection}
+                    onChange={handleSelection}
                   />
                 )
               })
@@ -134,8 +128,9 @@ const CreateBowelMovement = (props) => {
                     label={color.name}
                     key={color.name}
                     value={color._id}
+                    name="colorsSelected"
                     className={"checkbox-colors"}
-                    onChange={handleColorSelection}
+                    onChange={handleSelection}
                   />
                 )
               })

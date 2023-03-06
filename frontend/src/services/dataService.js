@@ -9,8 +9,11 @@ class dataService {
 
   getStoolTypes(callback) {
     axios.get(`${process.env.REACT_APP_API_URL}/stooltypes`)
-    .then(response => callback(response.data))
+      .then(response => callback(response.data))
   }
 
+  createBowelMovement(bowelMovementData, callback) {
+    //axios.post()
+  }
 }
 export default new dataService()

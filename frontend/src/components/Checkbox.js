@@ -1,9 +1,10 @@
-const Checkbox = ({ id, label, checked, value, onChange, className }) => {
+const Checkbox = ({ id, label, checked, value, onChange, className, name }) => {
   return (
     <div className={className}>
       <input 
         id={id} 
         type="checkbox"
+        name={name}
         value={value} 
         checked={checked} 
         onChange={onChange} 
