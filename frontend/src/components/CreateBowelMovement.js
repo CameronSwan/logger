@@ -13,17 +13,37 @@ const CreateBowelMovement = (props) => {
   const [time, setTime] = useState(new Date().toTimeString().split(' ')[0]);
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
   const [dateTimeWarning, setDateTimeWarning] = useState('');
+  const [stoolTypes, setStoolTypes] = useState([]);
+  const [stoolTypesSelected, setStoolTypesSelected] = useState([]);
+
   const [colors, setColors] = useState([]);
+
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
     dataService.getColors(colors => {
       setColors(colors)
     })
+
+    dataService.getStoolTypes(stoolTypes => {
+      setStoolTypes(stoolTypes)
+    })
   }, [])
 
   //use the hook provided by react-router
   const navigate = useNavigate();
+
+  //Add the stool types to an array if checked. If un-checked, remove them from the array
+  const handleStoolTypeSelection = event => {
+    if (event.target.checked) {
+      setStoolTypesSelected([...stoolTypesSelected, event.target.value])
+    }
+    if (!event.target.checked){
+      setStoolTypesSelected(stoolTypesSelected.filter((types) => {
+        return types != event.target.value
+      }))
+    }
+  }
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -35,6 +55,8 @@ const CreateBowelMovement = (props) => {
     if (`${date} ${time}` > new Date().toISOString().split("T").join(' ')) {
       setDateTimeWarning("That hasn't happened yet...")
     }
+
+    console.log(stoolTypesSelected)
   }
 
   return (
@@ -69,14 +91,28 @@ const CreateBowelMovement = (props) => {
         </div>
 
         <div>
-          {/* bristol stool scale */}
+          <fieldset>
+            <legend>Bristol Stool Scale</legend>
+            {stoolTypes.map(stoolType => {
+            return (
+              <input 
+                key={stoolType.name}
+                id={stoolType.name}
+                type="checkbox"
+                value={stoolType._id}
+                onChange={handleStoolTypeSelection}
+              />
+            )
+          })
+          }
+          </fieldset>
         </div>
+
 
         <div>
           <label>
             Color
           </label>
-
           {
             colors.map(color => {
               return (
