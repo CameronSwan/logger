@@ -11,9 +11,9 @@ const CreateBowelMovement = () => {
     stoolTypesSelected: []
   }
   const [checkboxes, setCheckboxes] = useState(checkboxValues)
-
-  const [time, setTime] = useState(new Date().toTimeString().split(' ')[0]);
+  
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
+  const [time, setTime] = useState(new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}).split(" ")[0]);
   const [dateTimeWarning, setDateTimeWarning] = useState('');
   const [stoolTypes, setStoolTypes] = useState([]);
   const [colors, setColors] = useState([]);
@@ -39,8 +39,8 @@ const CreateBowelMovement = () => {
 
     if (!event.target.checked) {
       setCheckboxes({
-        ...checkboxes, [name]: checkboxes[name].filter((selection) => {
-          return selection !== value
+        ...checkboxes, [name]: checkboxes[name].filter((selected) => {
+          return selected !== value
         })
       })
     }
@@ -89,7 +89,8 @@ const CreateBowelMovement = () => {
             </label>
             <input type="time" id="timePicker" name="time"
               value={time}
-              onChange={e => setTime(e.target.value)} />
+              onChange={e => setTime(e.target.value)} 
+              step="60"/>
             <div>
               {
                 dateTimeWarning && <span>{dateTimeWarning}</span>
