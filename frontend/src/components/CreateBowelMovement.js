@@ -90,7 +90,7 @@ const CreateBowelMovement = () => {
       if (!error) {
         navigate('/')
       } else {
-        //error messages
+        setErrors(error.data)
       }
     })
   }
