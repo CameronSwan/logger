@@ -3,12 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import authService from '../services/authService';
 import dataService from '../services/dataService'
 import Checkbox from './Checkbox';
+import BristolStoolScale from './BristolStoolScale';
 
 const CreateBowelMovement = () => {
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
   const [time, setTime] = useState(new Date().toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit' }).split(" ")[0]);
   const [dateTimeWarning, setDateTimeWarning] = useState('');
   const [stoolTypes, setStoolTypes] = useState([]);
+  const [showModal, setShowModal] = useState(false)
   const [colors, setColors] = useState([]);
   const [symptoms, setSymptoms] = useState([]);
   const [notes, setNotes] = useState('');
@@ -129,7 +131,11 @@ const CreateBowelMovement = () => {
 
         <div>
           <fieldset>
-            <legend>Bristol Stool Scale</legend>
+            <legend>
+              Bristol Stool Scale
+              <button type="button" title='Bristol Stool Scale Information' onClick={() => setShowModal(true)}>i</button>
+            </legend>
+            <BristolStoolScale onClose={() => setShowModal(false)} showModal={showModal} />
             {
               stoolTypes.map(stoolType => {
                 return (

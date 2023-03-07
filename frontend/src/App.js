@@ -9,6 +9,7 @@ import Register from './components/Register';
 import LogIn from './components/LogIn';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import CreateBowelMovement from './components/CreateBowelMovement';
+import BristolStoolScale from './components/BristolStoolScale';
 
 const App = () => {
   return (
