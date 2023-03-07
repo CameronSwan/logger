@@ -12,8 +12,14 @@ class dataService {
       .then(response => callback(response.data))
   }
 
-  createBowelMovement(bowelMovementData, callback) {
-    //axios.post()
+  getSymptoms(callback) {
+    axios.get(`${process.env.REACT_APP_API_URL}/symptoms`)
+      .then(response => callback(response.data))
   }
+
+  createBowelMovement(bowelMovementData, callback) {
+    //axios.post(`${process.env.REACT_APP_API_URL}/bowelmovement`)
+  }
+
 }
 export default new dataService()

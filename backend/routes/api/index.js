@@ -22,8 +22,8 @@ const rolesRouter = require('./roles');
 router.use('/roles', rolesRouter)
 
 /* SYMPTOMS */
-// const symptomsRouter = require('./symptoms');
-// router.use('/symptoms', symptomsRouter)
+const symptomsRouter = require('./symptoms');
+router.use('/symptoms', symptomsRouter)
 
 /* FACTS */
 // const factsRouter = require('./facts');

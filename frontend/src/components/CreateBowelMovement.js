@@ -5,20 +5,22 @@ import dataService from '../services/dataService'
 import Checkbox from './Checkbox';
 
 const CreateBowelMovement = () => {
-  //Sets the value of the checkboxes to be sent as an array based on the name of the checkbox. Selections will be added to the array using handleSelection.
-  const checkboxValues = {
-    colorsSelected: [],
-    stoolTypesSelected: []
-  }
-  const [checkboxes, setCheckboxes] = useState(checkboxValues)
-  
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
-  const [time, setTime] = useState(new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}).split(" ")[0]);
+  const [time, setTime] = useState(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }).split(" ")[0]);
   const [dateTimeWarning, setDateTimeWarning] = useState('');
   const [stoolTypes, setStoolTypes] = useState([]);
   const [colors, setColors] = useState([]);
+  const [symptoms, setSymptoms] = useState([]);
   const [notes, setNotes] = useState('');
   const [errors, setErrors] = useState({});
+
+  //Sets the value of the checkboxes to be sent as an array based on the name of the checkbox. Selections will be added to the array using handleSelection.
+  const checkboxValues = {
+    colorsSelected: [],
+    stoolTypesSelected: [],
+    symptomsSelected: []
+  }
+  const [checkboxes, setCheckboxes] = useState(checkboxValues)
 
   useEffect(() => {
     dataService.getColors(colors => {
@@ -28,15 +30,21 @@ const CreateBowelMovement = () => {
     dataService.getStoolTypes(stoolTypes => {
       setStoolTypes(stoolTypes)
     })
+
+    dataService.getSymptoms(symptoms => {
+      setSymptoms(symptoms)
+    })
   }, [])
 
   const handleSelection = event => {
     const { name, value } = event.target;
 
+    //If checkbox is checked, add the id to the array
     if (event.target.checked) {
       setCheckboxes({ ...checkboxes, [name]: [...checkboxes[name], value] })
     }
 
+    //If checkbox is unchecked, remove that value from the array
     if (!event.target.checked) {
       setCheckboxes({
         ...checkboxes, [name]: checkboxes[name].filter((selected) => {
@@ -46,7 +54,7 @@ const CreateBowelMovement = () => {
     }
   }
 
-  //use the hook provided by react-router
+
   const navigate = useNavigate();
 
   const handleSubmit = event => {
@@ -64,7 +72,27 @@ const CreateBowelMovement = () => {
     console.log(time)
     console.log(checkboxes.stoolTypesSelected)
     console.log(checkboxes.colorsSelected)
+    console.log(checkboxes.symptomsSelected)
     console.log(notes)
+
+    dataService.createBowelMovement({
+      bmdata: {
+        date: date,
+        time: time,
+        notes: notes,
+      },
+      pivotdata: {
+        stoolTypes: checkboxes.stoolTypesSelected, //array of ids
+        colors: checkboxes.colorsSelected, //array of ids
+        symptoms: checkboxes.symptomsSelected, //array of ids
+      }
+    }, error => {
+      if (!error) {
+        navigate('/')
+      } else {
+        //error messages
+      }
+    })
   }
 
   return (
@@ -89,8 +117,8 @@ const CreateBowelMovement = () => {
             </label>
             <input type="time" id="timePicker" name="time"
               value={time}
-              onChange={e => setTime(e.target.value)} 
-              step="60"/>
+              onChange={e => setTime(e.target.value)}
+              step="60" />
             <div>
               {
                 dateTimeWarning && <span>{dateTimeWarning}</span>
@@ -140,7 +168,23 @@ const CreateBowelMovement = () => {
         </div>
 
         <div>
-          {/*symptoms */}
+          <fieldset>
+            <legend>Symptoms</legend>
+            {
+              symptoms.map(symptom => {
+                return (
+                  <Checkbox
+                    label={symptom.name}
+                    key={symptom.name}
+                    value={symptom._id}
+                    name="symptomsSelected"
+                    className={"checkbox-symptoms"}
+                    onChange={handleSelection}
+                  />
+                )
+              })
+            }
+          </fieldset>
         </div>
 
         <div>
