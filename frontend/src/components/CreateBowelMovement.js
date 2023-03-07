@@ -6,7 +6,7 @@ import Checkbox from './Checkbox';
 
 const CreateBowelMovement = () => {
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
-  const [time, setTime] = useState(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }).split(" ")[0]);
+  const [time, setTime] = useState(new Date().toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit' }).split(" ")[0]);
   const [dateTimeWarning, setDateTimeWarning] = useState('');
   const [stoolTypes, setStoolTypes] = useState([]);
   const [colors, setColors] = useState([]);
