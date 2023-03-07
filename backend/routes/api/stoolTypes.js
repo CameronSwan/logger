@@ -6,7 +6,7 @@ const StoolType = require('../../models/stoolType')
 router.get('/', (req, res) => {
     StoolType.find({}, (e, stoolTypes) => {
         if (e) res.status(400).send()
-        if (stoolTypes) res.status(200).json(stoolTypes)
+        else if (stoolTypes) res.status(200).json(stoolTypes)
         else res.status(404).send()
     })
 })
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     StoolType.findById(req.params.id, (e, stoolType) => {
         if (e) res.status(400).send()
-        if (stoolType) res.status(200).json(stoolType)
+        else if (stoolType) res.status(200).json(stoolType)
         else res.status(404).send()
     })
 })

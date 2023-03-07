@@ -6,7 +6,7 @@ const Color = require('../../models/color')
 router.get('/', (req, res) => {
     Color.find({}, (e, colors) => {
         if (e) res.status(400).send()
-        if (colors) res.status(200).json(colors)
+        else if (colors) res.status(200).json(colors)
         else res.status(404).send()
     })
 })
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     Color.findById(req.params.id, (e, color) => {
         if (e) res.status(400).send()
-        if (color) res.status(200).json(color)
+        else if (color) res.status(200).json(color)
         else res.status(404).send()
     })
 })

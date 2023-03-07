@@ -6,7 +6,7 @@ const Symptom = require('../../models/symptom')
 router.get('/', (req, res) => {
     Symptom.find({}, (e, symptoms) => {
         if (e) res.status(400).send()
-        if (symptoms) res.status(200).json(symptoms)
+        else if (symptoms) res.status(200).json(symptoms)
         else res.status(404).send()
     })
 })
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     Symptom.findById(req.params.id, (e, symptom) => {
         if (e) res.status(400).send()
-        if (symptom) res.status(200).json(symptom)
+        else if (symptom) res.status(200).json(symptom)
         else res.status(404).send()
     })
 })
