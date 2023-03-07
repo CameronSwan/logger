@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import Main from './components/Main';
 import Register from './components/Register';
 import LogIn from './components/LogIn';
+import CommunityGuidelines from './components/CommunityGuidelines';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route path='/' element={ <Main /> }/>
             <Route path='/register' element={ <Register />}/>
             <Route path='/login' element={ <LogIn />}/>
+            <Route path='/communityguidelines' element={ <CommunityGuidelines />}/>
             {/* <Route element={<ProtectedRoutes/>}>
             </Route> */}
             <Route path='*' element= {< NotFound />}/>
