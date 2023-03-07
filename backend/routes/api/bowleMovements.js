@@ -40,13 +40,29 @@ router.get('/:id', (req, res) => {
 
 /**
  * @param {ObjectId} _id - BowelMovement ID.
- * @param
+ * @param {Object} req.body.bmdata - Data For The BowelMovement Object.
+ * @param {String} [req.body.bmdata.notes] - Notes Provided By User About The BowelMovement.
+ * @param {String} req.body.bmdata.date - Date BowelMovement Was Created. YYYY-MM-DD.
+ * @param {String} req.body.bmdata.time - Time BowelMovement Was Created. HH:MM.
+ * @param {Object} req.body.pivotdata - Data For The Pivot Table Relationships With The BowelMovement.
+ * @param {Array} req.body.pivotdata.stooltypes - StoolTypes Related To BowelMovement.
+ * @param {Array} req.body.pivotdata.colors - Colors Related To BowelMovement.
+ * @param {Array} req.body.pivotdata.symptoms - Symptoms Related To BowelMovement.
  * 
- * Update BowelMovement With Provided _id
+ * Update BowelMovement With Provided _id And Related Pivot Table Entries.
  */
 
 /**
  * @param {ObjectId} _id - BowelMovement ID.
  * 
- * Delete BowelMovement With Provided _id
+ * Delete BowelMovement With Provided _id.
  */
+router.delete('/:id', (req, res) => {
+    BowelMovement.findByIdAndDelete(req.params.id, (e, bowelMovement) => {
+        if (e) res.status(500).send()
+        else if (bowelMovement) res.status(200).send()
+        else res.status(404).send()
+    })
+})
+
+module.exports = router
