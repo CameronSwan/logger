@@ -1,16 +1,17 @@
 const express = require('express')
 const router = express.Router()
+const body = require('express-validator')
 const BowelMovement = require('../../models/bowelMovement')
-const bowelMovement_StoolType = require('../../models/bowelMovement_StoolTypes')
-const bowelMovement_Color = require('../../models/bowelMovement_Colors')
-const bowelMovement_Symptom = require('../../models/bowelMovement_Symptoms')
+const BowelMovement_StoolType = require('../../models/bowelMovement_StoolTypes')
+const BowelMovement_Color = require('../../models/bowelMovement_Colors')
+const BowelMovement_Symptom = require('../../models/bowelMovement_Symptoms')
 
 /**
  * Retrieve All BowelMovements.
  */
 router.get('/', (req, res) => {
     BowelMovement.find({}, (e, bowelMovements) => {
-        if (e) res.status(500).send()
+        if (e) res.status(500).send({ serverMessage: e.message })
         else res.json(bowelMovements)
     })
 })
@@ -22,7 +23,7 @@ router.get('/', (req, res) => {
  */
 router.get('/:id', (req, res) => {
     BowelMovement.findById(req.params.id, (e, bowelMovement) => {
-        if (e) res.status(400).send()
+        if (e) res.status(500).send({ serverMessage: e.message })
         else if (bowelMovement) res.send(bowelMovement)
         else res.status(404).send()
     })
@@ -41,9 +42,9 @@ router.get('/:id', (req, res) => {
  * Create New BowelMovement And Related Pivot Table Entries.
  */
 router.post('/', [
-    check('req.body.bmdata.notes').trim().escape(),
-    check('req.body.bmdata.date').trim().escape(),
-    check('req.body.bmdata.time').trim().escape()
+    body('bmdata.notes').trim().escape(),
+    body('bmdata.date').trim().escape(),
+    body('bmdata.time').trim().escape()
 ], (req, res) => {
     /**
      * Create New BowelMovement
@@ -52,27 +53,45 @@ router.post('/', [
      */
     const bowelMovementData = {
         notes: req.body.bmdata.notes || null, // Check If Notes Exists, Otherwise Add NULL Value.
-        date: new Date(req.body.bmdata.date), // Convert Date Data To Date.
-        time: new Date(req.body.bmdata.time), // Convert Time Data To Date.
-        userId: {"$oid": "6404e3ddf3eb44e1bc6c8b30"} // Add Current Authenticated User ID.
+        date: req.body.bmdata.date,
+        time: req.body.bmdata.time,
+        userId: "6404e3ddf3eb44e1bc6c8b30" // Add Current Authenticated User ID.
     }
     const bowelMovementValidator = new BowelMovement(bowelMovementData)
-    bowelMovementValidator.validate(e => {
-        if (e) res.status(422).send()
-        else {
-            BowelMovement.create(bowelMovementData, (e, bowelMovement) => {
-                if (e) res.status(500).send()
-                else res.status(201).send()
-            })
-        }
-    })
-
-    /**
-     * Create Pivot Table Entries
-     * 
-     * @TODO Change Hardcoded User To Variable
-     */
-
+    const e = bowelMovementValidator.validateSync()
+    if (e) res.status(422).send({ serverMessage: e.message})
+    else if (req.body.pivotdata.stooltypes.length < 1) res.status(422).send({ serverMessage: "Must Have Atleast 1 Stool Type."}) // Check If StoolTypes Array Has Atleast 1 Item
+    else if (req.body.pivotdata.colors.length < 1) res.status(422).send({ serverMessage: "Must Have Atleast 1 Color."}) // Check If Colors Array Has Atleast 1 Item
+    else {
+        BowelMovement.create(bowelMovementData, (e, bowelMovement) => {
+            if (e) res.status(500).send({ serverMessage: e.message})
+            else {
+                /**
+                 * Create Pivot Table Entries
+                 */
+                const bowelMovementId = bowelMovement.id
+                stooltypes.forEach(stoolTypeId => {
+                    BowelMovement_StoolType.create({bowelMovementId: bowelMovementId, stoolTypeId: stoolTypeId}, e => {
+                        if (e) res.status(500).send({serverMessage: e.message})
+                        else res.status(201).send({ serverMessage: "Stool Types Pivot Table Entry Created."})
+                    })
+                })
+                colors.forEach(colorId => {
+                    BowelMovement_Color.create({bowelMovementId: bowelMovementId, colorId: colorId}, e => {
+                        if (e) res.status(500).send({serverMessage: e.message})
+                        else res.status(201).send({ serverMessage: "Colors Pivot Table Entry Created."})
+                    })
+                })
+                symptoms.forEach(symptomId => {
+                    BowelMovement_Symptom.create({bowelMovementId: bowelMovementId, symptomId: symptomId}, e => {
+                        if (e) res.status(500).send({serverMessage: e.message})
+                        else res.status(201).send({ serverMessage: "Symptoms Pivot Table Entry Created."})
+                    })
+                })
+                res.status(201).send({ serverMessage: "Bowel Movement Created."})
+            }
+        })
+    }
 })
 
 /**
@@ -99,7 +118,7 @@ router.put('/:id', (req, res) => {
  */
 router.delete('/:id', (req, res) => {
     BowelMovement.findByIdAndDelete(req.params.id, (e, bowelMovement) => {
-        if (e) res.status(500).send()
+        if (e) res.status(500).send({ serverMessage: e.message })
         else if (bowelMovement) res.status(200).send()
         else res.status(404).send()
     })
