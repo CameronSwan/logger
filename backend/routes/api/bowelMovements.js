@@ -38,9 +38,9 @@ router.get('/:id', (req, res) => {
  * Create New BowelMovement.
  */
 router.post('/', [
-    body('data.notes').trim().escape(),
-    body('data.date').trim().escape(),
-    body('data.time').trim().escape()
+    body('.notes').trim().escape(),
+    body('date').trim().escape(),
+    body('time').trim().escape()
 ], (req, res) => {
     /**
      * Create New BowelMovement
