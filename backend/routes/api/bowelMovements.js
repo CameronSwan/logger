@@ -27,13 +27,13 @@ router.get('/:id', (req, res) => {
 })
 
 /**
- * @param {Object} req.body.data - Data For The BowelMovement Object.
- * @param {String} [req.body.data.notes] - Notes Provided By User About The BowelMovement.
- * @param {String} req.body.data.date - Date BowelMovement Was Created. YYYY-MM-DD.
- * @param {String} req.body.data.time - Time BowelMovement Was Created. HH:MM.
- * @param {Array} req.body.data.stooltypes - StoolTypes Related To BowelMovement.
- * @param {Array} req.body.data.colors - Colors Related To BowelMovement.
- * @param {Array} req.body.data.symptoms - Symptoms Related To BowelMovement.
+ * @param {Object} req.body - Data For The BowelMovement Object.
+ * @param {String} [req.body.notes] - Notes Provided By User About The BowelMovement.
+ * @param {String} req.body.date - Date BowelMovement Was Created. YYYY-MM-DD.
+ * @param {String} req.body.time - Time BowelMovement Was Created. HH:MM.
+ * @param {Array} req.body.stooltypes - StoolTypes Related To BowelMovement.
+ * @param {Array} req.body.colors - Colors Related To BowelMovement.
+ * @param {Array} req.body.symptoms - Symptoms Related To BowelMovement.
  * 
  * Create New BowelMovement.
  */
@@ -48,12 +48,12 @@ router.post('/', [
      * @TODO Change Hardcoded User To Variable
      */
     const bowelMovementData = {
-        notes: req.body.data.notes || "", // Check If Notes Exists, Otherwise Add EMPTY Value.
-        date: req.body.data.date,
-        time: req.body.data.time,
-        stoolTypes: req.body.data.stooltypes,
-        colors: req.body.data.colors,
-        symptoms: req.body.data.symptoms,
+        notes: req.body.notes || "", // Check If Notes Exists, Otherwise Add EMPTY Value.
+        date: req.body.date,
+        time: req.body.time,
+        stoolTypes: req.body.stooltypes,
+        colors: req.body.colors,
+        symptoms: req.body.symptoms,
         userId: "6404e3ddf3eb44e1bc6c8b30" // Add Current Authenticated User ID.
     }
     const bowelMovementValidator = new BowelMovement(bowelMovementData)
@@ -69,13 +69,13 @@ router.post('/', [
 
 /**
  * @param {ObjectId} req.params.id - BowelMovement ID.
- * @param {Object} req.body.data - Data For The BowelMovement Object.
- * @param {String} [req.body.data.notes] - Notes Provided By User About The BowelMovement.
- * @param {String} req.body.data.date - Date BowelMovement Was Created. YYYY-MM-DD.
- * @param {String} req.body.data.time - Time BowelMovement Was Created. HH:MM.
- * @param {Array} req.body.data.stooltypes - StoolTypes Related To BowelMovement.
- * @param {Array} req.body.data.colors - Colors Related To BowelMovement.
- * @param {Array} req.body.data.symptoms - Symptoms Related To BowelMovement.
+ * @param {Object} req.body - Data For The BowelMovement Object.
+ * @param {String} [req.body.notes] - Notes Provided By User About The BowelMovement.
+ * @param {String} req.body.date - Date BowelMovement Was Created. YYYY-MM-DD.
+ * @param {String} req.body.time - Time BowelMovement Was Created. HH:MM.
+ * @param {Array} req.body.stooltypes - StoolTypes Related To BowelMovement.
+ * @param {Array} req.body.colors - Colors Related To BowelMovement.
+ * @param {Array} req.body.symptoms - Symptoms Related To BowelMovement.
  * 
  * Update BowelMovement With Provided _id.
  */
