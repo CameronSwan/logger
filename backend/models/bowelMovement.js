@@ -17,6 +17,26 @@ const bowelMovementSchema = new Schema({
     },
     notes: {
         type: String
+    },
+    stoolTypes: {
+        type: [{
+            type: Schema.Types.ObjectId,
+            ref: 'StoolType'
+        }],
+        required: [true, "Select at least 1 stool type."]
+    },
+    colors: {
+        type: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Color'
+        }],
+        required: [true, "Select at least 1 color."]
+    },
+    symptoms: {
+        type: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Symptom'
+        }]
     }
 })
 
