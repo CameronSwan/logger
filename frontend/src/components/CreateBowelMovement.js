@@ -78,16 +78,12 @@ const CreateBowelMovement = () => {
     console.log(notes)
 
     dataService.createBowelMovement({
-      bmdata: {
-        date: date,
-        time: time,
-        notes: notes,
-      },
-      pivotdata: {
-        stoolTypes: checkboxes.stoolTypesSelected, //array of ids
-        colors: checkboxes.colorsSelected, //array of ids
-        symptoms: checkboxes.symptomsSelected, //array of ids
-      }
+      date: date,
+      time: time,
+      notes: notes,
+      stoolTypes: checkboxes.stoolTypesSelected, //array of ids
+      colors: checkboxes.colorsSelected, //array of ids
+      symptoms: checkboxes.symptomsSelected, //array of ids
     }, error => {
       if (!error) {
         navigate('/')
@@ -151,6 +147,11 @@ const CreateBowelMovement = () => {
               })
             }
           </fieldset>
+          <div>
+            {
+              errors.stoolTypes && <span>{errors.stoolTypes.message}</span>
+            }
+          </div>
         </div>
 
         <div>
@@ -171,6 +172,11 @@ const CreateBowelMovement = () => {
               })
             }
           </fieldset>
+          <div>
+            {
+              errors.colors && <span>{errors.colors.message}</span>
+            }
+          </div>
         </div>
 
         <div>
@@ -191,6 +197,11 @@ const CreateBowelMovement = () => {
               })
             }
           </fieldset>
+          <div>
+            {
+              errors.symptoms && <span>{errors.symptoms.message}</span>
+            }
+          </div>
         </div>
 
         <div>
