@@ -25,7 +25,6 @@ class dataService {
     //   }
     // })
     // .catch((err) => {
-    //   console.log(err.response)
     //   callback(err.response)
     // });
   }

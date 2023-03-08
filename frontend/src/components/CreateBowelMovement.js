@@ -6,7 +6,7 @@ import Checkbox from './Checkbox';
 import BristolStoolScale from './BristolStoolScale';
 
 const CreateBowelMovement = () => {
-  const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
+  const [date, setDate] = useState(new Date().toLocaleString('sv').split(' ')[0]);
   const [time, setTime] = useState(new Date().toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit' }).split(" ")[0]);
   const [dateTimeWarning, setDateTimeWarning] = useState('');
   const [stoolTypes, setStoolTypes] = useState([]);
@@ -56,7 +56,6 @@ const CreateBowelMovement = () => {
     }
   }
 
-
   const navigate = useNavigate();
 
   const handleSubmit = event => {
@@ -66,12 +65,15 @@ const CreateBowelMovement = () => {
     setErrors({});
     setDateTimeWarning();
 
-    if (`${date} ${time}` > new Date().toISOString().split("T").join(' ')) {
-      setDateTimeWarning("That hasn't happened yet...")
+    if (new Date(`${date} ${time}`) > new Date()) {
+      setDateTimeWarning("Select a valid time.")
     }
 
     console.log(date)
     console.log(time)
+    console.log(new Date(`${date} ${time}`) > new Date())
+    console.log(new Date())
+    console.log(new Date(`${date} ${time}`))
     console.log(checkboxes.stoolTypesSelected)
     console.log(checkboxes.colorsSelected)
     console.log(checkboxes.symptomsSelected)
@@ -81,7 +83,7 @@ const CreateBowelMovement = () => {
       date: date,
       time: time,
       notes: notes,
-      stoolTypes: checkboxes.stoolTypesSelected, //array of ids
+      stooltypes: checkboxes.stoolTypesSelected, //array of ids
       colors: checkboxes.colorsSelected, //array of ids
       symptoms: checkboxes.symptomsSelected, //array of ids
     }, error => {
@@ -104,7 +106,7 @@ const CreateBowelMovement = () => {
               Date
             </label>
             <input type="date" id="datePicker" name="date"
-              max={new Date().toISOString().split("T")[0]}
+              max={new Date().toLocaleString('sv').split(' ')[0]}
               value={date}
               onChange={e => setDate(e.target.value)} />
           </div>
