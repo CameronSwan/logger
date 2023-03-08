@@ -2,9 +2,6 @@ const express = require('express')
 const router = express.Router()
 const body = require('express-validator')
 const BowelMovement = require('../../models/bowelMovement')
-const BowelMovement_StoolType = require('../../models/bowelMovement_StoolTypes')
-const BowelMovement_Color = require('../../models/bowelMovement_Colors')
-const BowelMovement_Symptom = require('../../models/bowelMovement_Symptoms')
 
 /**
  * Retrieve All BowelMovements.
@@ -38,7 +35,7 @@ router.get('/:id', (req, res) => {
  * @param {Array} req.body.data.colors - Colors Related To BowelMovement.
  * @param {Array} req.body.data.symptoms - Symptoms Related To BowelMovement.
  * 
- * Create New BowelMovement And Related Pivot Table Entries.
+ * Create New BowelMovement.
  */
 router.post('/', [
     body('data.notes').trim().escape(),
@@ -72,16 +69,15 @@ router.post('/', [
 
 /**
  * @param {ObjectId} req.params.id - BowelMovement ID.
- * @param {Object} req.body.bmdata - Data For The BowelMovement Object.
- * @param {String} [req.body.bmdata.notes] - Notes Provided By User About The BowelMovement.
- * @param {String} req.body.bmdata.date - Date BowelMovement Was Created. YYYY-MM-DD.
- * @param {String} req.body.bmdata.time - Time BowelMovement Was Created. HH:MM.
- * @param {Object} req.body.pivotdata - Data For The Pivot Table Relationships With The BowelMovement.
- * @param {Array} req.body.pivotdata.stooltypes - StoolTypes Related To BowelMovement.
- * @param {Array} req.body.pivotdata.colors - Colors Related To BowelMovement.
- * @param {Array} req.body.pivotdata.symptoms - Symptoms Related To BowelMovement.
+ * @param {Object} req.body.data - Data For The BowelMovement Object.
+ * @param {String} [req.body.data.notes] - Notes Provided By User About The BowelMovement.
+ * @param {String} req.body.data.date - Date BowelMovement Was Created. YYYY-MM-DD.
+ * @param {String} req.body.data.time - Time BowelMovement Was Created. HH:MM.
+ * @param {Array} req.body.data.stooltypes - StoolTypes Related To BowelMovement.
+ * @param {Array} req.body.data.colors - Colors Related To BowelMovement.
+ * @param {Array} req.body.data.symptoms - Symptoms Related To BowelMovement.
  * 
- * Update BowelMovement With Provided _id And Related Pivot Table Entries.
+ * Update BowelMovement With Provided _id.
  */
 router.put('/:id', (req, res) => {
     
