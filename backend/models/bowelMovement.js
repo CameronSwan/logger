@@ -27,7 +27,7 @@ const bowelMovementSchema = new Schema({
             validator: function(v) {
                 return v.length > 0;
             },
-            message: "Select at least 1 type."
+            message: "Select at least 1 stool type."
         },
         required: [true, "Select at least 1 stool type."]
     },

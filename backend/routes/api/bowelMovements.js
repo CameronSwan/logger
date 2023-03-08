@@ -79,8 +79,21 @@ router.post('/', [
  * 
  * Update BowelMovement With Provided _id.
  */
-router.put('/:id', (req, res) => {
-    
+router.put('/:id', [
+    body('notes').trim().escape(),
+    body('date').trim().escape(),
+    body('time').trim().escape()
+], (req, res) => {
+    const bowelMovementValidator = new BowelMovement(req.body)
+    const e = bowelMovementValidator.validateSync()
+    if (e) res.status(422).send(e.errors)
+    else {
+        BowelMovement.findByIdAndUpdate(req.params.id, req.body, (e, bowelMovement) => {
+            if (e) res.status(500).send({ serverMessage: e.message })
+            else if (bowelMovement) res.status(200).send() 
+            else res.status(404).send()
+        })
+    }
 })
 
 /**
