@@ -1,3 +1,7 @@
+/**
+ * @TODO Change 500 Errors => { serverMessage: "An Error Occured."}
+ */
+
 const express = require('express')
 const router = express.Router()
 const { body } = require('express-validator')
@@ -8,7 +12,7 @@ const BowelMovement = require('../../models/bowelMovement')
  */
 router.get('/', (req, res) => {
     BowelMovement.find({}, (e, bowelMovements) => {
-        if (e) res.status(500).send({ serverMessage: e.message })
+        if (e) res.status(500).send({ serverMessage: "An Error Occured." })
         else res.json(bowelMovements)
     })
 })
@@ -20,9 +24,9 @@ router.get('/', (req, res) => {
  */
 router.get('/:id', (req, res) => {
     BowelMovement.findById(req.params.id, (e, bowelMovement) => {
-        if (e) res.status(500).send({ serverMessage: e.message })
+        if (e) res.status(500).send({ serverMessage: "An Error Occured." })
         else if (bowelMovement) res.send(bowelMovement)
-        else res.status(404).send()
+        else res.status(404).send({ serverMessage: "Bowel Movement Not Found." })
     })
 })
 
@@ -61,7 +65,7 @@ router.post('/', [
     if (e) res.status(422).send(e.errors)
     else {
         BowelMovement.create(bowelMovementData, (e, bowelMovement) => {
-            if (e) res.status(500).send({ serverMessage: e.message})
+            if (e) res.status(500).send({ serverMessage: "An Error Occured."})
             else res.status(201).send()
         })
     }
@@ -89,9 +93,9 @@ router.put('/:id', [
     if (e) res.status(422).send(e.errors)
     else {
         BowelMovement.findByIdAndUpdate(req.params.id, req.body, (e, bowelMovement) => {
-            if (e) res.status(500).send({ serverMessage: e.message })
-            else if (bowelMovement) res.status(200).send() 
-            else res.status(404).send()
+            if (e) res.status(500).send({ serverMessage: "An Error Occured." })
+            else if (bowelMovement) res.status(200).send()
+            else res.status(404).send({ serverMessage: "Bowel Movement Not Found." })
         })
     }
 })
@@ -103,9 +107,9 @@ router.put('/:id', [
  */
 router.delete('/:id', (req, res) => {
     BowelMovement.findByIdAndDelete(req.params.id, (e, bowelMovement) => {
-        if (e) res.status(500).send({ serverMessage: e.message })
+        if (e) res.status(500).send({ serverMessage: "An Error Occured." })
         else if (bowelMovement) res.status(200).send()
-        else res.status(404).send()
+        else res.status(404).send({ serverMessage: "Bowel Movement Not Found." })
     })
 })
 

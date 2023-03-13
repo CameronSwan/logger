@@ -4,11 +4,23 @@ const { Schema } = mongoose
 const bowelMovementSchema = new Schema({
     date: {
         type: String,
-        required: [true, 'Date is Required.']
+        required: [true, 'Date is Required.'],
+        validate: {
+            validator: function(v) {
+                return v == new Date(v).toISOString().split('T')[0]
+            },
+            message: "Select a valid date."
+        }
     },
     time: {
         type: String,
-        required: [true, 'Time is Required.']
+        required: [true, 'Time is Required.'],
+        validate: {
+            validator: function(v) {
+                return /^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])/.test(v);
+            },
+            message: "Select a valid time."
+        }
     },
     userId: {
         type: Schema.Types.ObjectId,
