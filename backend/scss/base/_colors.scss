@@ -4,20 +4,46 @@
 //https://blog.magmalabs.io/2018/04/17/nice-way-handle-sass-color-variables.html
 
 $white: #fff;
-$grey-50: #FAF9F6;
+
+$grey-50: #FFFAFF;
+$grey-100: #959F94;
+$grey-200: #565656;
 $grey-600: #252020;
 $grey-900: #0E0E0E;
 
 $blue-500 : #00A2F5;
 
-$teal-200: #07CEB5;
+$teal-50: #DAF8F4;
+$teal-300: #08CFB6;
+$teal-400: #07CEB5;
 $teal-700: #22A09F;
 
 $orange-500: #FF8D13;
 
+$red-500: #FF0F00;
 
-// Color assignments
-$color-font-primary: $grey-50;
-$color-font-secondary : $grey-50;
-$color-font-accent: $blue-500;
+// Color Assignments
+//Fonts
+$color-font-primary: $grey-600;
+$color-font-primary-darkmode: $white;
 
+$color-font-error: $red-500;
+
+//Backgrounds
+$color-background-primary: $white;
+$color-background-primary-darkmode: $grey-900;
+
+$color-background-header: $teal-700;
+$color-background-header-darkmode: $grey-900;
+
+$color-background-secondary: $teal-50; // (used for forms, etc)
+$color-background-secondary-darkmode: $grey-200;
+
+//Accents
+$color-input-borders: $teal-700;
+$color-input-borders-darkmode: $white;
+
+$color-accent-CTA: $teal-400;
+
+$color-accent: $orange-500;
+$color-accent-darkmode: $orange-500;

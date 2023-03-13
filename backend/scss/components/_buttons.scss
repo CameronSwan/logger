@@ -1,4 +1,18 @@
 .button {
+    $this: &;
+
     cursor: pointer;
-    font-family: $font-family-CTA;
+    border-radius: 100px;
+    border: 2px solid transparent;
+    width: 210px;
+    height: 60px;
+
+    &--submit {
+        background-color: $color-accent-CTA;
+    }
+
+    &--warning {
+        background-color: $color-font-error;
+    }
+
 }

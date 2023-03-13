@@ -1,23 +1,19 @@
 // Typography
 
 // Font imports
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet');
-@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Red+Hat+Display:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 
 
 // Font Families
 $poppins: 'Poppins', sans-serif;
 $montserrat: 'Montserrat', sans-serif;
-$red-hat: 'Red Hat Display', sans-serif;
-$anonymous-pro: 'Anonymous Pro', monospace;
 
 // Font assignments 
 $font-family-heading: $poppins;
-$font-family-nav: $red-hat;
-$font-family-base: $red-hat;
-$font-family-CTA: $montserrat;
+$font-family-nav: $poppins;
+$font-family-base: $poppins;
+$font-family-accent: $montserrat;
 
 // Font sizes
 $h1-font-sizes: (
@@ -44,42 +40,44 @@ $h3-font-sizes: (
 
 $p-font-sizes: (
 	null: (14px, 1.5),
-	m: 16px,
-	xl: 20px,
-);
-
-$small-font-sizes: (
-	null: (12px, 1.5),
 	m: 14px,
 	xl: 16px,
 );
 
+$label-font-sizes: (
+	null: (16px, 1.5),
+	m: 18px,
+	xl: 22px,
+);
+
+$text-input-font-sizes: (
+	null: (20px, 1.5)
+);
+
 $cta-font-sizes: (
-	null: 16px
+	null: 20px
 );
 
 body {
 	font-family: $font-family-base;
+	color: $color-font-primary;
 }
 
 
 h1, .h1 {
 	@include font-size($h1-font-sizes);
 	font-family: $font-family-heading;
-	color: $color-font-primary;
 }
 
 h2, .h2 {
 	@include font-size($h2-font-sizes);
 	font-family: $font-family-heading;
-	color: $color-font-primary;
 }
 
 h3, .h3 {
 	@include font-size($h3-font-sizes);
 	font-family: $font-family-base;
 	font-weight: bold;
-	color: $color-font-primary;
 }
 
 h4, .h4, h5, .h5 {
@@ -89,18 +87,36 @@ h4, .h4, h5, .h5 {
 	font-family: $font-family-base;
 }
 
-p, .p, li {
+p, .p, li{
 	@include font-size($p-font-sizes);
 	font-family: $font-family-base;
-	color: $color-font-primary;
+}
+
+label {
+	@include font-size($label-font-sizes);
+	font-family: $font-family-base;
+	font-weight: 600;
+}
+
+input {
+	@include font-size($text-input-font-sizes);
+	font-family: $font-family-base;
+	font-weight: 600;
+}
+
+.error {
+	@include font-size($p-font-sizes);
+	font-family: $font-family-accent;
+	font-weight: 500;
 }
 
 .cta {
 	@include font-size($cta-font-sizes);
-	font-family: $font-family-CTA;
+	font-family: $font-family-accent;
+	font-weight: 500;
 	text-transform: uppercase;
 	text-decoration: none;
-	color: $color-font-secondary;
+	color: $color-font-primary;
 
 	&:hover {
 		color: $color-font-primary;
@@ -111,6 +127,7 @@ a:not([class]) {
 	font-size: inherit;
 	text-transform: none;
 	text-decoration: underline;
+	font-weight: 600;
 	color: inherit;
 }
 
