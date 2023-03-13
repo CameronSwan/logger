@@ -13,6 +13,26 @@
         margin-bottom: 15px;
         width: 100%;
         padding: 0 24px;
+
+        &--split {
+            display: flex;
+            flex-direction: column;
+
+
+            @include media-query(s) {
+                flex-direction: row;
+                gap: 15px;
+            }
+
+        }
+    }
+
+    &__half-row {
+        width: 100%;
+
+        @include media-query(s) {
+            width: 50%;
+        }
     }
 
     &__checkbox-row {
@@ -58,10 +78,11 @@
         }
     }
 
-    &__text-input, &__textarea {
+    &__text-input,
+    &__textarea {
         margin-bottom: 4px;
         border: 2px solid $color-input-borders;
-        border-radius: 10px;
+        border-radius: 15px;
         box-sizing: border-box;
         width: 100%;
         height: 55px;

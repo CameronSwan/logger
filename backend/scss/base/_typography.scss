@@ -93,7 +93,7 @@ p, .p, li, textarea {
 	font-family: $font-family-base;
 }
 
-label {
+label, .label {
 	@include font-size($label-font-sizes);
 	font-family: $font-family-base;
 	font-weight: 600;
