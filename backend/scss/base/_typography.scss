@@ -1,4 +1,4 @@
-// Typography
+/* Typography */
 
 // Font imports
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
@@ -87,8 +87,9 @@ h4, .h4, h5, .h5 {
 	font-family: $font-family-base;
 }
 
-p, .p, li{
+p, .p, li, textarea {
 	@include font-size($p-font-sizes);
+	font-weight: 500;
 	font-family: $font-family-base;
 }
 
@@ -107,7 +108,7 @@ input {
 .error {
 	@include font-size($p-font-sizes);
 	font-family: $font-family-accent;
-	font-weight: 500;
+	font-weight: 600;
 }
 
 .cta {

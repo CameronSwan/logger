@@ -1,14 +1,24 @@
 .button {
     $this: &;
 
-    cursor: pointer;
-    border-radius: 100px;
+  
+    transition: $transition;
+    box-shadow: $button-shadow;
     border: 2px solid transparent;
+    border-radius: 100px;
     width: 210px;
     height: 60px;
+    cursor: pointer;
+
+    &:hover, &:focus {
+        box-shadow: $button-shadow-hover;
+    }
 
     &--submit {
         background-color: $color-accent-CTA;
+        &:hover, &:focus {
+            background-color: $color-accent-CTA-hover;
+        }
     }
 
     &--warning {

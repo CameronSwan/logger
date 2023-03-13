@@ -39,16 +39,16 @@
 
     &__help {
         height: 21px;
-        text-align: end;
         font-family: $font-family-accent;
+        text-align: end;
     }
 
     &__checkbox--classic {
         input {
             flex-shrink: 0;
+            border: 2px solid $color-input-borders;
             width: 18px;
             height: 18px;
-            border: 2px solid $color-input-borders;
         }
 
         & label {
@@ -58,7 +58,8 @@
         }
     }
 
-    &__text-input {
+    &__text-input, &__textarea {
+        margin-bottom: 4px;
         border: 2px solid $color-input-borders;
         border-radius: 10px;
         box-sizing: border-box;
@@ -68,8 +69,12 @@
 
         &:focus {
             outline: 2px solid $color-input-borders;
-            border: 2px solid $color-input-borders;
             background-color: $color-background-secondary;
         }
+    }
+
+    &__textarea {
+        height: 130px;
+        resize: none;
     }
 }

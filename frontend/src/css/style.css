@@ -49,6 +49,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+/*Colors*/
+/* Typography */
 body {
   font-family: "Poppins", sans-serif;
   color: #252020; }
@@ -112,15 +114,16 @@ h4, .h4, h5, .h5 {
     h4, .h4, h5, .h5 {
       font-size: 16px; } }
 
-p, .p, li {
+p, .p, li, textarea {
   font-size: 14px;
   line-height: 1.5;
+  font-weight: 500;
   font-family: "Poppins", sans-serif; }
   @media screen and (min-width: 768px) {
-    p, .p, li {
+    p, .p, li, textarea {
       font-size: 14px; } }
   @media screen and (min-width: 1280px) {
-    p, .p, li {
+    p, .p, li, textarea {
       font-size: 16px; } }
 
 label {
@@ -145,7 +148,7 @@ input {
   font-size: 14px;
   line-height: 1.5;
   font-family: "Montserrat", sans-serif;
-  font-weight: 500; }
+  font-weight: 600; }
   @media screen and (min-width: 768px) {
     .error {
       font-size: 14px; } }
@@ -180,15 +183,21 @@ body {
   background: #fff; }
 
 .button {
-  cursor: pointer;
-  border-radius: 100px;
+  transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
   border: 2px solid transparent;
+  border-radius: 100px;
   width: 210px;
-  height: 60px; }
+  height: 60px;
+  cursor: pointer; }
+  .button:hover, .button:focus {
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5); }
   .button--submit {
     background-color: #07CEB5; }
+    .button--submit:hover, .button--submit:focus {
+      background-color: #53EEDA; }
   .button--warning {
-    background-color: #FF0F00; }
+    background-color: #EA0E00; }
 
 .form {
   width: 100%; }
@@ -211,31 +220,34 @@ body {
     margin-bottom: 15px; }
   .form__error {
     height: 21px;
-    color: #FF0F00; }
+    color: #EA0E00; }
     .form__error--final {
       text-align: center;
       margin-bottom: 15px; }
   .form__help {
     height: 21px;
-    text-align: end;
-    font-family: "Montserrat", sans-serif; }
+    font-family: "Montserrat", sans-serif;
+    text-align: end; }
   .form__checkbox--classic input {
     flex-shrink: 0;
+    border: 2px solid #22A09F;
     width: 18px;
-    height: 18px;
-    border: 2px solid #22A09F; }
+    height: 18px; }
   .form__checkbox--classic label {
     font-size: 14px;
     font-weight: 500;
     padding-left: 22px; }
-  .form__text-input {
+  .form__text-input, .form__textarea {
+    margin-bottom: 4px;
     border: 2px solid #22A09F;
     border-radius: 10px;
     box-sizing: border-box;
     width: 100%;
     height: 55px;
     padding: 0 12px; }
-    .form__text-input:focus {
+    .form__text-input:focus, .form__textarea:focus {
       outline: 2px solid #22A09F;
-      border: 2px solid #22A09F;
       background-color: #DAF8F4; }
+  .form__textarea {
+    height: 130px;
+    resize: none; }

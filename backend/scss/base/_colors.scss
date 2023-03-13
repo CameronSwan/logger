@@ -1,4 +1,4 @@
-//Colors
+/*Colors*/
 
 //https://css-tricks.com/what-do-you-name-color-variables/
 //https://blog.magmalabs.io/2018/04/17/nice-way-handle-sass-color-variables.html
@@ -14,13 +14,14 @@ $grey-900: #0E0E0E;
 $blue-500 : #00A2F5;
 
 $teal-50: #DAF8F4;
+$teal-200: #53EEDA;
 $teal-300: #08CFB6;
 $teal-400: #07CEB5;
 $teal-700: #22A09F;
 
 $orange-500: #FF8D13;
 
-$red-500: #FF0F00;
+$red-500: #EA0E00;
 
 // Color Assignments
 //Fonts
@@ -44,6 +45,7 @@ $color-input-borders: $teal-700;
 $color-input-borders-darkmode: $white;
 
 $color-accent-CTA: $teal-400;
+$color-accent-CTA-hover: $teal-200;
 
 $color-accent: $orange-500;
 $color-accent-darkmode: $orange-500;
