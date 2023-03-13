@@ -211,17 +211,15 @@ body {
     width: 100%;
     padding: 0 24px; }
     .form__row--split {
-      display: flex;
-      flex-direction: column; }
+      display: flex; }
       @media screen and (min-width: 481px) {
         .form__row--split {
-          flex-direction: row;
           gap: 15px; } }
   .form__half-row {
-    width: 100%; }
+    flex: 100%; }
     @media screen and (min-width: 481px) {
       .form__half-row {
-        width: 50%; } }
+        flex: 50%; } }
   .form__checkbox-row {
     display: flex;
     align-items: flex-start;

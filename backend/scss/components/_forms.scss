@@ -16,11 +16,7 @@
 
         &--split {
             display: flex;
-            flex-direction: column;
-
-
             @include media-query(s) {
-                flex-direction: row;
                 gap: 15px;
             }
 
@@ -28,10 +24,9 @@
     }
 
     &__half-row {
-        width: 100%;
-
+        flex: 100%;
         @include media-query(s) {
-            width: 50%;
+            flex: 50%;
         }
     }
 
