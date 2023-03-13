@@ -6,8 +6,8 @@ const router = express.Router();
 // router.use('/users', usersRouter)
 
 /* BOWEL MOVEMENTS */
-// const bowelMovementsRouter = require('./bowelmovements');
-// router.use('/bowelmovements', bowelMovementsRouter)
+const bowelMovementsRouter = require('./bowelmovements');
+router.use('/bowelmovements', bowelMovementsRouter)
 
 /* STOOL TYPES */
 const stoolTypesRouter = require('./stooltypes');
@@ -22,8 +22,8 @@ const rolesRouter = require('./roles');
 router.use('/roles', rolesRouter)
 
 /* SYMPTOMS */
-// const symptomsRouter = require('./symptoms');
-// router.use('/symptoms', symptomsRouter)
+const symptomsRouter = require('./symptoms');
+router.use('/symptoms', symptomsRouter)
 
 /* FACTS */
 // const factsRouter = require('./facts');
