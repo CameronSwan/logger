@@ -17,16 +17,27 @@ class dataService {
       .then(response => callback(response.data))
   }
 
+  getBowelMovementById(id, callback){
+    // axios.get(`${process.env.REACT_APP_API_URL}/bowelmovements/${id}`)
+    //   .then(response => {
+    //     //console.log(response.data)
+    //     callback(response.data)
+    //   })
+    //   .catch((err) => {
+    //     console.log(err.response)
+    //   });
+  }
+
   createBowelMovement(bowelMovementData, callback) {
-    // axios.post(`${process.env.REACT_APP_API_URL}/bowelmovements`, bowelMovementData)
-    // .then((response) => {
-    //   if (response.status === 201) {
-    //     callback(null)
-    //   }
-    // })
-    // .catch((err) => {
-    //   callback(err.response)
-    // });
+    axios.post(`${process.env.REACT_APP_API_URL}/bowelmovements`, bowelMovementData)
+    .then((response) => {
+      if (response.status === 201) {
+        callback(null)
+      }
+    })
+    .catch((err) => {
+      callback(err.response)
+    });
   }
 
 }

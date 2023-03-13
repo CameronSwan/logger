@@ -65,9 +65,7 @@ const CreateBowelMovement = () => {
     setErrors({});
     setDateTimeWarning();
 
-    if (new Date(`${date} ${time}`) > new Date()) {
-      setDateTimeWarning("Select a valid time.")
-    }
+
 
     console.log(date)
     console.log(time)
@@ -78,21 +76,24 @@ const CreateBowelMovement = () => {
     console.log(checkboxes.colorsSelected)
     console.log(checkboxes.symptomsSelected)
     console.log(notes)
-
-    dataService.createBowelMovement({
-      date: date,
-      time: time,
-      notes: notes,
-      stooltypes: checkboxes.stoolTypesSelected, //array of ids
-      colors: checkboxes.colorsSelected, //array of ids
-      symptoms: checkboxes.symptomsSelected, //array of ids
-    }, error => {
-      if (!error) {
-        navigate('/')
-      } else {
-        setErrors(error.data)
-      }
-    })
+    if (new Date(`${date} ${time}`) > new Date()) {
+      setDateTimeWarning("Cannot select future occurence.")
+    } else {
+      dataService.createBowelMovement({
+        date: date,
+        time: time,
+        notes: notes,
+        stooltypes: checkboxes.stoolTypesSelected, //array of ids
+        colors: checkboxes.colorsSelected, //array of ids
+        symptoms: checkboxes.symptomsSelected, //array of ids
+      }, error => {
+        if (!error) {
+          navigate('/')
+        } else {
+          setErrors(error.data)
+        }
+      })
+    }
   }
 
   return (
@@ -120,6 +121,12 @@ const CreateBowelMovement = () => {
               onChange={e => setTime(e.target.value)}
               step="60" />
             <div>
+              {
+                errors.date && <span>{errors.date.message}</span>
+              }
+              {
+                errors.time && <span>{errors.time.message}</span>
+              }
               {
                 dateTimeWarning && <span>{dateTimeWarning}</span>
               }
