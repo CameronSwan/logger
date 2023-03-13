@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import authService from '../services/authService';
-import dataService from '../services/dataService'
+import dataService from '../services/dataService';
 import Checkbox from './Checkbox';
 import Modal from 'react-modal';
 
@@ -42,14 +41,14 @@ const CreateBowelMovement = () => {
     symptomsSelected: []
   }
 
-  const [checkboxes, setCheckboxes] = useState(checkboxValues)
+  const [checkboxes, setCheckboxes] = useState(checkboxValues);
 
   const handleSelection = event => {
     const { name, value } = event.target;
 
     //If checkbox is checked, add the id to the array
     if (event.target.checked) {
-      setCheckboxes({ ...checkboxes, [name]: [...checkboxes[name], value] })
+      setCheckboxes({ ...checkboxes, [name]: [...checkboxes[name], value] });
     }
 
     //If checkbox is unchecked, remove that value from the array
@@ -65,15 +64,15 @@ const CreateBowelMovement = () => {
   /* Get Data */
   useEffect(() => {
     dataService.getColors(colors => {
-      setColors(colors)
+      setColors(colors);
     })
 
     dataService.getStoolTypes(stoolTypes => {
-      setStoolTypes(stoolTypes)
+      setStoolTypes(stoolTypes);
     })
 
     dataService.getSymptoms(symptoms => {
-      setSymptoms(symptoms)
+      setSymptoms(symptoms);
     })
   }, [])
 
@@ -88,7 +87,7 @@ const CreateBowelMovement = () => {
 
     //If time selected is later than current time, do not allow submission
     if (new Date(`${date} ${time}`) > new Date()) {
-      setDateTimeWarning("Cannot select future occurence.")
+      setDateTimeWarning("Cannot select future occurence.");
     } else {
       dataService.createBowelMovement({
         date: date,
@@ -99,9 +98,9 @@ const CreateBowelMovement = () => {
         symptoms: checkboxes.symptomsSelected, //array of ids
       }, error => {
         if (!error) {
-          navigate('/')
+          navigate('/');
         } else {
-          setErrors(error.data)
+          setErrors(error.data);
         }
       })
     }
