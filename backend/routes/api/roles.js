@@ -6,7 +6,7 @@ const Role = require('../../models/role')
 router.get('/', (req, res) => {
     Role.find({}, (e, roles) => {
         if (e) res.status(400).send()
-        if (roles) res.status(200).json(roles)
+        else if (roles) res.status(200).json(roles)
         else res.status(404).send()
     })
 })
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     Role.findById(req.params.id, (e, role) => {
         if (e) res.status(400).send()
-        if (role) res.status(200).json(role)
+        else if (role) res.status(200).json(role)
         else res.status(404).send()
     })
 })
