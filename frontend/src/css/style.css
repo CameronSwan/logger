@@ -205,15 +205,18 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 15px; }
+    margin-bottom: 15px;
+    width: 100%; }
   .form__row {
     margin-bottom: 15px;
-    width: 100%;
     padding: 0 24px; }
     .form__row--split {
-      display: flex; }
+      display: flex;
+      flex-direction: column;
+      padding: 0; }
       @media screen and (min-width: 481px) {
         .form__row--split {
+          flex-direction: row;
           gap: 15px; } }
   .form__half-row {
     flex: 100%; }
