@@ -9,6 +9,8 @@ const BowelMovement = require('../../models/bowelMovement')
 
 /**
  * Retrieve All BowelMovements.
+ * 
+ * @TODO Change Hardcoded User To Variable
  */
 router.get('/', (req, res) => {
     BowelMovement.find({userId: "6404e3ddf3eb44e1bc6c8b30"}, (e, bowelMovements) => {
@@ -19,6 +21,8 @@ router.get('/', (req, res) => {
 
 /**
  * @param {ObjectId} req.params.id - User ID.
+ * 
+ * @TODO Authenticate BM Belongs to Authenticated User.
  * 
  * Retrieve All BowelMovements Created By User With Provided _id.
  */
