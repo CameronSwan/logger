@@ -11,7 +11,7 @@ const BowelMovement = require('../../models/bowelMovement')
  * Retrieve All BowelMovements.
  */
 router.get('/', (req, res) => {
-    BowelMovement.find({}, (e, bowelMovements) => {
+    BowelMovement.find({userId: "6404e3ddf3eb44e1bc6c8b30"}, (e, bowelMovements) => {
         if (e) res.status(500).send({ serverMessage: "An Error Occured." })
         else res.json(bowelMovements)
     })
