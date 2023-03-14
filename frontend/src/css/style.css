@@ -198,6 +198,11 @@ body {
       background-color: #53EEDA; }
   .button--warning {
     background-color: #EA0E00; }
+  .button--info {
+    width: 30px;
+    height: 30px;
+    background-color: #FF8D13;
+    color: #fff; }
 
 .form {
   width: 100%; }
