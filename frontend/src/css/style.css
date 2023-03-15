@@ -93,9 +93,6 @@ h4, .h4, h5, .h5 {
   line-height: 1.5;
   font-weight: bold;
   font-family: "Poppins", sans-serif; }
-  @media screen and (min-width: 768px) {
-    h4, .h4, h5, .h5 {
-      font-size: 14px; } }
   @media screen and (min-width: 1280px) {
     h4, .h4, h5, .h5 {
       font-size: 16px; } }
@@ -105,9 +102,6 @@ p, .p, li, textarea {
   line-height: 1.5;
   font-weight: 500;
   font-family: "Poppins", sans-serif; }
-  @media screen and (min-width: 768px) {
-    p, .p, li, textarea {
-      font-size: 14px; } }
   @media screen and (min-width: 1280px) {
     p, .p, li, textarea {
       font-size: 16px; } }
@@ -135,9 +129,6 @@ input, .input {
   line-height: 1.5;
   font-family: "Montserrat", sans-serif;
   font-weight: 600; }
-  @media screen and (min-width: 768px) {
-    .error {
-      font-size: 14px; } }
   @media screen and (min-width: 1280px) {
     .error {
       font-size: 16px; } }
@@ -263,3 +254,6 @@ body {
   .form__textarea {
     height: 130px;
     resize: none; }
+
+.bm-tab {
+  width: 100%; }
