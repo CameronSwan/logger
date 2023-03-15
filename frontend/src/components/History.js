@@ -3,7 +3,7 @@ import dataService from '../services/dataService';
 import { BowelMovement } from './BowelMovement';
 import Calendar from 'react-calendar';
 import { Link } from 'react-router-dom';
-import 'react-calendar/dist/Calendar.css';
+//import 'react-calendar/dist/Calendar.css';
 
 const History = () => {
     const [bowelmovements, setBowelmovements] = useState([]);
@@ -13,17 +13,17 @@ const History = () => {
     const [view, setView] = useState('month')
     const [dateSelection, setDateSelection] = useState(new Date().toLocaleString('sv').split(' ')[0]);
 
+    const bmByDateCount = bowelmovements.filter(bm => bm.date == dateSelection).length
 
     useEffect(() => {
         dataService.getBowelMovements(bowelmovements => {
             setBowelmovements(bowelmovements)
-            setBMDates(bowelmovements.map(bm=> bm.date))
+            setBMDates(bowelmovements.map(bm => bm.date))
         })
     }, [])
 
-
     const handleShowYear = () => {
-        
+
         setShowYear(!showYear)
         showYear ? setView('month') : setView('year')
     }
@@ -35,36 +35,51 @@ const History = () => {
     }
 
     return (
-        <div>
+        <div className='history'>
             <h1 className='underlined'>History</h1>
-            <input type='checkbox' 
-                id='toggle-month-year' 
-                role='switch' 
-                value={showYear} 
-                onChange={handleShowYear}
-            />
+            <div>
+                <label className='toggle-month-year'>
+                    <input type='checkbox'
+                        id='toggle'
+                        role='switch'
+                        value={showYear}
+                        onChange={handleShowYear}
+                    />
+                    <span className='toggle-month-year__slider'></span>
+                    <span className='toggle-month-year__labels small'></span>
+                </label>
+            </div>
 
             <Calendar
                 value={date}
                 onChange={handleDateChange}
                 view={view}
                 calendarType='ISO 8601'
-                tileContent={({ date, view }) => view === 'month' && bmDates.includes(date.toLocaleString('sv').split(' ')[0]) == true ? <p>&#128169;</p> : null}
+                tileContent={({ date, view }) => view === 'month' && bmDates.includes(date.toLocaleString('sv').split(' ')[0]) === true ? <p>&#128169;</p> : null}
                 prev2Label={null}
                 next2Label={null}
 
             />
 
-            <h2 className='label underlined'>{date.toDateString()}</h2>
-            {bowelmovements.filter(bm => bm.date == dateSelection).map(bowelmovement => {
-                return (
-                    <BowelMovement key={bowelmovement._id}
-                        bm={bowelmovement}
-                    />
-                )
-            })}
-            <div>
-                <Link to='/bowelmovement/create' rel='path' state={{date: dateSelection}} className='button button--link button--submit button__new-entry cta'>New Entry</Link>
+            <h2 className='history__date label underlined'>{date.toDateString()}</h2>
+            <div className='history__results'>
+                {
+                    bmByDateCount === 0 && <p>No bowel movements recorded.</p>
+                }
+                {
+                    bowelmovements.filter(bm => bm.date === dateSelection).map(bowelmovement => {
+                        return (
+                            <BowelMovement
+                                key={bowelmovement._id}
+                                bm={bowelmovement}
+                            />
+                        )
+                    })
+                }
+            </div>
+
+            <div className='history__button-row'>
+                <Link to='/bowelmovement/create' rel='path' state={{ preSelectedDate: dateSelection }} className='button button--link button--submit button__new-entry cta'>New Entry</Link>
             </div>
         </div>
     )

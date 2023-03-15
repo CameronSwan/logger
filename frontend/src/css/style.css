@@ -124,6 +124,11 @@ input, .input {
   font-family: "Poppins", sans-serif;
   font-weight: 600; }
 
+strong {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: bolder; }
+
 .error {
   font-size: 14px;
   line-height: 1.5;
@@ -142,6 +147,10 @@ input, .input {
   color: #252020; }
   .cta:hover {
     color: #252020; }
+
+.small {
+  font-size: 12px;
+  font-family: "Poppins", sans-serif; }
 
 .underlined {
   border-bottom: 2px solid #22A09F; }
@@ -254,6 +263,63 @@ body {
   .form__textarea {
     height: 130px;
     resize: none; }
+
+.history {
+  padding: 0 24px; }
+
+.toggle-month-year {
+  position: relative;
+  display: inline-block;
+  width: 130px;
+  height: 40px;
+  cursor: pointer; }
+  .toggle-month-year input {
+    content: '';
+    opacity: 0;
+    width: 0;
+    height: 0; }
+  .toggle-month-year__slider {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    border: 2px solid #22A09F;
+    border-radius: 100px;
+    transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
+    width: 100%;
+    height: 100%;
+    background-color: #DAF8F4;
+    cursor: pointer; }
+    .toggle-month-year__slider:before {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 2px;
+      transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
+      box-sizing: border-box;
+      border: 2px solid transparent;
+      border-radius: 100px;
+      width: 64px;
+      height: 32px;
+      background-color: #07CEB5; }
+  input:checked + .toggle-month-year__slider:before {
+    transform: translateX(58px); }
+  .toggle-month-year__labels {
+    position: absolute;
+    top: 11px;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease-in-out; }
+    .toggle-month-year__labels::after {
+      content: 'YEAR';
+      position: absolute;
+      right: 28px; }
+    .toggle-month-year__labels::before {
+      content: 'MONTH';
+      position: absolute;
+      left: 6px; }
 
 .bm-tab {
   width: 100%; }

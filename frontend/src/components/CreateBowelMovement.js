@@ -7,10 +7,8 @@ import Modal from 'react-modal';
 const CreateBowelMovement = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    
-    const preSelectedDate = location.state?.date
-
-    const [date, setDate] = useState(new Date().toLocaleString('sv').split(' ')[0]);
+    const preSelectedDate = location.state?.preSelectedDate  // Use the preselected date when coming from History page
+    const [date, setDate] = useState(preSelectedDate ?? new Date().toLocaleString('sv').split(' ')[0]);
     const [time, setTime] = useState(new Date().toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit' }).split(" ")[0]);
     const [dateTimeWarning, setDateTimeWarning] = useState('');
     const [stoolTypes, setStoolTypes] = useState([])
@@ -18,7 +16,7 @@ const CreateBowelMovement = () => {
     const [symptoms, setSymptoms] = useState([]);
     const [notes, setNotes] = useState('');
     const [errors, setErrors] = useState({});
-    
+
     /* Modals */
     //Sets whether each details modal is open
     Modal.setAppElement(document.getElementById('root'));
@@ -123,7 +121,7 @@ const CreateBowelMovement = () => {
                             <div>
                                 <input type='date' id='datePicker' name='date'
                                     max={new Date().toLocaleString('sv').split(' ')[0]}
-                                    value={ preSelectedDate? preSelectedDate: date}
+                                    value={date}
                                     onChange={e => setDate(e.target.value)}
                                     className='form__text-input' />
                             </div>
@@ -169,15 +167,15 @@ const CreateBowelMovement = () => {
                         </div>
                         <table className='modal__table modal__table--stooltypes'>
                             <tbody>
-                            {stoolTypes.map(stoolType => {
-                                return (
-                                    <tr key={stoolType.name}>
-                                        <td>image</td>
-                                        <td>{stoolType.name}</td>
-                                        <td>{stoolType.description}</td>
-                                    </tr>
-                                )
-                            })}
+                                {stoolTypes.map(stoolType => {
+                                    return (
+                                        <tr key={stoolType.name}>
+                                            <td>image</td>
+                                            <td>{stoolType.name}</td>
+                                            <td>{stoolType.description}</td>
+                                        </tr>
+                                    )
+                                })}
                             </tbody>
                         </table>
                         <div>Learn More</div>
@@ -225,14 +223,14 @@ const CreateBowelMovement = () => {
                         </div>
                         <table className='modal__table modal__table--colors'>
                             <tbody>
-                            {colors.map(color => {
-                                return (
-                                    <tr key={color.name}>
-                                        <td>image</td>
-                                        <td>{color.name}</td>
-                                    </tr>
-                                )
-                            })}
+                                {colors.map(color => {
+                                    return (
+                                        <tr key={color.name}>
+                                            <td>image</td>
+                                            <td>{color.name}</td>
+                                        </tr>
+                                    )
+                                })}
                             </tbody>
                         </table>
                         <div>Learn More</div>
@@ -242,7 +240,7 @@ const CreateBowelMovement = () => {
                         <legend>
                             <span className='label'>Color</span>
                             <button onClick={() => setColorModalIsOpen(true)}
-                            type='button' aria-label='Open Color Details' title='Color Details' className='button--info'>?</button>
+                                type='button' aria-label='Open Color Details' title='Color Details' className='button--info'>?</button>
                         </legend>
                         {
                             colors.map(color => {

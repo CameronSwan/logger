@@ -9,7 +9,8 @@
     height: 60px;
     cursor: pointer;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         box-shadow: $button-shadow-hover;
     }
 
@@ -22,7 +23,9 @@
 
     &--submit {
         background-color: $color-accent-CTA;
-        &:hover, &:focus {
+
+        &:hover,
+        &:focus {
             background-color: $color-accent-CTA-hover;
         }
     }
@@ -37,5 +40,4 @@
         background-color: $color-accent;
         color: $white;
     }
-
 }

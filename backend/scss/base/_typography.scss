@@ -52,11 +52,14 @@ $cta-font-sizes: (
 	null: 20px
 );
 
+$small-font-sizes: (
+	null: 12px
+);
+
 body {
 	font-family: $font-family-base;
 	color: $color-font-primary;
 }
-
 
 h1, .h1 {
 	@include font-size($h1-font-sizes);
@@ -100,6 +103,12 @@ input, .input {
 	font-weight: 600;
 }
 
+strong {
+	font-size: inherit;
+	font-family: inherit;
+	font-weight: bolder;
+}
+
 .error {
 	@include font-size($p-font-sizes);
 	font-family: $font-family-accent;
@@ -117,6 +126,11 @@ input, .input {
 	&:hover {
 		color: $color-font-primary;
 	}
+}
+
+.small {
+	@include font-size($small-font-sizes);
+	font-family: $font-family-base;
 }
 
 .underlined {
