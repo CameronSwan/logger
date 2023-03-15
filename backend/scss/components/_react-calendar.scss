@@ -1,0 +1,98 @@
+.react-calendar {
+    $this: &;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border: transparent;
+
+    &__viewContainer {
+        box-sizing: border-box;
+    }
+
+    &__navigation {
+        display: flex;
+        height: 30px;
+        align-items: center;
+        margin-bottom: 1em;
+        
+        button {
+            cursor: pointer;
+            border: 0;
+            margin: 0;
+        }
+
+        &__prev-button, &__next-button {
+            font-size: 30px;
+            font-family: monospace;
+            background-color: transparent;
+
+            &:hover, &:focus {
+                background-color: $color-background-secondary;
+            }
+        }
+    }
+
+    &__navigation__label {
+        
+        font-family: $font-family-base;
+        font-size: 20px;
+        font-weight: 600;
+        background-color: transparent;
+    }
+
+    &__tile {
+        border: 1px solid $color-table-borders;
+        box-sizing: border-box;
+        outline: none;
+        max-width: 100%;
+        height: 50px;
+        text-align: center;
+        background-color: $color-background-primary;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $color-accent-CTA;
+        }
+
+        &--active {
+            background-color: $color-accent-CTA;
+        }
+
+        &--now {
+            background-color: $color-background-secondary;
+        }
+
+        span {
+            display: block;
+            height: 17px;
+        }
+
+    }
+
+    &__month-view {
+
+        &__days {
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid $color-table-borders;
+        }
+
+        &__weekdays {
+            display: flex;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 12px;
+        }
+    }
+
+    &__year-view {
+        
+        &__months__month {
+            font-family: $font-family-base;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+
+}

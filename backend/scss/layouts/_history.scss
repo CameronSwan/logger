@@ -2,9 +2,11 @@
     padding: 0 24px;
 }
 
+
 .toggle-month-year {
     position: relative;
-    display: inline-block;
+    display: block;
+    margin: 14px auto;
     width: 130px;
     height: 40px;
     cursor: pointer;
@@ -46,7 +48,7 @@
         }
     }
 
-    input:checked+&__slider:before {
+    input[value='true']+&__slider:before {
         transform: translateX(58px);
     }
 

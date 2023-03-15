@@ -264,12 +264,73 @@ body {
     height: 130px;
     resize: none; }
 
+.react-calendar {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  border: transparent; }
+  .react-calendar__viewContainer {
+    box-sizing: border-box; }
+  .react-calendar__navigation {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    margin-bottom: 1em; }
+    .react-calendar__navigation button {
+      cursor: pointer;
+      border: 0;
+      margin: 0; }
+    .react-calendar__navigation__prev-button, .react-calendar__navigation__next-button {
+      font-size: 30px;
+      font-family: monospace;
+      background-color: transparent; }
+      .react-calendar__navigation__prev-button:hover, .react-calendar__navigation__prev-button:focus, .react-calendar__navigation__next-button:hover, .react-calendar__navigation__next-button:focus {
+        background-color: #DAF8F4; }
+  .react-calendar__navigation__label {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: transparent; }
+  .react-calendar__tile {
+    border: 1px solid #0E0E0E;
+    box-sizing: border-box;
+    outline: none;
+    max-width: 100%;
+    height: 50px;
+    text-align: center;
+    background-color: #fff;
+    cursor: pointer; }
+    .react-calendar__tile:hover {
+      background-color: #07CEB5; }
+    .react-calendar__tile--active {
+      background-color: #07CEB5; }
+    .react-calendar__tile--now {
+      background-color: #DAF8F4; }
+    .react-calendar__tile span {
+      display: block;
+      height: 17px; }
+  .react-calendar__month-view__days {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #0E0E0E; }
+  .react-calendar__month-view__weekdays {
+    display: flex;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px; }
+  .react-calendar__year-view__months__month {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase; }
+
 .history {
   padding: 0 24px; }
 
 .toggle-month-year {
   position: relative;
-  display: inline-block;
+  display: block;
+  margin: 14px auto;
   width: 130px;
   height: 40px;
   cursor: pointer; }
@@ -304,7 +365,7 @@ body {
       width: 64px;
       height: 32px;
       background-color: #07CEB5; }
-  input:checked + .toggle-month-year__slider:before {
+  input[value='true'] + .toggle-month-year__slider:before {
     transform: translateX(58px); }
   .toggle-month-year__labels {
     position: absolute;

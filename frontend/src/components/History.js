@@ -15,6 +15,10 @@ const History = () => {
 
     const bmByDateCount = bowelmovements.filter(bm => bm.date == dateSelection).length
 
+
+    const monthTileContent = (({ date, view }) => (view === 'month' && bmDates.includes(date.toLocaleString('sv').split(' ')[0]) === true ? <span>&#128169;</span> : <span></span>))
+
+
     useEffect(() => {
         dataService.getBowelMovements(bowelmovements => {
             setBowelmovements(bowelmovements)
@@ -23,7 +27,6 @@ const History = () => {
     }, [])
 
     const handleShowYear = () => {
-
         setShowYear(!showYear)
         showYear ? setView('month') : setView('year')
     }
@@ -32,6 +35,12 @@ const History = () => {
         setDate(e)
         setDateSelection(new Date(e).toLocaleString('sv').split(' ')[0])
         console.log(dateSelection)
+    }
+
+    const handleMonthChange = (e) => {
+        setDate(e)
+        console.log(e)
+        handleShowYear()
     }
 
     return (
@@ -44,6 +53,7 @@ const History = () => {
                         role='switch'
                         value={showYear}
                         onChange={handleShowYear}
+                        title='Toggle Month Year'
                     />
                     <span className='toggle-month-year__slider'></span>
                     <span className='toggle-month-year__labels small'></span>
@@ -52,13 +62,16 @@ const History = () => {
 
             <Calendar
                 value={date}
-                onChange={handleDateChange}
+                onClickDay={handleDateChange}
+                onClickMonth={handleMonthChange}
                 view={view}
-                calendarType='ISO 8601'
-                tileContent={({ date, view }) => view === 'month' && bmDates.includes(date.toLocaleString('sv').split(' ')[0]) === true ? <p>&#128169;</p> : null}
+                calendarType='US'
+                tileContent={ ({ date, view }) => (view === 'month' && bmDates.includes(date.toLocaleString('sv').split(' ')[0]) === true ? <span>&#128169;</span> : <span></span> )}
                 prev2Label={null}
                 next2Label={null}
-
+                maxDate={new Date()}
+                nextLabel='→'
+                prevLabel='←'
             />
 
             <h2 className='history__date label underlined'>{date.toDateString()}</h2>
