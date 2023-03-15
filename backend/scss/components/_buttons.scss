@@ -1,4 +1,34 @@
 .button {
+    $this: &;
+
+    transition: $transition;
+    box-shadow: $button-shadow;
+    border: 2px solid transparent;
+    border-radius: 100px;
+    width: 210px;
+    height: 60px;
     cursor: pointer;
-    font-family: $font-family-CTA;
+
+    &:hover, &:focus {
+        box-shadow: $button-shadow-hover;
+    }
+
+    &--submit {
+        background-color: $color-accent-CTA;
+        &:hover, &:focus {
+            background-color: $color-accent-CTA-hover;
+        }
+    }
+
+    &--warning {
+        background-color: $color-font-error;
+    }
+
+    &--info {
+        width: 30px;
+        height: 30px;
+        background-color: $color-accent;
+        color: $white;
+    }
+
 }
