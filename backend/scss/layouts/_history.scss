@@ -1,5 +1,11 @@
 .history {
     padding: 0 24px;
+
+    &__button-row {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
 }
 
 

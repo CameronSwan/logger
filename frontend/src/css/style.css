@@ -269,6 +269,8 @@ body {
   max-width: 400px;
   margin: 0 auto;
   border: transparent; }
+  .react-calendar abbr[title] {
+    text-decoration: none; }
   .react-calendar__viewContainer {
     box-sizing: border-box; }
   .react-calendar__navigation {
@@ -326,6 +328,10 @@ body {
 
 .history {
   padding: 0 24px; }
+  .history__button-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px; }
 
 .toggle-month-year {
   position: relative;

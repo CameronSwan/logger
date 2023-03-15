@@ -18,12 +18,13 @@ const History = () => {
 
     const monthTileContent = (({ date, view }) => (view === 'month' && bmDates.includes(date.toLocaleString('sv').split(' ')[0]) === true ? <span>&#128169;</span> : <span></span>))
 
-
+    console.log(bmDates)
     useEffect(() => {
         dataService.getBowelMovements(bowelmovements => {
             setBowelmovements(bowelmovements)
             setBMDates(bowelmovements.map(bm => bm.date))
         })
+       
     }, [])
 
     const handleShowYear = () => {
@@ -39,7 +40,7 @@ const History = () => {
 
     const handleMonthChange = (e) => {
         setDate(e)
-        console.log(e)
+        console.log(e.toLocaleString('sv').split(' ')[0])
         handleShowYear()
     }
 
