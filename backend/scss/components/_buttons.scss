@@ -3,7 +3,7 @@
 
     transition: $transition;
     box-shadow: $button-shadow;
-    border: 2px solid transparent;
+    border: none;
     border-radius: 100px;
     width: 210px;
     height: 60px;
@@ -11,6 +11,14 @@
 
     &:hover, &:focus {
         box-shadow: $button-shadow-hover;
+    }
+
+    &--link {
+        //box-sizing: border-box;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 60px;
     }
 
     &--submit {

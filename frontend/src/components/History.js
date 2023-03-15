@@ -25,13 +25,7 @@ const History = () => {
     const handleShowYear = () => {
         
         setShowYear(!showYear)
-
         showYear ? setView('month') : setView('year')
-        // if(showYear){
-        //     setView('year')
-        // } else {
-        //     setView('month')
-        // }
     }
 
     const handleDateChange = (e) => {
@@ -70,7 +64,7 @@ const History = () => {
                 )
             })}
             <div>
-                <Link to='/bowelmovement/create' rel='path' state={{date: dateSelection}} className='button__new-entry'>New Entry</Link>
+                <Link to='/bowelmovement/create' rel='path' state={{date: dateSelection}} className='button button--link button--submit button__new-entry cta'>New Entry</Link>
             </div>
         </div>
     )
