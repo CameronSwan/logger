@@ -9,6 +9,7 @@ import Register from './components/Register';
 import LogIn from './components/LogIn';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import CreateBowelMovement from './components/CreateBowelMovement';
+import EditBowelMovement from './components/EditBowelMovement';
 import History from './components/History';
 
 const App = () => {
@@ -22,7 +23,8 @@ const App = () => {
             <Route path='/register' element={ <Register />}/>
             <Route path='/login' element={ <LogIn />}/>
             <Route element={<ProtectedRoutes/>}>
-              <Route path='/bowelmovement/create' element={<CreateBowelMovement/>}/>
+              <Route path='/bowelmovement/create' element={<CreateBowelMovement />}/>
+              <Route path='/bowelmovement/edit/:id' element={<EditBowelMovement />} />
               <Route path='/history' element={<History/>}/>
             </Route>
             <Route path='*' element= {< NotFound />}/>
