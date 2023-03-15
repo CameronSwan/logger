@@ -10,8 +10,9 @@ return (
             <h1>Community Guidelines</h1>
             
             <div>
+                
+                <h2>Poop Logger Community Guidelines and Anti-Harassment Policy</h2><br/>
                 <p>
-                    <h2>Poop Logger Community Guidelines and Anti-Harassment Policy</h2><br/>
                     Poop Logger is dedicated to providing a harassment-free and inclusive experience for everyone regardless 
                     of gender identity and expression, sexual orientation, disabilities, neurodiversity, physical appearance, 
                     body size, ethnicity, nationality, race, age, religion, or another protected category. We do not tolerate 
@@ -20,9 +21,9 @@ return (
                 </p>
             </div>
 
-            <div>
+            <div>        
+                <h3>Be respectful to each other.</h3>
                 <p>
-                    <h3>Be respectful to each other.</h3><br/>
                     Treat everyone with respect. Participate while acknowledging that everyone deserves to be here — and each of 
                     us has the right to enjoy our experience without fear of harassment, discrimination, or condescension, whether 
                     blatant or via micro-aggressions. All forms of communication should not demean others. Consider what you are 
@@ -31,9 +32,9 @@ return (
             </div>
 
 
-            <div>
+            <div>   
+                <h3>Speak up if you see or hear something.</h3>
                 <p>
-                    <h3>Speak up if you see or hear something.</h3>
                     Harassment is not tolerated, and you are empowered to politely engage when you or others are disrespected. 
                     The person making you feel uncomfortable may not be aware of what they are doing, and politely bringing their 
                     behavior to their attention is encouraged.
@@ -41,10 +42,11 @@ return (
             </div>
 
             <div>
+                
+                <h2>
+                    We have a <strong>ZERO TOLERANCE POLICY</strong> for online harassment of any kind, including but not limited to:
+                </h2>
                 <p>
-                    <h2>
-                        We have a <strong>ZERO TOLERANCE POLICY</strong> for online harassment of any kind, including but not limited to:
-                    </h2>
                     <ul>
                         <li>Deliberate intimidation</li>
                         <li>Offensive language </li>
@@ -56,7 +58,6 @@ return (
             </div>
 
             <div>
-                <p>
                     <h2>
                         In relation to, but not limited to:
                     </h2>
@@ -76,8 +77,7 @@ return (
                         <li>Pregnancy </li>
                         <li>Military status </li>
                         <li>Social demographic</li>
-                    </ul>
-                </p>           
+                    </ul>          
             </div>
 
             <div>
