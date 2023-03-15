@@ -11,7 +11,11 @@ const BowelMovement = require('../../models/bowelMovement')
  * Retrieve All BowelMovements.
  */
 router.get('/', (req, res) => {
-    BowelMovement.find({}, (e, bowelMovements) => {
+    BowelMovement.find({})
+    .populate('colors')
+    .populate('stoolTypes')
+    .populate('symptoms')
+    .exec((e, bowelMovements) => {
         if (e) res.status(500).send({ serverMessage: "An Error Occured." })
         else res.json(bowelMovements)
     })
@@ -23,12 +27,17 @@ router.get('/', (req, res) => {
  * Retrieve All BowelMovements Created By User With Provided _id.
  */
 router.get('/:id', (req, res) => {
-    BowelMovement.findById(req.params.id, (e, bowelMovement) => {
+    BowelMovement.findById(req.params.id)
+    .populate('colors')
+    .populate('stoolTypes')
+    .populate('symptoms')
+    .exec((e, bowelMovement) => {
         if (e) res.status(500).send({ serverMessage: "An Error Occured." })
         else if (bowelMovement) res.send(bowelMovement)
         else res.status(404).send({ serverMessage: "Bowel Movement Not Found." })
     })
 })
+
 
 /**
  * @param {Object} req.body - Data For The BowelMovement Object.

@@ -31,10 +31,10 @@ const EditBowelMovement = (props) => {
         <div>
             <div>{date}</div>
             <div>{time}</div>
-            <div>{stoolTypes}</div>
-            <div>{colors}</div>
+            {/* <div>{stoolTypes.map(st => st.name)}</div> */}
+            {/* <div>{colors}</div>
             <div>{symptoms}</div>
-            <div>{notes}</div>
+            <div>{notes}</div> */}
         </div>
     )
 }
