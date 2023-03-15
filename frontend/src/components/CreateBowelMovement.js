@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import dataService from '../services/dataService';
 import Checkbox from './Checkbox';
 import Modal from 'react-modal';
 
 const CreateBowelMovement = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+    
+    const preSelectedDate = location.state?.date
+
     const [date, setDate] = useState(new Date().toLocaleString('sv').split(' ')[0]);
     const [time, setTime] = useState(new Date().toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit' }).split(" ")[0]);
     const [dateTimeWarning, setDateTimeWarning] = useState('');
@@ -13,7 +18,7 @@ const CreateBowelMovement = () => {
     const [symptoms, setSymptoms] = useState([]);
     const [notes, setNotes] = useState('');
     const [errors, setErrors] = useState({});
-
+    
     /* Modals */
     //Sets whether each details modal is open
     Modal.setAppElement(document.getElementById('root'));
@@ -77,7 +82,6 @@ const CreateBowelMovement = () => {
     }, [])
 
     /* Handle Submit */
-    const navigate = useNavigate();
     const handleSubmit = event => {
         event.preventDefault();
 
@@ -110,7 +114,6 @@ const CreateBowelMovement = () => {
         <div className='form__wrapper'>
             <form className='form' onSubmit={handleSubmit}>
                 <h1 className='form__title'>New Entry</h1>
-
                 <div className='form__row'>
                     <div className='form__row--split'>
                         <div className='form__half-row'>
@@ -120,7 +123,7 @@ const CreateBowelMovement = () => {
                             <div>
                                 <input type='date' id='datePicker' name='date'
                                     max={new Date().toLocaleString('sv').split(' ')[0]}
-                                    value={date}
+                                    value={ preSelectedDate? preSelectedDate: date}
                                     onChange={e => setDate(e.target.value)}
                                     className='form__text-input' />
                             </div>

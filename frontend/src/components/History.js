@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import dataService from '../services/dataService';
 import { BowelMovement } from './BowelMovement';
 import Calendar from 'react-calendar';
+import { Link } from 'react-router-dom';
 import 'react-calendar/dist/Calendar.css';
 
 const History = () => {
@@ -41,6 +42,7 @@ const History = () => {
 
     return (
         <div>
+            <h1 className='underlined'>History</h1>
             <input type='checkbox' 
                 id='toggle-month-year' 
                 role='switch' 
@@ -53,17 +55,13 @@ const History = () => {
                 onChange={handleDateChange}
                 view={view}
                 calendarType='ISO 8601'
-                tileContent={({ date, view }) => view === 'month' && bmDates.includes(date.toLocaleString('sv').split(' ')[0]) == true ? <p>POOP</p> : null}
+                tileContent={({ date, view }) => view === 'month' && bmDates.includes(date.toLocaleString('sv').split(' ')[0]) == true ? <p>&#128169;</p> : null}
+                prev2Label={null}
+                next2Label={null}
+
             />
 
-            <p>{bmDates}</p>
-            {/* <div>
-                <input type='date' id='datePicker' name='date'
-                    max={new Date().toLocaleString('sv').split(' ')[0]}
-                    value={dateSelection}
-                    onChange={handleDateChange}
-                    className='form__text-input' />
-            </div> */}
+            <h2 className='label underlined'>{date.toDateString()}</h2>
             {bowelmovements.filter(bm => bm.date == dateSelection).map(bowelmovement => {
                 return (
                     <BowelMovement key={bowelmovement._id}
@@ -71,6 +69,9 @@ const History = () => {
                     />
                 )
             })}
+            <div>
+                <Link to='/bowelmovement/create' rel='path' state={{date: dateSelection}} className='button__new-entry'>New Entry</Link>
+            </div>
         </div>
     )
 }
