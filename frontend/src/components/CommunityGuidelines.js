@@ -6,10 +6,9 @@ const CommunityGuidelines = () => {
 
 return (
         <div>
-            
+                
             <h1>Community Guidelines</h1>
             
-
             <div>
                 <p>
                     <h2><strong>Poop Logger Community Guidelines and Anti-Harassment Policy</strong></h2><br/>
