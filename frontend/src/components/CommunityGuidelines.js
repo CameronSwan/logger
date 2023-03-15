@@ -7,7 +7,7 @@ return (
                 
             <h1>Community Guidelines</h1>
                 
-                <h2>Poop Logger Community Guidelines and Anti-Harassment Policy</h2><br/>
+                <h2>Poop Logger Community Guidelines and Anti-Harassment Policy</h2>
                 <p>
                     Poop Logger is dedicated to providing a harassment-free and inclusive experience for everyone regardless 
                     of gender identity and expression, sexual orientation, disabilities, neurodiversity, physical appearance, 
