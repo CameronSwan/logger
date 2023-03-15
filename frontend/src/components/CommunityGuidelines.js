@@ -11,7 +11,7 @@ return (
             
             <div>
                 <p>
-                    <h2><strong>Poop Logger Community Guidelines and Anti-Harassment Policy</strong></h2><br/>
+                    <h2>Poop Logger Community Guidelines and Anti-Harassment Policy</h2><br/>
                     Poop Logger is dedicated to providing a harassment-free and inclusive experience for everyone regardless 
                     of gender identity and expression, sexual orientation, disabilities, neurodiversity, physical appearance, 
                     body size, ethnicity, nationality, race, age, religion, or another protected category. We do not tolerate 
@@ -22,21 +22,21 @@ return (
 
             <div>
                 <p>
-                    <h3><strong>Be respectful to each other.</strong></h3><br/>
+                    <h3>Be respectful to each other.</h3><br/>
                     Treat everyone with respect. Participate while acknowledging that everyone deserves to be here — and each of 
                     us has the right to enjoy our experience without fear of harassment, discrimination, or condescension, whether 
                     blatant or via micro-aggressions. All forms of communication should not demean others. Consider what you are 
-                    saying and how it would feel if it were said to you, or about you. <br/>
+                    saying and how it would feel if it were said to you, or about you.
                 </p>
             </div>
 
 
             <div>
                 <p>
-                    <h3>Speak up if you see or hear something. </h3>
+                    <h3>Speak up if you see or hear something.</h3>
                     Harassment is not tolerated, and you are empowered to politely engage when you or others are disrespected. 
                     The person making you feel uncomfortable may not be aware of what they are doing, and politely bringing their 
-                    behavior to their attention is encouraged. <br/>
+                    behavior to their attention is encouraged.
                 </p>           
             </div>
 
@@ -85,7 +85,7 @@ return (
                     Participants asked to stop any harassing behavior are expected to comply immediately. Our zero-tolerance 
                     policy means that we will look into and review every allegation of violation of our Community Guidelines 
                     and Anti-Harassment Policy and respond appropriately. to report any behavior that makes you or others 
-                    feel uncomfortable, send us a note at W0455841@nscc.ca <br/>
+                    feel uncomfortable, send us a note at W0455841@nscc.ca. <br/>
                     This policy extends to talks, forums, workshops, social media, partners, sponsors, staff, etc. 
                     You catch our drift. Poop Logger reserves the right to refuse admittance to, or remove any person from, 
                     any Poop Logger forum at any time in its sole discretion. This includes, but is not limited to, 
