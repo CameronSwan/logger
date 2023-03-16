@@ -197,10 +197,21 @@ body {
   .button--warning {
     background-color: #EA0E00; }
   .button--info {
-    width: 30px;
-    height: 30px;
-    background-color: #FF8D13;
-    color: #fff; }
+    border-radius: 50px;
+    box-sizing: content-box;
+    border: 2px solid #FF8D13;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    padding: 1px;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #fff;
+    font-family: "Poppins", sans-serif;
+    line-height: 1;
+    font-weight: 600;
+    color: #FF8D13; }
   .button--edit {
     border-radius: 100px;
     width: 50px;
@@ -216,23 +227,23 @@ body {
     margin-bottom: 15px;
     width: 100%; }
   .form__row {
-    margin-bottom: 15px;
-    padding: 0 24px; }
+    margin: 0 24px 15px 24px; }
     .form__row--split {
       display: flex;
-      flex-direction: column;
-      padding: 0; }
+      flex-direction: column; }
       @media screen and (min-width: 481px) {
         .form__row--split {
           flex-direction: row;
           gap: 15px; } }
     .form__row--large {
-      padding: 0px; }
+      margin: 0; }
   .form__half-row {
     flex: 100%; }
     @media screen and (min-width: 481px) {
       .form__half-row {
         flex: 50%; } }
+  .form__legend {
+    position: relative; }
   .form__checkbox-row {
     display: flex;
     align-items: flex-start;

@@ -11,13 +11,11 @@
     }
 
     &__row {
-        margin-bottom: 15px;
-        padding: 0 24px;
+        margin: 0 24px 15px 24px;
 
         &--split {
             display: flex;
             flex-direction: column;
-            padding: 0;
 
             @include media-query(s) {
                 flex-direction: row;
@@ -26,11 +24,9 @@
         }
 
         &--large {
-            padding: 0px;
+            margin: 0;
         }
     }
-
-
 
     &__half-row {
         flex: 100%;
@@ -38,6 +34,10 @@
         @include media-query(s) {
             flex: 50%;
         }
+    }
+    
+    &__legend {
+        position: relative;
     }
 
     &__checkbox-row {

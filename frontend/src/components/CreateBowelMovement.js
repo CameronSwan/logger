@@ -111,7 +111,7 @@ const CreateBowelMovement = () => {
     return (
         <div className='form__wrapper'>
             <form className='form' onSubmit={handleSubmit}>
-                <h1 className='form__title'>New Entry</h1>
+                <h1 className='form__title form__row underlined'>New Entry</h1>
                 <div className='form__row'>
                     <div className='form__row--split'>
                         <div className='form__half-row'>
@@ -182,9 +182,9 @@ const CreateBowelMovement = () => {
                     </Modal>
 
                     <fieldset>
-                        <legend>
+                        <legend className='form__legend'>
                             <span className='label form__row'>Bristol Stool Scale</span>
-                            <button onClick={() => setStoolTypeModalIsOpen(true)} type='button' aria-label='Open Bristol Stool Scale Details' title='Bristol Stool Scale Details' className='button--info'>?</button>
+                            <button onClick={() => setStoolTypeModalIsOpen(true)} type='button' aria-label='Open Bristol Stool Scale Details' title='Bristol Stool Scale Details' className='button--info button'>?</button>
                         </legend>
                         <div className='form__checkbox-row form__checkbox-row--styled'>
                             {
@@ -239,10 +239,10 @@ const CreateBowelMovement = () => {
                     </Modal>
 
                     <fieldset>
-                        <legend>
+                        <legend className='form__legend'>
                             <span className='label form__row'>Color</span>
                             <button onClick={() => setColorModalIsOpen(true)}
-                                type='button' aria-label='Open Color Details' title='Color Details' className='button--info'>?</button>
+                                type='button' aria-label='Open Color Details' title='Color Details' className='button--info button'>?</button>
                         </legend>
                         <div className='form__checkbox-row form__checkbox-row--styled'>
                             {
@@ -275,7 +275,7 @@ const CreateBowelMovement = () => {
                     </div>
                 </div>
 
-                <div className='form__row'>
+                <div className='form__row--large'>
                     <Modal
                         key='symptomModal'
                         isOpen={symptomModalIsOpen}
@@ -303,9 +303,9 @@ const CreateBowelMovement = () => {
                     </Modal>
 
                     <fieldset>
-                        <legend>
-                            <span className='label'>Symptoms</span>
-                            <button onClick={() => setSymptomModalIsOpen(true)} type='button' aria-label='Open Symptom Details' title='Symptom Details' className='button--info'>?</button>
+                        <legend className='form__legend'>
+                            <span className='label form__row'>Symptoms</span>
+                            <button onClick={() => setSymptomModalIsOpen(true)} type='button' aria-label='Open Symptom Details' title='Symptom Details' className='button--info button'>?</button>
                         </legend>
                         {
                             symptoms.map(symptom => {
