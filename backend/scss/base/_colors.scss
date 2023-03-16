@@ -5,6 +5,8 @@
 
 $white: #fff;
 
+$cream-200: #FFFAF1;
+
 $grey-50: #FFFAFF;
 $grey-100: #959F94;
 $grey-200: #565656;
@@ -28,7 +30,7 @@ $red-500: #EA0E00;
 $color-font-primary: $grey-600;
 $color-font-primary-darkmode: $white;
 
-$color-font-error: $red-500;
+$color-logo: $cream-200;
 
 //Backgrounds
 $color-background-primary: $white;
@@ -39,6 +41,8 @@ $color-background-header-darkmode: $grey-900;
 
 $color-background-secondary: $teal-50; // (used for forms, etc)
 $color-background-secondary-darkmode: $grey-200;
+
+$color-background-tertiary: $cream-200;
 
 //Accents
 $color-input-borders: $teal-700;
@@ -55,3 +59,7 @@ $color-accent-CTA-hover: $teal-200;
 
 $color-accent: $orange-500;
 $color-accent-darkmode: $orange-500;
+
+$color-error: $red-500;
+
+$color-cancel: $grey-100;

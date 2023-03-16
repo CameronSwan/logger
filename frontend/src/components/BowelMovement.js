@@ -21,6 +21,13 @@ export const BowelMovement = (props) => {
         return stoolTypesArray.push(stoolType.name)
     })
 
+    // Unescape Sanitized Notes:
+    const htmlDecode = (input) => {
+        var doc = new DOMParser().parseFromString(input, "text/html");
+        return doc.documentElement.textContent;
+    }
+
+    let notesDisplay = htmlDecode(props.bm.notes);
 
     return (
         <div className='bm-tab__wrapper'>
@@ -30,10 +37,14 @@ export const BowelMovement = (props) => {
             <div className='bm-tab'>
                 <div className='bm-tab__content'>
                     <div className='bm-tab__image' dangerouslySetInnerHTML={{ __html: svg[0] }}></div>
-                    <div className='bm-tab__data'>
-                        <div className='bm-tab__stoolTypes small'>{stoolTypesArray.join(', ')}</div>
-                        <div className='bm-tab__colors small'>{colorArray.join(', ')}</div>
-                        <div className='bm-tab__symptoms small'>{symptomsArray.length}{symptomsArray.length === 1 ? ' Symptom' : ' Symptoms'}</div>
+                    <div className='bm-tab__data-wrapper'>
+                        <div className='bm-tab__data small p'><span className='strong'>Stool Type: </span>{stoolTypesArray.length === 1 ? stoolTypesArray[0] : 'Mix'}</div>
+                        <div className='bm-tab__data small p'><span className='strong'>Colors: </span>{colorArray.join(', ')}</div>
+                        <div className='bm-tab__data small p'><span className='strong'>Symptoms: </span>{symptomsArray.join(', ')}</div>
+                        <div className='bm-tab__data small p'>
+                            {props.bm.notes && <span><span className='strong'>Notes:</span><span> {notesDisplay}</span></span>
+                            }
+                        </div>
                     </div>
                     <div className='bm-tab__button-row'>
                         <Link to={`/bowelmovement/edit/${props.bm._id}`} relative="path" title='Edit' className='button--link button--edit button--submit cta'>✎</Link>

@@ -3,8 +3,7 @@
 
     width: 100%;
     max-width: 500px;
-    margin: 0 auto;
-    //border: transparent;
+    margin: 0 auto 14px auto;
 
     abbr[title] {
         text-decoration: none;
@@ -54,7 +53,7 @@
         max-width: 100%;
         height: 50px;
         text-align: center;
-        background-color: $color-background-primary;
+        background-color: $color-background-tertiary;
         cursor: pointer;
 
         &:hover {
@@ -81,9 +80,13 @@
         &__days {
             display: flex;
             flex-wrap: wrap;
-            //border: 1px solid $color-table-borders;
         }
 
+        &__days__day {
+            font-family: $font-family-base;
+            font-weight: 500;
+        }
+        
         &__weekdays {
             display: flex;
             text-align: center;

@@ -25,7 +25,7 @@ const App = () => {
             <Route element={<ProtectedRoutes/>}>
               <Route path='/bowelmovement/create' element={<CreateBowelMovement />}/>
               <Route path='/bowelmovement/edit/:id' element={<EditBowelMovement />} />
-              <Route path='/history' element={<History/>}/>
+              <Route path='/bowelmovement/history' element={<History/>}/>
             </Route>
             <Route path='*' element= {< NotFound />}/>
           </Routes>

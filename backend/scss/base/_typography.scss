@@ -34,7 +34,7 @@ $h3-font-sizes: (
 );
 
 $p-font-sizes: (
-	null: (14px, 1.5),
+	null: (14px, 1.2),
 	xl: 16px,
 );
 
@@ -103,7 +103,7 @@ input, .input {
 	font-weight: 600;
 }
 
-strong {
+strong, .strong {
 	font-size: inherit;
 	font-family: inherit;
 	font-weight: bolder;

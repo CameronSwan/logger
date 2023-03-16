@@ -90,7 +90,7 @@ h3, .h3 {
 h4, .h4, h5, .h5 {
   margin-bottom: 2px;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.2;
   font-weight: bold;
   font-family: "Poppins", sans-serif; }
   @media screen and (min-width: 1280px) {
@@ -99,7 +99,7 @@ h4, .h4, h5, .h5 {
 
 p, .p, li, textarea {
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.2;
   font-weight: 500;
   font-family: "Poppins", sans-serif; }
   @media screen and (min-width: 1280px) {
@@ -124,14 +124,14 @@ input, .input {
   font-family: "Poppins", sans-serif;
   font-weight: 600; }
 
-strong {
+strong, .strong {
   font-size: inherit;
   font-family: inherit;
   font-weight: bolder; }
 
 .error {
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.2;
   font-family: "Montserrat", sans-serif;
   font-weight: 600; }
   @media screen and (min-width: 1280px) {
@@ -306,7 +306,7 @@ body {
 .react-calendar {
   width: 100%;
   max-width: 500px;
-  margin: 0 auto; }
+  margin: 0 auto 14px auto; }
   .react-calendar abbr[title] {
     text-decoration: none; }
   .react-calendar__viewContainer {
@@ -338,7 +338,7 @@ body {
     max-width: 100%;
     height: 50px;
     text-align: center;
-    background-color: #fff;
+    background-color: #FFFAF1;
     cursor: pointer; }
     .react-calendar__tile:hover {
       background-color: #07CEB5; }
@@ -352,6 +352,9 @@ body {
   .react-calendar__month-view__days {
     display: flex;
     flex-wrap: wrap; }
+  .react-calendar__month-view__days__day {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500; }
   .react-calendar__month-view__weekdays {
     display: flex;
     text-align: center;
@@ -365,13 +368,15 @@ body {
     text-transform: uppercase; }
 
 .history {
-  padding: 0 24px; }
+  margin: 0 24px; }
+  .history__date {
+    margin-bottom: 14px; }
+  .history__results {
+    margin-bottom: 25px; }
   .history__button-row {
     display: flex;
     justify-content: center;
-    margin-bottom: 15px; }
-  .history__results {
-    margin-bottom: 25px; }
+    margin-bottom: 14px; }
 
 .toggle-month-year {
   position: relative;
@@ -436,13 +441,15 @@ body {
   .bm-tab__wrapper {
     margin-bottom: 5px; }
   .bm-tab__content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
-    display: inline-grid;
-    grid-template-columns: 60px auto 60px;
     width: 100%; }
   .bm-tab__image {
-    grid-column: 1/2;
     display: flex;
+    flex-shrink: 0;
     align-items: center;
     margin-left: 8px;
     border: 2px solid #0E0E0E;
@@ -452,11 +459,26 @@ body {
     background-color: #fff; }
     .bm-tab__image svg {
       width: 100%; }
-  .bm-tab__data {
-    grid-column: 2/3;
+  .bm-tab__image-count {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #FF8D13;
+    top: 10px;
+    left: 20px; }
+  .bm-tab__data-wrapper {
     display: flex;
+    flex: 1;
     flex-direction: column;
-    gap: 2px;
-    padding: 10px; }
+    justify-content: center;
+    margin: 10px;
+    width: 100%;
+    max-width: calc(100% - 140px);
+    height: 55px; }
+  .bm-tab__data {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
   .bm-tab__button-row {
-    grid-column: 3; }
+    margin-right: 8px;
+    margin-left: auto; }
