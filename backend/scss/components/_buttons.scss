@@ -48,7 +48,7 @@
         right: -8px;
 
         //margin-left: 10px;
-       // margin-bottom: 10px;
+        // margin-bottom: 10px;
         background-color: $color-background-primary;
         font-family: $font-family-base;
         line-height: 1;
@@ -62,5 +62,36 @@
         width: 50px;
         height: 27px;
         line-height: normal;
+    }
+}
+
+.link {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+
+    &--with-arrow {
+        padding-right: 55px;
+
+        &::after {
+            content: ' →';
+            position: absolute;
+            top: 50%;
+            right: 25px;
+            transform: translateY(-50%);
+            transition: $transition;
+            font-size: 25px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        &--focus,
+        &:hover {
+            transition: $transition;
+
+            &::after {
+                right: 20px;
+            }
+        }
     }
 }

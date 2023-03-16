@@ -3,7 +3,7 @@ const Checkbox = ({ id, label, checked, value, onChange, className, name, title 
 		<div className={className}>
 			<input
 				id={id}
-				type="checkbox"
+				type='checkbox'
 				name={name}
 				value={value}
 				checked={checked}

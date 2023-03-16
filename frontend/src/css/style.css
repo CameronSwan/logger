@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*  
 	Reset Style Sheet
 	Source: http://meyerweb.com/eric/tools/css/reset/ 
@@ -156,6 +157,12 @@ strong, .strong {
 .underlined {
   border-bottom: 2px solid #22A09F; }
 
+.link {
+  font-family: inherit;
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none; }
+
 a:not([class]) {
   font-size: inherit;
   text-transform: none;
@@ -164,7 +171,8 @@ a:not([class]) {
   color: inherit; }
 
 html {
-  height: 100%; }
+  height: 100%;
+  background-color: grey; }
 
 body {
   max-width: 500px;
@@ -217,6 +225,27 @@ body {
     width: 50px;
     height: 27px;
     line-height: normal; }
+
+.link {
+  position: relative;
+  display: inline-block;
+  cursor: pointer; }
+  .link--with-arrow {
+    padding-right: 55px; }
+    .link--with-arrow::after {
+      content: ' →';
+      position: absolute;
+      top: 50%;
+      right: 25px;
+      transform: translateY(-50%);
+      transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
+      font-size: 25px;
+      font-family: monospace;
+      font-weight: bold; }
+    .link--with-arrow--focus, .link--with-arrow:hover {
+      transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s; }
+      .link--with-arrow--focus::after, .link--with-arrow:hover::after {
+        right: 20px; }
 
 .form {
   width: 100%; }
@@ -411,6 +440,64 @@ body {
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     text-transform: uppercase; }
+
+.modal {
+  background-color: #FFFAF1; }
+  .modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 2px solid #0E0E0E;
+    background-color: #22A09F;
+    padding: 10px 0; }
+  .modal__close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    font-family: monospace;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s; }
+    .modal__close-button:hover {
+      font-weight: bold; }
+  .modal__image {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    height: 45px;
+    width: 45px;
+    border-radius: 10px;
+    border: 2px solid #0E0E0E;
+    background-color: #fff; }
+    .modal__image svg {
+      width: 100%; }
+  .modal__table {
+    display: grid;
+    grid-template-rows: 1fr; }
+  .modal__table-row {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: 4px;
+    border-bottom: 1px solid #0E0E0E; }
+    .modal__table-row:last-child {
+      flex-shrink: 1; }
+  .modal__subtitle {
+    margin: 0 10px;
+    flex-shrink: 0; }
+    .modal__table--symptoms .modal__subtitle {
+      width: 106px; }
+  .modal__info {
+    line-height: 1.2; }
+  .modal__footer {
+    width: 100%;
+    background-color: #22A09F;
+    padding: 10px 0;
+    display: flex;
+    justify-content: flex-end; }
 
 .history {
   margin: 0 24px; }

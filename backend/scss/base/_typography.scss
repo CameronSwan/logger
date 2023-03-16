@@ -137,6 +137,14 @@ strong, .strong {
 .underlined {
 	border-bottom: 2px solid $color-input-borders;
 }
+
+.link {
+    font-family: inherit;
+    font-weight: bold;
+    color: inherit;
+    text-decoration: none;
+}
+
 a:not([class]) {
 	font-size: inherit;
 	text-transform: none;
