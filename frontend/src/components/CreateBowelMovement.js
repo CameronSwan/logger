@@ -212,7 +212,7 @@ const CreateBowelMovement = () => {
                     </fieldset>
                     <div className='form__error'>
                         {
-                            errors.stoolTypes && <span className='error'>{errors.stoolTypes.message}</span>
+                            errors.stoolTypes && <span className='error form__row'>{errors.stoolTypes.message}</span>
                         }
                     </div>
                 </div>
@@ -276,7 +276,7 @@ const CreateBowelMovement = () => {
                     </fieldset>
                     <div className='form__error'>
                         {
-                            errors.colors && <span className='error'>{errors.colors.message}</span>
+                            errors.colors && <span className='error form__row'>{errors.colors.message}</span>
                         }
                     </div>
                 </div>

@@ -46,10 +46,11 @@
         width: 100%;
         padding: 0;
 
-        &--classic-background { // For classic checkboxes with a background
+        &--classic-background {
+            // For classic checkboxes with a background
             display: grid;
-            grid-template-rows: 1fr 1fr;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             grid-auto-flow: column;
             gap: 10px;
             align-items: center;
@@ -57,9 +58,17 @@
             border-top: 2px solid $color-input-borders;
             border-bottom: 2px solid $color-input-borders;
             padding: 10px 24px;
+
+            @include media-query(s) {
+                grid-template-rows: 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-auto-flow: column;
+            }
+
         }
 
-        &--styled { // For checkboxes with images
+        &--styled {
+            // For checkboxes with images
             background-color: $color-accent-CTA;
             align-items: center;
             justify-content: space-around;
@@ -73,8 +82,6 @@
     &__checkbox--classic {
         input {
             flex-shrink: 0;
-            //outline: 2px solid $color-input-borders;
-
             width: 18px;
             height: 18px;
         }
@@ -89,6 +96,7 @@
     &__checkbox--large-label {
         align-items: flex-start;
         margin-bottom: 15px;
+
         & label {
             margin-left: 20px;
             font-size: 14px;
@@ -127,7 +135,8 @@
             background-color: $color-accent;
         }
 
-        input:hover+label, input:focus+label {
+        input:hover+label,
+        input:focus+label {
             outline: 1px solid $color-table-borders;
         }
     }
