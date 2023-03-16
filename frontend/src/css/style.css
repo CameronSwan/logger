@@ -150,7 +150,8 @@ strong {
 
 .small {
   font-size: 12px;
-  font-family: "Poppins", sans-serif; }
+  font-family: "Poppins", sans-serif;
+  font-weight: 500; }
 
 .underlined {
   border-bottom: 2px solid #22A09F; }
@@ -170,6 +171,9 @@ body {
   margin: 0 auto;
   height: 100%;
   background: #fff; }
+
+#main-content {
+  margin-bottom: 20px; }
 
 .button {
   transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
@@ -266,9 +270,8 @@ body {
 
 .react-calendar {
   width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-  border: transparent; }
+  max-width: 500px;
+  margin: 0 auto; }
   .react-calendar abbr[title] {
     text-decoration: none; }
   .react-calendar__viewContainer {
@@ -294,9 +297,9 @@ body {
     font-weight: 600;
     background-color: transparent; }
   .react-calendar__tile {
-    border: 1px solid #0E0E0E;
+    border: 0;
     box-sizing: border-box;
-    outline: none;
+    outline: 2px solid #0E0E0E;
     max-width: 100%;
     height: 50px;
     text-align: center;
@@ -313,14 +316,14 @@ body {
       height: 17px; }
   .react-calendar__month-view__days {
     display: flex;
-    flex-wrap: wrap;
-    border: 1px solid #0E0E0E; }
+    flex-wrap: wrap; }
   .react-calendar__month-view__weekdays {
     display: flex;
     text-align: center;
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 12px; }
+    font-size: 12px;
+    margin-bottom: 5px; }
   .react-calendar__year-view__months__month {
     font-family: "Poppins", sans-serif;
     font-weight: 600;
@@ -332,6 +335,8 @@ body {
     display: flex;
     justify-content: center;
     margin-bottom: 15px; }
+  .history__results {
+    margin-bottom: 25px; }
 
 .toggle-month-year {
   position: relative;
@@ -389,4 +394,33 @@ body {
       left: 6px; }
 
 .bm-tab {
-  width: 100%; }
+  border: 2px solid #22A09F;
+  border-radius: 10px;
+  background-color: #DAF8F4; }
+  .bm-tab__wrapper {
+    margin-bottom: 5px; }
+  .bm-tab__content {
+    align-items: center;
+    display: inline-grid;
+    grid-template-columns: 60px auto 60px;
+    width: 100%;
+    padding: 2px 8px; }
+  .bm-tab__image {
+    grid-column: 1/2;
+    display: flex;
+    align-items: center;
+    border: 2px solid #0E0E0E;
+    border-radius: 10px;
+    width: 46px;
+    height: 45px;
+    background-color: #fff; }
+    .bm-tab__image svg {
+      width: 100%; }
+  .bm-tab__data {
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px; }
+  .bm-tab__button-row {
+    grid-column: 3; }

@@ -15,7 +15,6 @@ const History = () => {
 
     const bmByDateCount = bowelmovements.filter(bm => bm.date == dateSelection).length
 
-
     const monthTileContent = (({ date, view }) => (view === 'month' && bmDates.includes(date.toLocaleString('sv').split(' ')[0]) === true ? <span>&#128169;</span> : <span></span>))
 
     console.log(bmDates)
@@ -24,7 +23,6 @@ const History = () => {
             setBowelmovements(bowelmovements)
             setBMDates(bowelmovements.map(bm => bm.date))
         })
-       
     }, [])
 
     const handleShowYear = () => {
@@ -67,7 +65,7 @@ const History = () => {
                 onClickMonth={handleMonthChange}
                 view={view}
                 calendarType='US'
-                tileContent={ ({ date, view }) => (view === 'month' && bmDates.includes(date.toLocaleString('sv').split(' ')[0]) === true ? <span>&#128169;</span> : <span></span> )}
+                tileContent={({ date, view }) => (view === 'month' && bmDates.includes(date.toLocaleString('sv').split(' ')[0]) === true ? <span>&#128169;</span> : <span></span>)}
                 prev2Label={null}
                 next2Label={null}
                 maxDate={new Date()}
@@ -91,6 +89,7 @@ const History = () => {
                     })
                 }
             </div>
+
 
             <div className='history__button-row'>
                 <Link to='/bowelmovement/create' rel='path' state={{ preSelectedDate: dateSelection }} className='button button--link button--submit button__new-entry cta'>New Entry</Link>

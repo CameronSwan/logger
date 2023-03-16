@@ -1,9 +1,10 @@
 .react-calendar {
     $this: &;
+
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto;
-    border: transparent;
+    //border: transparent;
 
     abbr[title] {
         text-decoration: none;
@@ -47,9 +48,9 @@
     }
 
     &__tile {
-        border: 1px solid $color-table-borders;
+        border: 0;
         box-sizing: border-box;
-        outline: none;
+        outline: 2px solid $color-table-borders;
         max-width: 100%;
         height: 50px;
         text-align: center;
@@ -80,7 +81,7 @@
         &__days {
             display: flex;
             flex-wrap: wrap;
-            border: 1px solid $color-table-borders;
+            //border: 1px solid $color-table-borders;
         }
 
         &__weekdays {
@@ -89,6 +90,7 @@
             text-transform: uppercase;
             font-weight: 600;
             font-size: 12px;
+            margin-bottom: 5px;
         }
     }
 

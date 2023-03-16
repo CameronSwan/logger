@@ -131,6 +131,7 @@ strong {
 .small {
 	@include font-size($small-font-sizes);
 	font-family: $font-family-base;
+	font-weight: 500;
 }
 
 .underlined {
