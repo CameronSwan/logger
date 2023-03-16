@@ -74,7 +74,7 @@ const History = () => {
             />
 
             <h2 className='history__date label underlined'>{date.toDateString()}</h2>
-            <div className='history__results'>
+            { view === 'month' && <div className='history__results'>
                 {
                     bmByDateCount === 0 && <p>No bowel movements recorded.</p>
                 }
@@ -88,7 +88,7 @@ const History = () => {
                         )
                     })
                 }
-            </div>
+            </div>}
 
 
             <div className='history__button-row'>
