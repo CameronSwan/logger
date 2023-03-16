@@ -12,7 +12,6 @@
     }
 }
 
-
 .toggle-month-year {
     position: relative;
     display: block;
@@ -87,6 +86,8 @@
     border: 2px solid $color-input-borders;
     border-radius: 10px;
     background-color: $color-background-secondary;
+    width: 100%;
+    
     
     &__wrapper {
         margin-bottom: 5px;
@@ -97,13 +98,14 @@
         display: inline-grid;
         grid-template-columns: 60px auto 60px;
         width: 100%;
-        padding: 2px 8px;
+        
     }
 
     &__image {
         grid-column: 1/2;
         display: flex;
         align-items: center;
+        margin-left: 8px;
         border: 2px solid $color-table-borders;
         border-radius: 10px;
         width: 46px;

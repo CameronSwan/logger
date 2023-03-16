@@ -40,4 +40,11 @@
         background-color: $color-accent;
         color: $white;
     }
+
+    &--edit {
+        border-radius: 100px;
+        width: 50px;
+        height: 27px;
+        line-height: normal;
+    }
 }

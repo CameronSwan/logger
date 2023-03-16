@@ -201,6 +201,11 @@ body {
     height: 30px;
     background-color: #FF8D13;
     color: #fff; }
+  .button--edit {
+    border-radius: 100px;
+    width: 50px;
+    height: 27px;
+    line-height: normal; }
 
 .form {
   width: 100%; }
@@ -253,6 +258,25 @@ body {
     font-size: 14px;
     font-weight: 500;
     padding-left: 22px; }
+  .form__checkbox--styled label {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 45px;
+    cursor: pointer; }
+  .form__checkbox--styled input:checked + label {
+    background-color: #DAF8F4; }
+  .form__checkbox--image {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    border: 2px solid #0E0E0E;
+    border-radius: 10px;
+    width: 46px;
+    height: 45px;
+    background-color: #fff; }
+    .form__checkbox--image svg {
+      width: 100%; }
   .form__text-input, .form__textarea {
     margin-bottom: 4px;
     border: 2px solid #22A09F;
@@ -396,19 +420,20 @@ body {
 .bm-tab {
   border: 2px solid #22A09F;
   border-radius: 10px;
-  background-color: #DAF8F4; }
+  background-color: #DAF8F4;
+  width: 100%; }
   .bm-tab__wrapper {
     margin-bottom: 5px; }
   .bm-tab__content {
     align-items: center;
     display: inline-grid;
     grid-template-columns: 60px auto 60px;
-    width: 100%;
-    padding: 2px 8px; }
+    width: 100%; }
   .bm-tab__image {
     grid-column: 1/2;
     display: flex;
     align-items: center;
+    margin-left: 8px;
     border: 2px solid #0E0E0E;
     border-radius: 10px;
     width: 46px;

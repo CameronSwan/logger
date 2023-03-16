@@ -36,7 +36,7 @@ export const BowelMovement = (props) => {
                         <div className='bm-tab__symptoms small'>{symptomsArray.length}{symptomsArray.length === 1 ? ' Symptom' : ' Symptoms'}</div>
                     </div>
                     <div className='bm-tab__button-row'>
-                        <Link to={`/bowelmovement/edit/${props.bm._id}`} relative="path" title='Edit'>edit</Link>
+                        <Link to={`/bowelmovement/edit/${props.bm._id}`} relative="path" title='Edit' className='button--link button--edit button--submit cta'>✎</Link>
                     </div>
                 </div>
             </div>
