@@ -130,13 +130,13 @@ const Register = () => {
                         id='Terms Of Service'
                         value={agreeTOS}
                         onChange={handleChecked}
-                        className='form__checkbox-row form__checkbox--classic'
+                        className='form__checkbox-row form__checkbox--classic form__checkbox--large-label'
                     />
 
                     <Checkbox
                         id='Email Subscription'
                         label='I would like to receive emails and updates about Logger.'
-                        className='form__checkbox-row form__checkbox--classic'
+                        className='form__checkbox-row form__checkbox--classic form__checkbox--large-label'
                     />
                 </div>
 

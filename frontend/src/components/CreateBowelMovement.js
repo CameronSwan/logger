@@ -307,6 +307,7 @@ const CreateBowelMovement = () => {
                             <span className='label form__row'>Symptoms</span>
                             <button onClick={() => setSymptomModalIsOpen(true)} type='button' aria-label='Open Symptom Details' title='Symptom Details' className='button--info button'>?</button>
                         </legend>
+                        <div className='form__checkbox-row--classic-background'>
                         {
                             symptoms.map(symptom => {
                                 return (
@@ -321,6 +322,7 @@ const CreateBowelMovement = () => {
                                 )
                             })
                         }
+                        </div>
                     </fieldset>
                     <div className='form__error'>
                         {

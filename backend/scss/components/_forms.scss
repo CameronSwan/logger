@@ -12,19 +12,19 @@
 
     &__row {
         margin: 0 24px 15px 24px;
+    }
 
-        &--split {
-            display: flex;
-            flex-direction: column;
+    &__row--large {
+        margin: 0 0 15px 0;
+    }
 
-            @include media-query(s) {
-                flex-direction: row;
-                gap: 15px;
-            }
-        }
+    &__row--split {
+        display: flex;
+        flex-direction: column;
 
-        &--large {
-            margin: 0;
+        @include media-query(s) {
+            flex-direction: row;
+            gap: 15px;
         }
     }
 
@@ -42,15 +42,28 @@
 
     &__checkbox-row {
         display: flex;
-        align-items: flex-start;
-        margin-bottom: 15px;
+        align-items: center;
         width: 100%;
         padding: 0;
 
-        &--styled {
+        &--classic-background { // For classic checkboxes with a background
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-auto-flow: column;
+            gap: 10px;
+            align-items: center;
+            background-color: $color-background-secondary;
+            border-top: 2px solid $color-input-borders;
+            border-bottom: 2px solid $color-input-borders;
+            padding: 10px 24px;
+        }
+
+        &--styled { // For checkboxes with images
             background-color: $color-accent-CTA;
             align-items: center;
             justify-content: space-around;
+            margin-bottom: 2px;
             border-top: 2px solid $color-background-secondary;
             border-bottom: 2px solid $color-background-secondary;
             padding: 12px 0;
@@ -60,15 +73,26 @@
     &__checkbox--classic {
         input {
             flex-shrink: 0;
-            border: 2px solid $color-input-borders;
+            //outline: 2px solid $color-input-borders;
+
             width: 18px;
             height: 18px;
         }
 
         & label {
-            padding-left: 22px;
+            margin-left: 10px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+    }
+
+    &__checkbox--large-label {
+        align-items: flex-start;
+        margin-bottom: 15px;
+        & label {
+            margin-left: 20px;
             font-size: 14px;
-            font-weight: 500
+            font-weight: 500;
         }
     }
 
@@ -124,7 +148,7 @@
 
     &__text-input,
     &__textarea {
-        margin-bottom: 4px;
+        margin-bottom: 2px;
         box-sizing: border-box;
         border: 2px solid $color-input-borders;
         border-radius: 15px;

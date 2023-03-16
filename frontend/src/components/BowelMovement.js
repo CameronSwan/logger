@@ -40,7 +40,7 @@ export const BowelMovement = (props) => {
                     <div className='bm-tab__data-wrapper'>
                         <div className='bm-tab__data small p'><span className='strong'>Stool Type: </span>{stoolTypesArray.length === 1 ? stoolTypesArray[0] : 'Mix'}</div>
                         <div className='bm-tab__data small p'><span className='strong'>Colors: </span>{colorArray.join(', ')}</div>
-                        <div className='bm-tab__data small p'><span className='strong'>Symptoms: </span>{symptomsArray.join(', ')}</div>
+                        <div className='bm-tab__data small p'><span className='strong'>Symptoms: </span>{ symptomsArray.length > 0 ? symptomsArray.join(', ') : '0'}</div>
                         <div className='bm-tab__data small p'>
                             {props.bm.notes && <span><span className='strong'>Notes:</span><span> {notesDisplay}</span></span>
                             }
