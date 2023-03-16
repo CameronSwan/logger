@@ -205,7 +205,7 @@ body {
     text-align: center;
     padding: 1px;
     position: absolute;
-    top: -8px;
+    top: -3px;
     right: -8px;
     background-color: #fff;
     font-family: "Poppins", sans-serif;
@@ -252,9 +252,70 @@ body {
     padding: 0; }
     .form__checkbox-row--styled {
       background-color: #07CEB5;
+      align-items: center;
+      justify-content: space-around;
       border-top: 2px solid #DAF8F4;
       border-bottom: 2px solid #DAF8F4;
       padding: 12px 0; }
+  .form__checkbox--classic input {
+    flex-shrink: 0;
+    border: 2px solid #22A09F;
+    width: 18px;
+    height: 18px; }
+  .form__checkbox--classic label {
+    padding-left: 22px;
+    font-size: 14px;
+    font-weight: 500; }
+  .form__checkbox--styled {
+    position: relative;
+    width: 46px;
+    height: 45px;
+    border-radius: 10px; }
+    .form__checkbox--styled label {
+      position: relative;
+      display: block;
+      border-radius: 10px;
+      width: 100%;
+      height: 100%;
+      background-color: #fff; }
+    .form__checkbox--styled input {
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      margin: 0;
+      cursor: pointer; }
+    .form__checkbox--styled input:checked + label {
+      background-color: #FF8D13; }
+    .form__checkbox--styled input:hover + label, .form__checkbox--styled input:focus + label {
+      outline: 1px solid #0E0E0E; }
+  .form__checkbox--image {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border: 2px solid #0E0E0E;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%; }
+    .form__checkbox--image svg {
+      width: 100%; }
+  .form__text-input, .form__textarea {
+    margin-bottom: 4px;
+    box-sizing: border-box;
+    border: 2px solid #22A09F;
+    border-radius: 15px;
+    width: 100%;
+    height: 55px;
+    padding: 0 12px; }
+    .form__text-input:focus, .form__textarea:focus {
+      outline: 2px solid #22A09F;
+      background-color: #DAF8F4; }
+  .form__textarea {
+    height: 130px;
+    resize: none; }
   .form__button-row {
     display: flex;
     justify-content: center;
@@ -269,50 +330,6 @@ body {
     height: 21px;
     font-family: "Montserrat", sans-serif;
     text-align: end; }
-  .form__checkbox--classic input {
-    flex-shrink: 0;
-    border: 2px solid #22A09F;
-    width: 18px;
-    height: 18px; }
-  .form__checkbox--classic label {
-    font-size: 14px;
-    font-weight: 500;
-    padding-left: 22px; }
-  .form__checkbox--styled label {
-    position: relative;
-    display: inline-block;
-    border-radius: 10px;
-    width: 46px;
-    height: 45px;
-    cursor: pointer; }
-  .form__checkbox--styled input:checked + label {
-    background-color: #FF8D13; }
-  .form__checkbox--styled label {
-    background-color: #fff; }
-  .form__checkbox--image {
-    display: flex;
-    box-sizing: border-box;
-    align-items: center;
-    border: 2px solid #0E0E0E;
-    border-radius: 10px;
-    width: 46px;
-    height: 45px; }
-    .form__checkbox--image svg {
-      width: 100%; }
-  .form__text-input, .form__textarea {
-    margin-bottom: 4px;
-    border: 2px solid #22A09F;
-    border-radius: 15px;
-    box-sizing: border-box;
-    width: 100%;
-    height: 55px;
-    padding: 0 12px; }
-    .form__text-input:focus, .form__textarea:focus {
-      outline: 2px solid #22A09F;
-      background-color: #DAF8F4; }
-  .form__textarea {
-    height: 130px;
-    resize: none; }
 
 .react-calendar {
   width: 100%;

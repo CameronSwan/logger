@@ -315,7 +315,7 @@ const CreateBowelMovement = () => {
                                         key={symptom.name}
                                         value={symptom._id}
                                         name='symptomsSelected'
-                                        className={'checkbox--symptom'}
+                                        className={'form__checkbox-row form__checkbox--classic'}
                                         onChange={handleSelection}
                                     />
                                 )
