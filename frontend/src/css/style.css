@@ -175,16 +175,17 @@ a:not([class]) {
   color: inherit; }
 
 html {
-  height: 100%;
   background-color: grey; }
 
 body {
-  max-width: 500px;
   margin: 0 auto;
+  max-width: 500px;
+  height: 100%;
+  min-height: 100vh;
   background: #fff; }
 
 #main-content {
-  margin-bottom: 20px; }
+  padding-bottom: 20px; }
 
 .button {
   transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import dataService from '../services/dataService';
-import { BowelMovement } from './BowelMovement';
+import { BowelMovementTab } from './BowelMovementTab';
 import Calendar from 'react-calendar';
 import { Link } from 'react-router-dom';
 //import 'react-calendar/dist/Calendar.css';
@@ -17,7 +17,7 @@ const History = () => {
 
     const monthTileContent = (({ date, view }) => (view === 'month' && bmDates.includes(date.toLocaleString('sv').split(' ')[0]) === true ? <span>&#128169;</span> : <span></span>))
 
-    console.log(bmDates)
+    //console.log(bmDates)
     useEffect(() => {
         dataService.getBowelMovements(bowelmovements => {
             setBowelmovements(bowelmovements)
@@ -25,21 +25,22 @@ const History = () => {
         })
     }, [])
 
+
     const handleShowYear = () => {
         setShowYear(!showYear)
         showYear ? setView('month') : setView('year')
+        showYear ?? setDate(new Date());
+        setDateSelection(new Date().toLocaleString('sv').split(' ')[0]) 
     }
 
     const handleDateChange = (e) => {
         setDate(e)
         setDateSelection(new Date(e).toLocaleString('sv').split(' ')[0])
-        console.log(dateSelection)
     }
 
     const handleMonthChange = (e) => {
-        setDate(e)
-        console.log(e.toLocaleString('sv').split(' ')[0])
         handleShowYear()
+        handleDateChange(e)
     }
 
     return (
@@ -73,7 +74,7 @@ const History = () => {
                 prevLabel='←'
             />
 
-            <h2 className='history__date label underlined'>{date.toDateString()}</h2>
+            { view ==='month' && <h2 className='history__date label underlined'>{date.toDateString()}</h2>}
             { view === 'month' && <div className='history__results'>
                 {
                     bmByDateCount === 0 && <p>No bowel movements recorded.</p>
@@ -81,7 +82,7 @@ const History = () => {
                 {
                     bowelmovements.filter(bm => bm.date === dateSelection).map(bowelmovement => {
                         return (
-                            <BowelMovement
+                            <BowelMovementTab
                                 key={bowelmovement._id}
                                 bm={bowelmovement}
                             />

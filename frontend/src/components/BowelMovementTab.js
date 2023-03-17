@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import dataService from '../services/dataService';
 import { Link } from "react-router-dom";
 
-export const BowelMovement = (props) => {
+export const BowelMovementTab = (props) => {
     const displayTime = new Date(`${props.bm.date} ${props.bm.time}`).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
     let svg = props.bm.stoolTypes.map(stoolType => stoolType.svg)
 
