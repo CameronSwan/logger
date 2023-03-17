@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*  
 	Reset Style Sheet
 	Source: http://meyerweb.com/eric/tools/css/reset/ 
@@ -12,7 +13,7 @@ a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
-dl, dt, dd, ol, ul, li,
+dl, dt, dd,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
@@ -34,9 +35,6 @@ footer, header, hgroup, menu, nav, section {
 body {
   line-height: 1; }
 
-ol, ul {
-  list-style: none; }
-
 blockquote, q {
   quotes: none; }
 
@@ -56,35 +54,22 @@ body {
   color: #252020; }
 
 h1, .h1 {
-  font-size: 25px;
-  line-height: 1.2;
-  font-family: "Poppins", sans-serif; }
-  @media screen and (min-width: 360px) {
-    h1, .h1 {
-      font-size: 25px; } }
-  @media screen and (min-width: 481px) {
-    h1, .h1 {
-      font-size: 30px; } }
+  font-size: 24px;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500; }
   @media screen and (min-width: 1024px) {
     h1, .h1 {
       font-size: 35px; } }
-  @media screen and (min-width: 1280px) {
-    h1, .h1 {
-      font-size: 40px; } }
 
 h2, .h2 {
-  font-size: 25px;
+  font-size: 20px;
   line-height: 1.2;
-  font-family: "Poppins", sans-serif; }
-  @media screen and (min-width: 360px) {
-    h2, .h2 {
-      font-size: 25px; } }
+  font-family: "Poppins", sans-serif;
+  font-weight: bold; }
   @media screen and (min-width: 1024px) {
     h2, .h2 {
       font-size: 30px; } }
-  @media screen and (min-width: 1280px) {
-    h2, .h2 {
-      font-size: 40px; } }
 
 h3, .h3 {
   font-size: 18px;
@@ -104,24 +89,18 @@ h3, .h3 {
 h4, .h4, h5, .h5 {
   margin-bottom: 2px;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.2;
   font-weight: bold;
   font-family: "Poppins", sans-serif; }
-  @media screen and (min-width: 768px) {
-    h4, .h4, h5, .h5 {
-      font-size: 14px; } }
   @media screen and (min-width: 1280px) {
     h4, .h4, h5, .h5 {
       font-size: 16px; } }
 
 p, .p, li, textarea {
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.2;
   font-weight: 500;
   font-family: "Poppins", sans-serif; }
-  @media screen and (min-width: 768px) {
-    p, .p, li, textarea {
-      font-size: 14px; } }
   @media screen and (min-width: 1280px) {
     p, .p, li, textarea {
       font-size: 16px; } }
@@ -138,20 +117,28 @@ label, .label {
     label, .label {
       font-size: 22px; } }
 
-input {
+input, .input {
   font-size: 20px;
   line-height: 1.5;
   font-family: "Poppins", sans-serif;
   font-weight: 600; }
 
+input[type=time], input[type=date] {
+  font-size: 16px; }
+  @media screen and (min-width: 481px) {
+    input[type=time], input[type=date] {
+      font-size: 20px; } }
+
+strong, .strong {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: bolder; }
+
 .error {
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.2;
   font-family: "Montserrat", sans-serif;
   font-weight: 600; }
-  @media screen and (min-width: 768px) {
-    .error {
-      font-size: 14px; } }
   @media screen and (min-width: 1280px) {
     .error {
       font-size: 16px; } }
@@ -166,6 +153,20 @@ input {
   .cta:hover {
     color: #252020; }
 
+.small {
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500; }
+
+.underlined {
+  border-bottom: 2px solid #22A09F; }
+
+.link {
+  font-family: inherit;
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none; }
+
 a:not([class]) {
   font-size: inherit;
   text-transform: none;
@@ -174,24 +175,33 @@ a:not([class]) {
   color: inherit; }
 
 html {
-  height: 100%; }
+  background-color: grey; }
 
 body {
-  max-width: 500px;
   margin: 0 auto;
+  max-width: 500px;
   height: 100%;
+  min-height: 100vh;
   background: #fff; }
+
+#main-content {
+  padding-bottom: 20px; }
 
 .button {
   transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-  border: 2px solid transparent;
+  border: none;
   border-radius: 100px;
   width: 210px;
   height: 60px;
   cursor: pointer; }
   .button:hover, .button:focus {
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5); }
+  .button--link {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px; }
   .button--submit {
     background-color: #07CEB5; }
     .button--submit:hover, .button--submit:focus {
@@ -199,13 +209,51 @@ body {
   .button--warning {
     background-color: #EA0E00; }
   .button--info {
-    width: 30px;
-    height: 30px;
-    background-color: #FF8D13;
-    color: #fff; }
+    border-radius: 50px;
+    box-sizing: content-box;
+    border: 2px solid #FF8D13;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    padding: 1px;
+    position: absolute;
+    top: -3px;
+    right: -8px;
+    background-color: #fff;
+    font-family: "Poppins", sans-serif;
+    line-height: 1;
+    font-weight: 600;
+    color: #FF8D13; }
+  .button--edit {
+    border-radius: 100px;
+    width: 50px;
+    height: 27px;
+    line-height: normal; }
+
+.link {
+  position: relative;
+  display: inline-block;
+  cursor: pointer; }
+  .link--with-arrow {
+    padding-right: 55px; }
+    .link--with-arrow::after {
+      content: ' →';
+      position: absolute;
+      top: calc(50% - 2px);
+      right: 25px;
+      transform: translateY(-50%);
+      transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
+      font-size: 25px;
+      font-family: monospace;
+      font-weight: bold; }
+    .link--with-arrow--focus, .link--with-arrow:hover {
+      transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s; }
+      .link--with-arrow--focus::after, .link--with-arrow:hover::after {
+        right: 20px; }
 
 .form {
-  width: 100%; }
+  width: 100%;
+  /* Checkbox Styling */ }
   .form__wrapper {
     display: flex;
     flex-direction: column;
@@ -213,25 +261,43 @@ body {
     margin-bottom: 15px;
     width: 100%; }
   .form__row {
-    margin-bottom: 15px;
-    padding: 0 24px; }
-    .form__row--split {
-      display: flex;
-      flex-direction: column;
-      padding: 0; }
-      @media screen and (min-width: 481px) {
-        .form__row--split {
-          flex-direction: row;
-          gap: 15px; } }
+    margin: 0 24px 15px 24px; }
+  .form__row--large {
+    margin: 0 0 15px 0; }
+  .form__row--split {
+    display: flex;
+    flex-direction: column; }
+    @media screen and (min-width: 360px) {
+      .form__row--split {
+        flex-direction: row;
+        gap: 10px; } }
+    @media screen and (min-width: 481px) {
+      .form__row--split {
+        gap: 15px; } }
   .form__half-row {
     flex: 100%; }
-    @media screen and (min-width: 481px) {
+    @media screen and (min-width: 360px) {
       .form__half-row {
-        flex: 50%; } }
-  .form__checkbox-row {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 15px; }
+        flex: calc(50% - 15px); } }
+  .form__legend {
+    position: relative; }
+  .form__text-input, .form__textarea {
+    margin-bottom: 2px;
+    box-sizing: border-box;
+    border: 2px solid #22A09F;
+    border-radius: 15px;
+    width: 100%;
+    height: 55px;
+    padding: 0 12px; }
+    .form__text-input:focus, .form__textarea:focus {
+      outline: 2px solid #22A09F;
+      background-color: #DAF8F4; }
+  .form__textarea {
+    height: 130px;
+    resize: none;
+    padding-top: 4px; }
+  .form__datetime {
+    padding: 0 10px; }
   .form__button-row {
     display: flex;
     justify-content: center;
@@ -246,26 +312,319 @@ body {
     height: 21px;
     font-family: "Montserrat", sans-serif;
     text-align: end; }
+  .form__checkbox-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0; }
+    .form__checkbox-row--classic-background {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-flow: column;
+      gap: 10px;
+      align-items: center;
+      background-color: #DAF8F4;
+      border-top: 2px solid #22A09F;
+      border-bottom: 2px solid #22A09F;
+      padding: 10px 20px; }
+      @media screen and (min-width: 481px) {
+        .form__checkbox-row--classic-background {
+          grid-template-rows: 1fr 1fr;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-auto-flow: column;
+          padding: 10px 24px; } }
+    .form__checkbox-row--styled {
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+      gap: 10px;
+      margin-bottom: 2px;
+      border-top: 2px solid #DAF8F4;
+      border-bottom: 2px solid #DAF8F4;
+      background-color: #07CEB5;
+      padding: 12px 0; }
   .form__checkbox--classic input {
     flex-shrink: 0;
-    border: 2px solid #22A09F;
     width: 18px;
-    height: 18px; }
+    height: 18px;
+    cursor: pointer; }
   .form__checkbox--classic label {
-    font-size: 14px;
-    font-weight: 500;
-    padding-left: 22px; }
-  .form__text-input, .form__textarea {
-    margin-bottom: 4px;
-    border: 2px solid #22A09F;
-    border-radius: 15px;
+    margin-left: 10px;
+    font-size: 12px;
+    font-weight: 600; }
+  .form__checkbox--large-label {
+    align-items: flex-start;
+    margin-bottom: 15px; }
+    .form__checkbox--large-label label {
+      margin-left: 20px;
+      font-size: 14px;
+      font-weight: 500; }
+  .form__checkbox--styled {
+    position: relative;
+    width: 46px;
+    height: 45px;
+    border-radius: 10px; }
+    .form__checkbox--styled label {
+      position: relative;
+      display: block;
+      border-radius: 10px;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      cursor: pointer; }
+    .form__checkbox--styled input {
+      display: none; }
+    .form__checkbox--styled input:checked + label {
+      background-color: #FF8D13; }
+    .form__checkbox--styled input:hover + label,
+    .form__checkbox--styled input:focus + label {
+      outline: 1px solid #0E0E0E; }
+  .form__checkbox--image {
+    display: flex;
+    align-items: center;
     box-sizing: border-box;
+    border: 2px solid #0E0E0E;
+    border-radius: 10px;
     width: 100%;
-    height: 55px;
-    padding: 0 12px; }
-    .form__text-input:focus, .form__textarea:focus {
-      outline: 2px solid #22A09F;
+    height: 100%; }
+    .form__checkbox--image svg {
+      width: 100%; }
+
+.react-calendar {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 14px auto; }
+  .react-calendar abbr[title] {
+    text-decoration: none; }
+  .react-calendar__viewContainer {
+    box-sizing: border-box; }
+  .react-calendar__navigation {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    margin-bottom: 1em; }
+    .react-calendar__navigation button {
+      cursor: pointer;
+      border: 0;
+      margin: 0; }
+    .react-calendar__navigation__prev-button, .react-calendar__navigation__next-button {
+      font-size: 30px;
+      font-family: monospace;
+      background-color: transparent; }
+      .react-calendar__navigation__prev-button:hover, .react-calendar__navigation__prev-button:focus, .react-calendar__navigation__next-button:hover, .react-calendar__navigation__next-button:focus {
+        background-color: #DAF8F4; }
+  .react-calendar__navigation__label {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: transparent; }
+  .react-calendar__tile {
+    border: 0;
+    box-sizing: border-box;
+    outline: 2px solid #0E0E0E;
+    max-width: 100%;
+    height: 50px;
+    text-align: center;
+    background-color: #FFFAF1;
+    cursor: pointer; }
+    .react-calendar__tile:hover {
+      background-color: #07CEB5; }
+    .react-calendar__tile--active {
+      background-color: #07CEB5; }
+    .react-calendar__tile--now {
       background-color: #DAF8F4; }
-  .form__textarea {
-    height: 130px;
-    resize: none; }
+    .react-calendar__tile span {
+      display: block;
+      height: 17px; }
+  .react-calendar__month-view__days {
+    display: flex;
+    flex-wrap: wrap; }
+  .react-calendar__month-view__days__day {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500; }
+  .react-calendar__month-view__weekdays {
+    display: flex;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    margin-bottom: 5px; }
+  .react-calendar__year-view__months__month {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase; }
+
+.modal {
+  background-color: #fff; }
+  .modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 2px solid #0E0E0E;
+    background-color: #22A09F;
+    padding: 10px 0; }
+  .modal__close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    font-family: monospace;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s; }
+    .modal__close-button:hover {
+      font-weight: bold; }
+  .modal__image {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    height: 45px;
+    width: 45px;
+    border-radius: 10px;
+    border: 2px solid #0E0E0E;
+    background-color: #fff; }
+    .modal__image svg {
+      width: 100%; }
+  .modal__table {
+    display: grid;
+    grid-template-rows: 1fr; }
+  .modal__table-row {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: 4px;
+    border-bottom: 1px solid #0E0E0E; }
+    .modal__table-row:last-child {
+      flex-shrink: 1; }
+  .modal__subtitle {
+    margin: 0 10px;
+    flex-shrink: 0; }
+    .modal__table--symptoms .modal__subtitle {
+      width: 106px; }
+  .modal__info {
+    line-height: 1.2; }
+  .modal__footer {
+    width: 100%;
+    background-color: #22A09F;
+    padding: 10px 0;
+    display: flex;
+    justify-content: flex-end; }
+
+.history {
+  margin: 0 24px; }
+  .history__date {
+    margin-bottom: 14px; }
+  .history__results {
+    margin-bottom: 25px; }
+  .history__button-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 14px; }
+
+.toggle-month-year {
+  position: relative;
+  display: block;
+  margin: 14px auto;
+  width: 130px;
+  height: 40px;
+  cursor: pointer; }
+  .toggle-month-year input {
+    content: '';
+    opacity: 0;
+    width: 0;
+    height: 0; }
+  .toggle-month-year__slider {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    border: 2px solid #22A09F;
+    border-radius: 100px;
+    transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
+    width: 100%;
+    height: 100%;
+    background-color: #DAF8F4;
+    cursor: pointer; }
+    .toggle-month-year__slider:before {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 2px;
+      transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
+      box-sizing: border-box;
+      border: 2px solid transparent;
+      border-radius: 100px;
+      width: 64px;
+      height: 32px;
+      background-color: #07CEB5; }
+  input[value='true'] + .toggle-month-year__slider:before {
+    transform: translateX(58px); }
+  .toggle-month-year__labels {
+    position: absolute;
+    top: 11px;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease-in-out; }
+    .toggle-month-year__labels::after {
+      content: 'YEAR';
+      position: absolute;
+      right: 28px; }
+    .toggle-month-year__labels::before {
+      content: 'MONTH';
+      position: absolute;
+      left: 6px; }
+
+.bm-tab {
+  border: 2px solid #22A09F;
+  border-radius: 10px;
+  background-color: #DAF8F4;
+  width: 100%; }
+  .bm-tab__wrapper {
+    margin-bottom: 5px; }
+  .bm-tab__content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%; }
+  .bm-tab__image {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    margin-left: 8px;
+    border: 2px solid #0E0E0E;
+    border-radius: 10px;
+    width: 46px;
+    height: 45px;
+    background-color: #fff; }
+    .bm-tab__image svg {
+      width: 100%; }
+  .bm-tab__image-count {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #FF8D13;
+    top: 10px;
+    left: 20px; }
+  .bm-tab__data-wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    width: 100%;
+    max-width: calc(100% - 140px);
+    height: 55px; }
+  .bm-tab__data {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+  .bm-tab__button-row {
+    margin-right: 8px;
+    margin-left: auto; }

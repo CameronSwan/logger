@@ -1,0 +1,87 @@
+.modal {
+    $this: &;
+    background-color: $color-background-primary;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border-bottom: 2px solid $color-table-borders;
+        background-color: $color-background-header;
+        padding: 10px 0;
+    }
+
+    &__close-button {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: transparent;
+        border: none;
+        font-family: monospace;
+        font-size: 20px;
+        cursor: pointer;
+        transition: $transition;
+
+        &:hover {
+            font-weight: bold;
+        }
+    }
+
+    &__image {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        height: 45px;
+        width: 45px;
+        border-radius: 10px;
+        border: 2px solid $color-table-borders;
+        background-color: $color-background-primary;
+
+        svg {
+            width: 100%;
+        }
+    }
+
+    &__table {
+        display: grid;
+        grid-template-rows: 1fr;
+    }
+
+    &__table-row {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+
+
+
+        padding: 4px;
+        border-bottom: 1px solid $color-table-borders;
+
+        &:last-child {
+            flex-shrink: 1;
+        }
+    }
+
+    &__subtitle {
+        margin: 0 10px;
+        flex-shrink: 0;
+
+        .modal__table--symptoms & {
+            width: 106px;
+        }
+    }
+
+    &__info {
+        line-height: 1.2;
+    }
+
+    &__footer {
+        width: 100%;
+        background-color: $color-background-header;
+        padding: 10px 0;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+}

@@ -10,6 +10,8 @@ import LogIn from './components/LogIn';
 import CommunityGuidelines from './components/CommunityGuidelines';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import CreateBowelMovement from './components/CreateBowelMovement';
+import EditBowelMovement from './components/EditBowelMovement';
+import History from './components/History';
 
 
 const App = () => {
@@ -24,7 +26,9 @@ const App = () => {
             <Route path='/login' element={ <LogIn />}/>
             <Route path='/communityguidelines' element={ <CommunityGuidelines />}/>
             <Route element={<ProtectedRoutes/>}>
-              <Route path="/bowelmovement/create" element={<CreateBowelMovement/>}/>
+              <Route path='/bowelmovement/create' element={<CreateBowelMovement />}/>
+              <Route path='/bowelmovement/edit/:id' element={<EditBowelMovement />} />
+              <Route path='/bowelmovement/history' element={<History/>}/>
             </Route>
             <Route path='*' element= {< NotFound />}/>
           </Routes>

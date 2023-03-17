@@ -3,32 +3,95 @@
 
     transition: $transition;
     box-shadow: $button-shadow;
-    border: 2px solid transparent;
+    border: none;
     border-radius: 100px;
     width: 210px;
     height: 60px;
     cursor: pointer;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         box-shadow: $button-shadow-hover;
+    }
+
+    &--link {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 60px;
     }
 
     &--submit {
         background-color: $color-accent-CTA;
-        &:hover, &:focus {
+
+        &:hover,
+        &:focus {
             background-color: $color-accent-CTA-hover;
         }
     }
 
     &--warning {
-        background-color: $color-font-error;
+        background-color: $color-error;
     }
+
 
     &--info {
-        width: 30px;
-        height: 30px;
-        background-color: $color-accent;
-        color: $white;
+        border-radius: 50px;
+        box-sizing: content-box;
+        border: 2px solid $color-accent;
+        width: 15px;
+        height: 15px;
+        text-align: center;
+        padding: 1px;
+        position: absolute;
+        top: -3px;
+        right: -8px;
+
+        //margin-left: 10px;
+        // margin-bottom: 10px;
+        background-color: $color-background-primary;
+        font-family: $font-family-base;
+        line-height: 1;
+        font-weight: 600;
+        color: $color-accent;
+
     }
 
+    &--edit {
+        border-radius: 100px;
+        width: 50px;
+        height: 27px;
+        line-height: normal;
+    }
+}
+
+.link {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+
+    &--with-arrow {
+        padding-right: 55px;
+
+        &::after {
+            content: ' →';
+            position: absolute;
+            top: calc(50% - 2px);
+            right: 25px;
+            transform: translateY(-50%);
+            transition: $transition;
+            font-size: 25px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        &--focus,
+        &:hover {
+            transition: $transition;
+
+            &::after {
+                right: 20px;
+            }
+        }
+    }
 }
