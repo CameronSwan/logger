@@ -136,10 +136,12 @@
 
     // Checkboxes with classic box inputs
     &__checkbox--classic {
+        
         input {
             flex-shrink: 0;
             width: 18px;
             height: 18px;
+            cursor: pointer;
         }
 
         & label {
