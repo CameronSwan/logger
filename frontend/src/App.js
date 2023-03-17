@@ -8,6 +8,7 @@ import Main from './components/Main';
 import Register from './components/Register';
 import LogIn from './components/LogIn';
 import CommunityGuidelines from './components/CommunityGuidelines';
+import PrivacyPolicy from './components/PrivacyPolicy';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import CreateBowelMovement from './components/CreateBowelMovement';
 import EditBowelMovement from './components/EditBowelMovement';
@@ -25,6 +26,7 @@ const App = () => {
             <Route path='/register' element={ <Register />}/>
             <Route path='/login' element={ <LogIn />}/>
             <Route path='/communityguidelines' element={ <CommunityGuidelines />}/>
+            <Route path='/privacypolicy' element={ <PrivacyPolicy />}/>
             <Route element={<ProtectedRoutes/>}>
               <Route path='/bowelmovement/create' element={<CreateBowelMovement />}/>
               <Route path='/bowelmovement/edit/:id' element={<EditBowelMovement />} />
