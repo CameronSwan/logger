@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import dataService from '../services/dataService';
 
-const EditBowelMovement = (props) => {
+const ViewBowelMovement = () => {
 
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
@@ -10,7 +10,7 @@ const EditBowelMovement = (props) => {
     const [colors, setColors] = useState([]);
     const [symptoms, setSymptoms] = useState([]);
     const [notes, setNotes] = useState('');
-    //const [errors, setErrors] = useState({});
+
     const params = useParams();
 
     useEffect(()=> {
@@ -26,14 +26,15 @@ const EditBowelMovement = (props) => {
 
     return (
         <div>
-            <div>{date}</div>
-            <div>{time}</div>
-            <div>{stoolTypes.map(st => st.name)}</div>
-            <div>{colors.map(c=> c.name)}</div>
-            <div>{symptoms.map(s =>s.name)}</div>
-            <div>{notes}</div>
+            <h1>Bowel Movement</h1>
+            <div>Date: {date}</div>
+            <div>Time: {time}</div>
+            <div>Stool Types: {stoolTypes.map(st => st.name)}</div>
+            <div>Colors: {colors.map(c => c.name)}</div>
+            <div>Symptoms: {symptoms.map(s => s.name)}</div>
+            <div>Notes: {notes}</div>
         </div>
     )
 }
 
-export default EditBowelMovement;
+export default ViewBowelMovement;
