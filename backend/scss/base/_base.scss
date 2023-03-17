@@ -13,3 +13,11 @@ body {
 #main-content {
     padding-bottom: 20px;
 }
+
+.outside-spacing {
+	margin: $container-margin
+}
+
+.bottom-spacing {
+    margin-bottom: 14px;
+}

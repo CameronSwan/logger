@@ -36,6 +36,9 @@
 
 
     &--info {
+        position: absolute;
+        top: -3px;
+        right: -8px;
         border-radius: 50px;
         box-sizing: content-box;
         border: 2px solid $color-accent;
@@ -43,18 +46,11 @@
         height: 15px;
         text-align: center;
         padding: 1px;
-        position: absolute;
-        top: -3px;
-        right: -8px;
-
-        //margin-left: 10px;
-        // margin-bottom: 10px;
         background-color: $color-background-primary;
         font-family: $font-family-base;
         line-height: 1;
         font-weight: 600;
         color: $color-accent;
-
     }
 
     &--edit {

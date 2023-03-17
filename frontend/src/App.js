@@ -11,7 +11,11 @@ import CommunityGuidelines from './components/CommunityGuidelines';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import CreateBowelMovement from './components/CreateBowelMovement';
 import EditBowelMovement from './components/EditBowelMovement';
+import ViewBowelMovement from './components/ViewBowelMovement';
 import History from './components/History';
+import Analysis from './components/Analysis';
+import Community from './components/Community';
+import Info from './components/Info';
 
 
 const App = () => {
@@ -21,16 +25,20 @@ const App = () => {
         <NavBar />
         <div id="main-content">
           <Routes>
-            <Route path='/' element={ <Main /> }/>
-            <Route path='/register' element={ <Register />}/>
-            <Route path='/login' element={ <LogIn />}/>
-            <Route path='/communityguidelines' element={ <CommunityGuidelines />}/>
-            <Route element={<ProtectedRoutes/>}>
-              <Route path='/bowelmovement/create' element={<CreateBowelMovement />}/>
+            <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<LogIn />} />
+            <Route path='/communityguidelines' element={<CommunityGuidelines />} />
+            <Route element={<ProtectedRoutes />}>
+              <Route path='/' element={<Main />} />
+              <Route path='/info' element={<Info />} />
+              <Route path='/community' element={<Community />} />
+              <Route path='/bowelmovement/create' element={<CreateBowelMovement />} />
               <Route path='/bowelmovement/edit/:id' element={<EditBowelMovement />} />
-              <Route path='/bowelmovement/history' element={<History/>}/>
+              <Route path='/bowelmovement/:id' element={<ViewBowelMovement />} />
+              <Route path='/bowelmovement/history' element={<History />} />
+              <Route path='/bowelmovement/analysis' element={<Analysis />} />
             </Route>
-            <Route path='*' element= {< NotFound />}/>
+            <Route path='*' element={< NotFound />} />
           </Routes>
         </div>
       </BrowserRouter>
