@@ -17,7 +17,7 @@ const History = () => {
 
     // Count bowel movements by month
     const bmByMonthCount = bmDates.reduce((bmsByYearMonth, bm) => {
-        const yearMonth = bm.substring(0, 7);
+        const yearMonth = bm.substring(0, 7); // e.g. 2023-03
         if (!bmsByYearMonth[yearMonth]) {
             bmsByYearMonth[yearMonth] = 0;
         }
