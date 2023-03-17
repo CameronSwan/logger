@@ -53,6 +53,10 @@ $datetime-input-font-sizes: (
 	s: 20px
 );
 
+$logo-font-sizes: (
+	null: (32px, 1.5)
+);
+
 $cta-font-sizes: (
 	null: 20px
 );
@@ -117,6 +121,12 @@ strong, .strong {
 	font-size: inherit;
 	font-family: inherit;
 	font-weight: bolder;
+}
+
+.logo {
+	@include font-size($logo-font-sizes);
+	color: $color-logo;
+	text-decoration: none;
 }
 
 .error {

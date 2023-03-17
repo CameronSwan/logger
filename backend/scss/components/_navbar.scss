@@ -1,0 +1,33 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    height: 60px;
+    border-bottom: 2px solid $color-table-borders;
+    padding: 5px 10px;
+    background-color: $color-background-header;
+
+    &__logo-title {
+        transition: $transition;
+        text-shadow: $button-shadow;
+        display: flex;
+        gap: 10px;
+        justify-content: baseline;
+
+        &:hover {
+            text-shadow: $button-shadow-hover;
+        }
+
+        &:before {
+            display: inline-block;
+            content: '';
+            height: 42px;
+            width: 42px;
+            background-image: url('../../public/Logger.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}
