@@ -47,7 +47,7 @@ export const BowelMovementTab = (props) => {
                         </div>
                     </div>
                     <div className='bm-tab__button-row'>
-                        <Link to={`/bowelmovement/edit/${props.bm._id}`} relative="path" title='Edit' className='button--link button--edit button--submit cta'>✎</Link>
+                        <Link to={`/bowelmovement/edit/${props.bm._id}`} relative="path" title='Edit' className='button button--link button--edit button--submit cta'>✎</Link>
                     </div>
                 </div>
             </div>
