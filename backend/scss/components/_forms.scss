@@ -102,7 +102,6 @@
 
         // For classic checkbox rows with a background
         &--classic-background {
-
             display: grid;
             grid-template-rows: 1fr 1fr 1fr;
             grid-template-columns: 1fr 1fr;
@@ -112,24 +111,28 @@
             background-color: $color-background-secondary;
             border-top: 2px solid $color-input-borders;
             border-bottom: 2px solid $color-input-borders;
-            padding: 10px 24px;
+            padding: 10px 20px;
+            
 
             @include media-query(s) {
                 grid-template-rows: 1fr 1fr;
                 grid-template-columns: 1fr 1fr 1fr;
                 grid-auto-flow: column;
+                padding: 10px 24px;
             }
 
         }
 
         // For checkbox rows with images
         &--styled {
-            background-color: $color-accent-CTA;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: space-around;
+            gap: 10px;
             margin-bottom: 2px;
             border-top: 2px solid $color-background-secondary;
             border-bottom: 2px solid $color-background-secondary;
+            background-color: $color-accent-CTA;
             padding: 12px 0;
         }
     }
@@ -193,8 +196,8 @@
         }
     }
 
+    // The checkbox image being used
     &__checkbox--image {
-        // The checkbox image being used 
         display: flex;
         align-items: center;
         box-sizing: border-box;

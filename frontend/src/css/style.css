@@ -327,19 +327,22 @@ body {
       background-color: #DAF8F4;
       border-top: 2px solid #22A09F;
       border-bottom: 2px solid #22A09F;
-      padding: 10px 24px; }
+      padding: 10px 20px; }
       @media screen and (min-width: 481px) {
         .form__checkbox-row--classic-background {
           grid-template-rows: 1fr 1fr;
           grid-template-columns: 1fr 1fr 1fr;
-          grid-auto-flow: column; } }
+          grid-auto-flow: column;
+          padding: 10px 24px; } }
     .form__checkbox-row--styled {
-      background-color: #07CEB5;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-around;
+      gap: 10px;
       margin-bottom: 2px;
       border-top: 2px solid #DAF8F4;
       border-bottom: 2px solid #DAF8F4;
+      background-color: #07CEB5;
       padding: 12px 0; }
   .form__checkbox--classic input {
     flex-shrink: 0;
