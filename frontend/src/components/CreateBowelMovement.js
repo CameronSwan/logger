@@ -126,7 +126,7 @@ const CreateBowelMovement = () => {
                                     max={new Date().toLocaleString('sv').split(' ')[0]}
                                     value={date}
                                     onChange={e => setDate(e.target.value)}
-                                    className='form__text-input' />
+                                    className='form__text-input form__datetime' />
                             </div>
                         </div>
 
@@ -139,7 +139,7 @@ const CreateBowelMovement = () => {
                                     value={time}
                                     onChange={e => setTime(e.target.value)}
                                     step='60'
-                                    className='form__text-input' />
+                                    className='form__text-input form__datetime' />
                             </div>
                         </div>
                     </div>
@@ -201,6 +201,7 @@ const CreateBowelMovement = () => {
                                             title={stoolType.name}
                                             key={stoolType.name}
                                             value={stoolType._id}
+                                            id={stoolType.name}
                                             name='stoolTypesSelected'
                                             className={'form__checkbox--styled'}
                                             onChange={handleSelection}
@@ -265,6 +266,7 @@ const CreateBowelMovement = () => {
                                             title={color.name}
                                             key={color.name}
                                             value={color._id}
+                                            id={color.name}
                                             name='colorsSelected'
                                             className={'form__checkbox--styled'}
                                             onChange={handleSelection}
@@ -324,6 +326,7 @@ const CreateBowelMovement = () => {
                                             label={symptom.name}
                                             key={symptom.name}
                                             value={symptom._id}
+                                            id={symptom.name}
                                             name='symptomsSelected'
                                             className={'form__checkbox-row form__checkbox--classic'}
                                             onChange={handleSelection}

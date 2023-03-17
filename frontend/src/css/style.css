@@ -13,7 +13,7 @@ a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
-dl, dt, dd, ol, ul, li,
+dl, dt, dd,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
@@ -34,9 +34,6 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   line-height: 1; }
-
-ol, ul {
-  list-style: none; }
 
 blockquote, q {
   quotes: none; }
@@ -68,7 +65,8 @@ h1, .h1 {
 h2, .h2 {
   font-size: 20px;
   line-height: 1.2;
-  font-family: "Poppins", sans-serif; }
+  font-family: "Poppins", sans-serif;
+  font-weight: bold; }
   @media screen and (min-width: 1024px) {
     h2, .h2 {
       font-size: 30px; } }
@@ -125,6 +123,12 @@ input, .input {
   font-family: "Poppins", sans-serif;
   font-weight: 600; }
 
+input[type=time], input[type=date] {
+  font-size: 16px; }
+  @media screen and (min-width: 481px) {
+    input[type=time], input[type=date] {
+      font-size: 20px; } }
+
 strong, .strong {
   font-size: inherit;
   font-family: inherit;
@@ -177,7 +181,6 @@ html {
 body {
   max-width: 500px;
   margin: 0 auto;
-  height: 100%;
   background: #fff; }
 
 #main-content {
@@ -248,7 +251,8 @@ body {
         right: 20px; }
 
 .form {
-  width: 100%; }
+  width: 100%;
+  /* Checkbox Styling */ }
   .form__wrapper {
     display: flex;
     flex-direction: column;
@@ -262,17 +266,51 @@ body {
   .form__row--split {
     display: flex;
     flex-direction: column; }
-    @media screen and (min-width: 481px) {
+    @media screen and (min-width: 360px) {
       .form__row--split {
         flex-direction: row;
+        gap: 10px; } }
+    @media screen and (min-width: 481px) {
+      .form__row--split {
         gap: 15px; } }
   .form__half-row {
     flex: 100%; }
-    @media screen and (min-width: 481px) {
+    @media screen and (min-width: 360px) {
       .form__half-row {
-        flex: 50%; } }
+        flex: calc(50% - 15px); } }
   .form__legend {
     position: relative; }
+  .form__text-input, .form__textarea {
+    margin-bottom: 2px;
+    box-sizing: border-box;
+    border: 2px solid #22A09F;
+    border-radius: 15px;
+    width: 100%;
+    height: 55px;
+    padding: 0 12px; }
+    .form__text-input:focus, .form__textarea:focus {
+      outline: 2px solid #22A09F;
+      background-color: #DAF8F4; }
+  .form__textarea {
+    height: 130px;
+    resize: none;
+    padding-top: 4px; }
+  .form__datetime {
+    padding: 0 10px; }
+  .form__button-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px; }
+  .form__error {
+    height: 21px;
+    color: #EA0E00; }
+    .form__error--final {
+      text-align: center;
+      margin-bottom: 15px; }
+  .form__help {
+    height: 21px;
+    font-family: "Montserrat", sans-serif;
+    text-align: end; }
   .form__checkbox-row {
     display: flex;
     align-items: center;
@@ -328,17 +366,10 @@ body {
       border-radius: 10px;
       width: 100%;
       height: 100%;
-      background-color: #fff; }
-    .form__checkbox--styled input {
-      position: absolute;
-      z-index: 10;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      opacity: 0;
-      margin: 0;
+      background-color: #fff;
       cursor: pointer; }
+    .form__checkbox--styled input {
+      display: none; }
     .form__checkbox--styled input:checked + label {
       background-color: #FF8D13; }
     .form__checkbox--styled input:hover + label,
@@ -354,34 +385,6 @@ body {
     height: 100%; }
     .form__checkbox--image svg {
       width: 100%; }
-  .form__text-input, .form__textarea {
-    margin-bottom: 2px;
-    box-sizing: border-box;
-    border: 2px solid #22A09F;
-    border-radius: 15px;
-    width: 100%;
-    height: 55px;
-    padding: 0 12px; }
-    .form__text-input:focus, .form__textarea:focus {
-      outline: 2px solid #22A09F;
-      background-color: #DAF8F4; }
-  .form__textarea {
-    height: 130px;
-    resize: none; }
-  .form__button-row {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px; }
-  .form__error {
-    height: 21px;
-    color: #EA0E00; }
-    .form__error--final {
-      text-align: center;
-      margin-bottom: 15px; }
-  .form__help {
-    height: 21px;
-    font-family: "Montserrat", sans-serif;
-    text-align: end; }
 
 .react-calendar {
   width: 100%;
