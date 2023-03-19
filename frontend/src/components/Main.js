@@ -8,7 +8,7 @@ const Main = () => {
             <h1 className='underlined bottom-spacing'>Hello</h1>
             <div>
             <p>Coming soon!</p>
-            <div className='main__button-row'>
+            <div className='form__button-row'>
                 <Link to='/bowelmovement/create' rel='path' className='button button--link button--submit button__new-entry cta'>New Entry</Link>
             </div>
             </div>
