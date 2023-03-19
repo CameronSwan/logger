@@ -183,36 +183,6 @@ const EditBowelMovement = (props) => {
                 </div>
 
                 <div className='form__row--large'>
-                    <Modal
-                        key='stoolTypeModal'
-                        isOpen={stoolTypeModalIsOpen}
-                        onRequestClose={() => setStoolTypeModalIsOpen(false)}
-                        style={customStyles}
-                        contentLabel='Bristol Stool Chart Details'
-                        contentClassName='custom-modal'
-                    >
-                        <div className='modal'>
-                            <div className='modal__header'>
-                                <h2 className='modal__title h3'>Bistol Stool Scale</h2>
-                                <button className='modal__close-button' onClick={() => setStoolTypeModalIsOpen(false)} aria-label='Close' title='Close'>✖</button>
-                            </div>
-                            <div className='modal__table modal__table--stooltypes'>
-                                {stoolTypes.map(stoolType => {
-                                    return (
-                                        <div key={stoolType.name} className='modal__table-row'>
-                                            <div className='modal__image' dangerouslySetInnerHTML={{ __html: stoolType.svg }}></div>
-                                            <div className='modal__subtitle label'>{stoolType.name}</div>
-                                            <div className='modal__info small'>{stoolType.description}</div>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                            <div className='modal__footer'>
-                                <Link to='/info' relative='path' className='modal__link link link--with-arrow'>Learn More</Link>
-                            </div>
-                        </div>
-                    </Modal>
-
                     <fieldset>
                         <legend className='form__legend'>
                             <span className='label form__row'>Bristol Stool Scale</span>
@@ -246,36 +216,6 @@ const EditBowelMovement = (props) => {
                 </div>
 
                 <div className='form__row--large'>
-                    <Modal
-                        key='colorModal'
-                        isOpen={colorModalIsOpen}
-                        onRequestClose={() => setColorModalIsOpen(false)}
-                        style={customStyles}
-                        contentLabel='Color Details'
-                    >
-                        <div className='modal'>
-                            <div className='modal__header'>
-                                <h2 className='modal__title h3'>Colors</h2>
-                                <button className='modal__close-button' onClick={() => setColorModalIsOpen(false)} aria-label='Close' title='Close'>✖</button>
-                            </div>
-                            <div className='modal__table modal__table--colors'>
-                                {colors.map(color => {
-                                    return (
-                                        <div className='modal__table-row' key={color.name}>
-                                            <div><div className='modal__image'><svg width="31" height="32" viewBox="0 0 31 32" fill={color.hexCode} xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M9.89034 30.3976C9.89034 30.3976 26.139 26.1229 28.175 24.9612C30.2111 23.7995 29.41 22.3739 29.2929 21.9493C28.8537 20.3573 27.7359 19.8561 26.8177 19.8131C25.8994 19.77 4.14146 24.8042 3.82207 24.8042C3.50269 24.8042 0.3887 25.6647 1.10731 27.9881C1.6822 29.8469 3.68899 30.7132 4.46083 30.7418C6.03113 30.6271 9.89034 30.3976 9.89034 30.3976ZM9.89034 30.3976C10.2097 30.0104 27.0971 25.4496 28.734 25.1914C30.3708 24.9332 30.1313 26.7404 29.6123 28.6766C29.3791 29.5465 28.8936 30.2685 28.175 31C22.16 30.5984 9.63484 30.7074 9.89034 30.3976ZM8.01405 2C10.7554 3.13304 17.0127 7.28156 16.2381 8.02374C15.4635 8.76591 8.57297 11.4228 8.01405 11.2507C7.45513 11.0786 6.22361 9.66267 6.37721 8.66914C6.73642 6.3457 7.93412 6.73294 8.85235 6.3457C9.77058 5.95846 9.57096 6.32228 9.57096 5.227C9.57096 4.32344 8.29348 2.40158 8.01405 2ZM7.05581 12.1973C8.81243 11.1033 16.3006 8.02374 17.7552 8.02374C19.4718 8.02374 20.4699 8.84125 20.7893 9.87389C21.1087 10.9065 21.6676 12.4985 20.7893 13.0579C19.911 13.6172 9.33082 17.0163 8.01405 17.0163C6.25744 17.0163 6.01781 14.5638 7.05581 12.1973ZM6.37721 24.2521C5.39245 23.9366 3.98184 23.0645 3.98184 21.6705C3.98184 18.049 6.73661 17.7908 8.01405 17.4466C9.2915 17.1024 22.4261 13.0579 23.3044 13.0579C24.2166 13.0579 25.5801 13.0579 26.0192 15.3383C26.4584 17.6187 26.8177 18.092 25.5801 19.3398C23.9298 21.0036 14.6012 22.0823 12.9644 22.7707C11.6549 23.3215 5.9514 24.4816 6.37721 24.2521Z" stroke="black" />
-                                            </svg></div></div>
-                                            <div className='modal__subtitle label'>{color.name}</div>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                            <div className='modal__footer'>
-                                <Link to='/info' relative='path' className='modal__link link link--with-arrow'>Learn More</Link>
-                            </div>
-                        </div>
-                    </Modal>
-
                     <fieldset>
                         <legend className='form__legend'>
                             <span className='label form__row'>Color</span>
@@ -312,35 +252,6 @@ const EditBowelMovement = (props) => {
                 </div>
 
                 <div className='form__row--large'>
-                    <Modal
-                        key='symptomModal'
-                        isOpen={symptomModalIsOpen}
-                        onRequestClose={() => setSymptomModalIsOpen(false)}
-                        style={customStyles}
-                        contentLabel='Symptoms Details'
-                    >
-                        <div className='modal'>
-                            <div className='modal__header'>
-                                <h2 className='modal__title h3'>Symptoms</h2>
-                                <button className='modal__close-button' onClick={() => setSymptomModalIsOpen(false)} aria-label='Close' title='Close'>✖</button>
-                            </div>
-                            <div className='modal__table modal__table--symptoms'>
-                                {symptoms.map(symptom => {
-                                    return (
-                                        <div className='modal__table-row'
-                                            key={symptom.name}>
-                                            <div className='modal__subtitle label'>{symptom.name}</div>
-                                            <div className='modal__info small'>{symptom.description}</div>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                            <div className='modal__footer'>
-                                <Link to='/info' relative='path' className='modal__link link link--with-arrow'>Learn More</Link>
-                            </div>
-                        </div>
-                    </Modal>
-
                     <fieldset>
                         <legend className='form__legend'>
                             <span className='label form__row'>Symptoms</span>
@@ -408,9 +319,94 @@ const EditBowelMovement = (props) => {
                 </div>
             </form>
 
-            <div>
-                <Modal
-                    key='Delete Warning Modal'
+            <div className='modals'>
+                <Modal key='stoolTypeModal'
+                    isOpen={stoolTypeModalIsOpen}
+                    onRequestClose={() => setStoolTypeModalIsOpen(false)}
+                    style={customStyles}
+                    contentLabel='Bristol Stool Chart Details'
+                    contentClassName='custom-modal'
+                >
+                    <div className='modal'>
+                        <div className='modal__header'>
+                            <h2 className='modal__title h3'>Bistol Stool Scale</h2>
+                            <button className='modal__close-button' onClick={() => setStoolTypeModalIsOpen(false)} aria-label='Close' title='Close'>✖</button>
+                        </div>
+                        <div className='modal__table modal__table--stooltypes'>
+                            {stoolTypes.map(stoolType => {
+                                return (
+                                    <div key={stoolType.name} className='modal__table-row'>
+                                        <div className='modal__image' dangerouslySetInnerHTML={{ __html: stoolType.svg }}></div>
+                                        <div className='modal__subtitle label'>{stoolType.name}</div>
+                                        <div className='modal__info small'>{stoolType.description}</div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        <div className='modal__footer'>
+                            <Link to='/info' relative='path' className='modal__link link link--with-arrow'>Learn More</Link>
+                        </div>
+                    </div>
+                </Modal>
+
+                <Modal key='colorModal'
+                    isOpen={colorModalIsOpen}
+                    onRequestClose={() => setColorModalIsOpen(false)}
+                    style={customStyles}
+                    contentLabel='Color Details'
+                >
+                    <div className='modal'>
+                        <div className='modal__header'>
+                            <h2 className='modal__title h3'>Colors</h2>
+                            <button className='modal__close-button' onClick={() => setColorModalIsOpen(false)} aria-label='Close' title='Close'>✖</button>
+                        </div>
+                        <div className='modal__table modal__table--colors'>
+                            {colors.map(color => {
+                                return (
+                                    <div className='modal__table-row' key={color.name}>
+                                        <div><div className='modal__image'><svg width="31" height="32" viewBox="0 0 31 32" fill={color.hexCode} xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.89034 30.3976C9.89034 30.3976 26.139 26.1229 28.175 24.9612C30.2111 23.7995 29.41 22.3739 29.2929 21.9493C28.8537 20.3573 27.7359 19.8561 26.8177 19.8131C25.8994 19.77 4.14146 24.8042 3.82207 24.8042C3.50269 24.8042 0.3887 25.6647 1.10731 27.9881C1.6822 29.8469 3.68899 30.7132 4.46083 30.7418C6.03113 30.6271 9.89034 30.3976 9.89034 30.3976ZM9.89034 30.3976C10.2097 30.0104 27.0971 25.4496 28.734 25.1914C30.3708 24.9332 30.1313 26.7404 29.6123 28.6766C29.3791 29.5465 28.8936 30.2685 28.175 31C22.16 30.5984 9.63484 30.7074 9.89034 30.3976ZM8.01405 2C10.7554 3.13304 17.0127 7.28156 16.2381 8.02374C15.4635 8.76591 8.57297 11.4228 8.01405 11.2507C7.45513 11.0786 6.22361 9.66267 6.37721 8.66914C6.73642 6.3457 7.93412 6.73294 8.85235 6.3457C9.77058 5.95846 9.57096 6.32228 9.57096 5.227C9.57096 4.32344 8.29348 2.40158 8.01405 2ZM7.05581 12.1973C8.81243 11.1033 16.3006 8.02374 17.7552 8.02374C19.4718 8.02374 20.4699 8.84125 20.7893 9.87389C21.1087 10.9065 21.6676 12.4985 20.7893 13.0579C19.911 13.6172 9.33082 17.0163 8.01405 17.0163C6.25744 17.0163 6.01781 14.5638 7.05581 12.1973ZM6.37721 24.2521C5.39245 23.9366 3.98184 23.0645 3.98184 21.6705C3.98184 18.049 6.73661 17.7908 8.01405 17.4466C9.2915 17.1024 22.4261 13.0579 23.3044 13.0579C24.2166 13.0579 25.5801 13.0579 26.0192 15.3383C26.4584 17.6187 26.8177 18.092 25.5801 19.3398C23.9298 21.0036 14.6012 22.0823 12.9644 22.7707C11.6549 23.3215 5.9514 24.4816 6.37721 24.2521Z" stroke="black" />
+                                        </svg></div></div>
+                                        <div className='modal__subtitle label'>{color.name}</div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        <div className='modal__footer'>
+                            <Link to='/info' relative='path' className='modal__link link link--with-arrow'>Learn More</Link>
+                        </div>
+                    </div>
+                </Modal>
+
+                <Modal key='symptomModal'
+                    isOpen={symptomModalIsOpen}
+                    onRequestClose={() => setSymptomModalIsOpen(false)}
+                    style={customStyles}
+                    contentLabel='Symptoms Details'
+                >
+                    <div className='modal'>
+                        <div className='modal__header'>
+                            <h2 className='modal__title h3'>Symptoms</h2>
+                            <button className='modal__close-button' onClick={() => setSymptomModalIsOpen(false)} aria-label='Close' title='Close'>✖</button>
+                        </div>
+                        <div className='modal__table modal__table--symptoms'>
+                            {symptoms.map(symptom => {
+                                return (
+                                    <div className='modal__table-row'
+                                        key={symptom.name}>
+                                        <div className='modal__subtitle label'>{symptom.name}</div>
+                                        <div className='modal__info small'>{symptom.description}</div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        <div className='modal__footer'>
+                            <Link to='/info' relative='path' className='modal__link link link--with-arrow'>Learn More</Link>
+                        </div>
+                    </div>
+                </Modal>
+
+                <Modal key='Delete Warning Modal'
                     isOpen={deleteModalIsOpen}
                     onRequestClose={() => setDeleteModalIsOpen(false)}
                     style={customStyles}
@@ -431,6 +427,7 @@ const EditBowelMovement = (props) => {
                     </div>
                 </Modal>
             </div>
+
         </div>
     )
 }
