@@ -17,12 +17,13 @@ const EditBowelMovement = (props) => {
     const [notes, setNotes] = useState('');
     const [errors, setErrors] = useState({});
 
-/* Modals */
+    /* Modals */
     //Sets whether each details modal is open
     Modal.setAppElement(document.getElementById('root'));
     const [stoolTypeModalIsOpen, setStoolTypeModalIsOpen] = useState(false);
     const [colorModalIsOpen, setColorModalIsOpen] = useState(false);
     const [symptomModalIsOpen, setSymptomModalIsOpen] = useState(false);
+    const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false)
 
     const customStyles = {
         content: {
@@ -84,10 +85,27 @@ const EditBowelMovement = (props) => {
         dataService.getBowelMovementById(params.id, bm => {
             setDate(bm.date)
             setTime(bm.time)
-            setCheckboxes({stoolTypesSelected: bm.stoolTypes.map(st => st._id), colorsSelected: bm.colors.map(c => c._id), symptomsSelected: bm.symptoms.map(s => s._id)})
+            setCheckboxes({ stoolTypesSelected: bm.stoolTypes.map(st => st._id), colorsSelected: bm.colors.map(c => c._id), symptomsSelected: bm.symptoms.map(s => s._id) })
             setNotes(bm.notes)
         })
     }, [])
+
+    /* Handle Delete */
+    const handleShowDeleteWarning = event => {
+        setDeleteModalIsOpen(true);
+    }
+
+    const handleDeleteBowelMovement = event => {
+        dataService.deleteBowelMovement(params.id, error => {
+            if (!error) {
+                setDeleteModalIsOpen(false);
+                navigate('/')
+            } else {
+                setDeleteModalIsOpen(false);
+                setErrors(error.data);
+            }
+        })
+    }
 
     /* Handle Submit */
     const handleSubmit = event => {
@@ -380,13 +398,39 @@ const EditBowelMovement = (props) => {
                     }
                 </div>
 
-                <div className='form__button-row'>
-                    <button type="submit" className='button button--submit cta'>
+                <div className='form__button-row form__button-row--split'>
+                    <button type='button' onClick={handleShowDeleteWarning} className='button button--warning button--half-size cta'>
+                        Delete
+                    </button>
+                    <button type='submit' className='button button--submit button--half-size cta'>
                         Save
                     </button>
                 </div>
-
             </form>
+
+            <div>
+                <Modal
+                    key='Delete Warning Modal'
+                    isOpen={deleteModalIsOpen}
+                    onRequestClose={() => setDeleteModalIsOpen(false)}
+                    style={customStyles}
+                    contentLabel='Delete Bowel Movement Warning'
+                    contentClassName='custom-modal'
+                >
+                    <div className='modal__content'>
+                        <div className='form__row--large cta'>Are you sure you want to delete this entry? This cannot be undone.</div>
+                        <div className='form__button-row form__button-row--split'>
+                            <button type='button' className='button button--cancel button--half-size cta' onClick={() => setDeleteModalIsOpen(false)}>
+                                Cancel
+                            </button>
+                            <button type='button' onClick={handleDeleteBowelMovement} className='button button--warning button--half-size cta'>
+                                Delete
+                            </button>
+
+                        </div>
+                    </div>
+                </Modal>
+            </div>
         </div>
     )
 }

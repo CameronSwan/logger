@@ -34,6 +34,15 @@
         background-color: $color-error;
     }
 
+    &--cancel {
+        background-color: $color-cancel;
+    }
+
+    &--half-size {
+        @include media-query(xs) {
+            width: 162px;
+        }
+    }
 
     &--info {
         position: absolute;

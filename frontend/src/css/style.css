@@ -220,6 +220,11 @@ body {
       background-color: #53EEDA; }
   .button--warning {
     background-color: #EA0E00; }
+  .button--cancel {
+    background-color: #959F94; }
+  @media screen and (min-width: 360px) {
+    .button--half-size {
+      width: 162px; } }
   .button--info {
     position: absolute;
     top: -3px;
@@ -278,11 +283,11 @@ body {
     margin: 0 0 15px 0; }
   .form__row--split {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    gap: 10px; }
     @media screen and (min-width: 360px) {
       .form__row--split {
-        flex-direction: row;
-        gap: 10px; } }
+        flex-direction: row; } }
     @media screen and (min-width: 481px) {
       .form__row--split {
         gap: 15px; } }
@@ -313,7 +318,15 @@ body {
   .form__button-row {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 15px; }
+    .form__button-row--split {
+      display: flex;
+      flex-direction: column;
+      gap: 18px; }
+      @media screen and (min-width: 360px) {
+        .form__button-row--split {
+          flex-direction: row; } }
   .form__error {
     height: 21px;
     color: #EA0E00; }
@@ -490,6 +503,10 @@ body {
     transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s; }
     .modal__close-button:hover {
       font-weight: bold; }
+  .modal__content {
+    max-width: 300px;
+    padding: 24px;
+    text-align: center; }
   .modal__image {
     display: flex;
     flex-shrink: 0;
@@ -503,12 +520,13 @@ body {
       width: 100%; }
   .modal__table {
     display: grid;
-    grid-template-rows: 1fr; }
+    grid-template-rows: 1fr;
+    max-width: 385px; }
   .modal__table-row {
     display: flex;
     gap: 4px;
     align-items: center;
-    padding: 4px;
+    padding: 8px 15px;
     border-bottom: 1px solid #0E0E0E; }
     .modal__table-row:last-child {
       flex-shrink: 1; }

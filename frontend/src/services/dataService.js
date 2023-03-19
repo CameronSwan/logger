@@ -56,5 +56,17 @@ class dataService {
         });
     }
 
+    deleteBowelMovement(id, callback) {
+        axios.delete(`${process.env.REACT_APP_API_URL}/bowelmovements/${id}`)
+        .then((response) => {
+            if (response.status === 200) {
+                callback(null)
+            }
+        })
+        .catch((err) => {
+            callback(err.response)
+        });
+    }
+
 }
 export default new dataService()

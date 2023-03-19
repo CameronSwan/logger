@@ -28,6 +28,12 @@
         }
     }
 
+    &__content {
+        max-width: 300px;
+        padding: 24px;
+        text-align: center;
+    }
+
     &__image {
         display: flex;
         flex-shrink: 0;
@@ -46,16 +52,14 @@
     &__table {
         display: grid;
         grid-template-rows: 1fr;
+        max-width: 385px;
     }
 
     &__table-row {
         display: flex;
         gap: 4px;
         align-items: center;
-
-
-
-        padding: 4px;
+        padding: 8px 15px;
         border-bottom: 1px solid $color-table-borders;
 
         &:last-child {
