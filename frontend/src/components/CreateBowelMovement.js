@@ -98,7 +98,7 @@ const CreateBowelMovement = () => {
                 date: date,
                 time: time,
                 notes: notes,
-                stooltypes: checkboxes.stoolTypesSelected, //array of ids
+                stoolTypes: checkboxes.stoolTypesSelected, //array of ids
                 colors: checkboxes.colorsSelected, //array of ids
                 symptoms: checkboxes.symptomsSelected, //array of ids
             }, error => {
@@ -182,7 +182,7 @@ const CreateBowelMovement = () => {
                                 })}
                             </div>
                             <div className='modal__footer'>
-                                <Link to='#' relative='path' className='modal__link link link--with-arrow'>Learn More</Link>
+                                <Link to='/info' relative='path' className='modal__link link link--with-arrow'>Learn More</Link>
                             </div>
                         </div>
                     </Modal>
@@ -244,7 +244,7 @@ const CreateBowelMovement = () => {
                                 })}
                             </div>
                             <div className='modal__footer'>
-                                <Link to='#' relative='path' className='modal__link link link--with-arrow'>Learn More</Link>
+                                <Link to='/info' relative='path' className='modal__link link link--with-arrow'>Learn More</Link>
                             </div>
                         </div>
                     </Modal>
@@ -308,7 +308,7 @@ const CreateBowelMovement = () => {
                                 })}
                             </div>
                             <div className='modal__footer'>
-                                <Link to='#' relative='path' className='modal__link link link--with-arrow'>Learn More</Link>
+                                <Link to='/info' relative='path' className='modal__link link link--with-arrow'>Learn More</Link>
                             </div>
                         </div>
                     </Modal>
