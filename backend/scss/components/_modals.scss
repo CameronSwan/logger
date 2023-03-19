@@ -52,6 +52,7 @@
     &__table {
         display: grid;
         grid-template-rows: 1fr;
+        gap: 4px;
         max-width: 385px;
     }
 
@@ -72,7 +73,7 @@
         flex-shrink: 0;
 
         .modal__table--symptoms & {
-            width: 106px;
+            min-width: 110px;
         }
     }
 

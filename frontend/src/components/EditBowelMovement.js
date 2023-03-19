@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import dataService from '../services/dataService';
 import Checkbox from './Checkbox';
 import Modal from 'react-modal';
@@ -88,7 +88,7 @@ const EditBowelMovement = (props) => {
             setCheckboxes({ stoolTypesSelected: bm.stoolTypes.map(st => st._id), colorsSelected: bm.colors.map(c => c._id), symptomsSelected: bm.symptoms.map(s => s._id) })
             setNotes(bm.notes)
         })
-    }, [])
+    }, [params.id])
 
     /* Handle Delete */
     const handleShowDeleteWarning = event => {

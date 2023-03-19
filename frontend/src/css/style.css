@@ -8,7 +8,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -521,6 +521,7 @@ body {
   .modal__table {
     display: grid;
     grid-template-rows: 1fr;
+    gap: 4px;
     max-width: 385px; }
   .modal__table-row {
     display: flex;
@@ -534,7 +535,7 @@ body {
     margin: 0 10px;
     flex-shrink: 0; }
     .modal__table--symptoms .modal__subtitle {
-      width: 106px; }
+      min-width: 110px; }
   .modal__info {
     line-height: 1.2; }
   .modal__footer {
