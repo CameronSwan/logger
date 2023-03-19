@@ -137,6 +137,7 @@ strong, .strong {
 .logo {
   font-size: 32px;
   line-height: 1.5;
+  font-weight: 600;
   color: #FFFAF1;
   text-decoration: none; }
 
@@ -574,7 +575,7 @@ body {
     .navbar__logo-title:before {
       display: inline-block;
       content: '';
-      height: 42px;
+      height: 48px;
       width: 42px;
       background-image: url("../../public/Logger.png");
       background-size: contain;

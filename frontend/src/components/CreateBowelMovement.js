@@ -296,8 +296,8 @@ const CreateBowelMovement = () => {
                 >
                     <div className='modal'>
                         <div className='modal__header'>
-                            <h2 className='modal__title h3'>Bistol Stool Scale</h2>
-                            <button className='modal__close-button' onClick={() => setStoolTypeModalIsOpen(false)} aria-label='Close' title='Close'>✖</button>
+                            <h2 className='modal__title'>Bistol Stool Scale</h2>
+                            <button className='modal__close-button' type='button'  onClick={() => setStoolTypeModalIsOpen(false)} aria-label='Close' title='Close'>✖</button>
                         </div>
                         <div className='modal__table modal__table--stooltypes'>
                             {stoolTypes.map(stoolType => {
@@ -324,8 +324,8 @@ const CreateBowelMovement = () => {
                 >
                     <div className='modal'>
                         <div className='modal__header'>
-                            <h2 className='modal__title h3'>Colors</h2>
-                            <button className='modal__close-button' onClick={() => setColorModalIsOpen(false)} aria-label='Close' title='Close'>✖</button>
+                            <h2 className='modal__title'>Colors</h2>
+                            <button className='modal__close-button' type='button'  onClick={() => setColorModalIsOpen(false)} aria-label='Close' title='Close'>✖</button>
                         </div>
                         <div className='modal__table modal__table--colors'>
                             {colors.map(color => {
@@ -353,8 +353,8 @@ const CreateBowelMovement = () => {
                 >
                     <div className='modal'>
                         <div className='modal__header'>
-                            <h2 className='modal__title h3'>Symptoms</h2>
-                            <button className='modal__close-button' onClick={() => setSymptomModalIsOpen(false)} aria-label='Close' title='Close'>✖</button>
+                            <h2 className='modal__title'>Symptoms</h2>
+                            <button className='modal__close-button' type='button'  onClick={() => setSymptomModalIsOpen(false)} aria-label='Close' title='Close'>✖</button>
                         </div>
                         <div className='modal__table modal__table--symptoms'>
                             {symptoms.map(symptom => {

@@ -125,6 +125,7 @@ strong, .strong {
 
 .logo {
 	@include font-size($logo-font-sizes);
+	font-weight: 600;
 	color: $color-logo;
 	text-decoration: none;
 }
