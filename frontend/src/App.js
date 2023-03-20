@@ -8,6 +8,7 @@ import Main from './components/Main';
 import Register from './components/Register';
 import LogIn from './components/LogIn';
 import CommunityGuidelines from './components/CommunityGuidelines';
+import TermsOfService from './components/TermsOfService';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import CreateBowelMovement from './components/CreateBowelMovement';
 import EditBowelMovement from './components/EditBowelMovement';
@@ -25,8 +26,9 @@ const App = () => {
         <NavBar />
         <div id="main-content">
           <Routes>
-            <Route path='/register' element={<Register />} />
-            <Route path='/login' element={<LogIn />} />
+            <Route path='/register' element={ <Register />}/>
+            <Route path='/login' element={ <LogIn />}/>
+            <Route path='/termsofservice' element={ <TermsOfService />}/>
             <Route path='/communityguidelines' element={<CommunityGuidelines />} />
             <Route element={<ProtectedRoutes />}>
               <Route path='/' element={<Main />} />
