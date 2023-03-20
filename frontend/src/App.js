@@ -8,6 +8,7 @@ import Main from './components/Main';
 import Register from './components/Register';
 import LogIn from './components/LogIn';
 import CommunityGuidelines from './components/CommunityGuidelines';
+import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import CreateBowelMovement from './components/CreateBowelMovement';
@@ -28,6 +29,7 @@ const App = () => {
           <Routes>
             <Route path='/register' element={ <Register />}/>
             <Route path='/login' element={ <LogIn />}/>
+            <Route path='/privacypolicy' element={ <PrivacyPolicy />}/>
             <Route path='/termsofservice' element={ <TermsOfService />}/>
             <Route path='/communityguidelines' element={<CommunityGuidelines />} />
             <Route element={<ProtectedRoutes />}>
