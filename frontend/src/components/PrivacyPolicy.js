@@ -98,8 +98,10 @@ return (
 
                 <h3>Use of Your Personal Data</h3>
             
-                <ul>
+                <p>
                     The Company may use Personal Data for the following purposes: 
+                </p>
+                <ul>
                     <li><strong>To provide and maintain our Service, </strong> 
                         including to monitor the usage of our Service.
                     </li>
