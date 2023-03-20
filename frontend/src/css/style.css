@@ -201,6 +201,10 @@ body {
   margin-bottom: 14px; }
 
 .button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
   border: none;
@@ -226,6 +230,17 @@ body {
   @media screen and (min-width: 360px) {
     .button--half-size {
       width: 162px; } }
+  .button--new-entry {
+    gap: 8px; }
+    .button--new-entry:before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 35px;
+      background-image: url("../img/icons/new-entry.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain; }
   .button--info {
     position: absolute;
     top: -3px;
@@ -547,13 +562,87 @@ body {
     justify-content: flex-end; }
 
 .tab {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
   border: 2px solid #22A09F;
   border-radius: 10px;
   padding: 10px;
   transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s; }
+  @media screen and (min-width: 360px) {
+    .tab {
+      flex-direction: column; } }
   .tab:hover {
     background-color: #DAF8F4; }
+  .tab__icon {
+    width: 40px;
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.5)); }
+    @media screen and (min-width: 360px) {
+      .tab__icon {
+        width: 90px; } }
+  .tab:after {
+    content: '>';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: monospace;
+    font-size: 30px;
+    font-weight: 100;
+    color: #22A09F; }
+    @media screen and (min-width: 360px) {
+      .tab:after {
+        content: ''; } }
+
+.bm-tab {
+  border: 2px solid #22A09F;
+  border-radius: 10px;
+  background-color: #DAF8F4;
+  width: 100%; }
+  .bm-tab__wrapper {
+    margin-bottom: 5px; }
+  .bm-tab__content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%; }
+  .bm-tab__image {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    margin-left: 8px;
+    border: 2px solid #0E0E0E;
+    border-radius: 10px;
+    width: 46px;
+    height: 45px;
+    background-color: #fff; }
+    .bm-tab__image svg {
+      width: 100%; }
+  .bm-tab__image-count {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #FF8D13;
+    top: 10px;
+    left: 20px; }
+  .bm-tab__data-wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    width: 100%;
+    max-width: calc(100% - 140px);
+    height: 55px; }
+  .bm-tab__data {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+  .bm-tab__button-row {
+    margin-right: 8px;
+    margin-left: auto; }
 
 .navbar {
   display: flex;
@@ -668,59 +757,11 @@ body {
       position: absolute;
       left: 6px; }
 
-.bm-tab {
-  border: 2px solid #22A09F;
-  border-radius: 10px;
-  background-color: #DAF8F4;
-  width: 100%; }
-  .bm-tab__wrapper {
-    margin-bottom: 5px; }
-  .bm-tab__content {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    width: 100%; }
-  .bm-tab__image {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    margin-left: 8px;
-    border: 2px solid #0E0E0E;
-    border-radius: 10px;
-    width: 46px;
-    height: 45px;
-    background-color: #fff; }
-    .bm-tab__image svg {
-      width: 100%; }
-  .bm-tab__image-count {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #FF8D13;
-    top: 10px;
-    left: 20px; }
-  .bm-tab__data-wrapper {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: center;
-    margin: 10px;
-    width: 100%;
-    max-width: calc(100% - 140px);
-    height: 55px; }
-  .bm-tab__data {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis; }
-  .bm-tab__button-row {
-    margin-right: 8px;
-    margin-left: auto; }
-
 .main__explore-tabs {
   display: grid;
   text-align: center;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
   gap: 14px; }
+  @media screen and (min-width: 360px) {
+    .main__explore-tabs {
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr; } }
