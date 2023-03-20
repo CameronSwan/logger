@@ -13,7 +13,7 @@ const History = () => {
     const [dateSelection, setDateSelection] = useState(new Date().toLocaleString('sv').split(' ')[0]);
 
     // Count bowel movements by date.
-    const bmByDateCount = bowelmovements.filter(bm => bm.date == dateSelection).length
+    const bmByDateCount = bowelmovements.filter(bm => bm.date === dateSelection).length
 
     // Count bowel movements by month
     const bmByMonthCount = bmDates.reduce((bmsByYearMonth, bm) => {
@@ -110,7 +110,7 @@ const History = () => {
             </div>}
 
             <div className='history__button-row'>
-                <Link to='/bowelmovement/create' rel='path' state={{ preSelectedDate: dateSelection }} className='button button--link button--submit button__new-entry cta'>New Entry</Link>
+                <Link to='/bowelmovement/create' rel='path' state={{ preSelectedDate: dateSelection }} className='button button--submit button--new-entry cta'>New Entry</Link>
             </div>
         </div>
     )

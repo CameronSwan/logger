@@ -21,10 +21,10 @@
     &__row--split {
         display: flex;
         flex-direction: column;
+        gap: 10px;
 
         @include media-query(xs) {
             flex-direction: row;
-            gap: 10px;
         }
 
         @include media-query(s) {
@@ -67,13 +67,24 @@
     }
 
     &__datetime {
-       padding: 0 10px;
+        padding: 0 10px;
     }
 
     &__button-row {
         display: flex;
         justify-content: center;
+        align-items: center;
         margin-bottom: 15px;
+
+        &--split {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+
+            @include media-query(xs) {
+                flex-direction: row;
+            }
+        }
     }
 
     &__error {
@@ -112,7 +123,7 @@
             border-top: 2px solid $color-input-borders;
             border-bottom: 2px solid $color-input-borders;
             padding: 10px 20px;
-            
+
 
             @include media-query(s) {
                 grid-template-rows: 1fr 1fr;
@@ -139,7 +150,7 @@
 
     // Checkboxes with classic box inputs
     &__checkbox--classic {
-        
+
         input {
             flex-shrink: 0;
             width: 18px;
@@ -172,6 +183,7 @@
         height: 45px;
         border-radius: 10px;
 
+
         label {
             position: relative;
             display: block;
@@ -179,6 +191,7 @@
             width: 100%;
             height: 100%;
             background-color: $color-background-primary;
+            outline: 1px solid transparent;
             cursor: pointer;
         }
 
