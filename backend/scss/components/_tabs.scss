@@ -1,0 +1,108 @@
+.tab {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:8px;
+    border: 2px solid $color-input-borders;
+    border-radius: 10px;
+    padding: 10px;
+    transition: $transition;
+
+    @include media-query(xs) {
+        flex-direction: column;
+    }
+
+    &:hover {
+        background-color: $color-background-secondary;
+    }
+
+    &__icon {
+        width: 40px;
+        filter: drop-shadow($button-shadow-hover);
+
+        @include media-query(xs) {
+            width: 90px;
+        }
+    }
+
+    &:after {
+        content: '>';
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-family: monospace;
+        font-size: 30px;
+        font-weight: 100;
+        color: $color-input-borders;
+        @include media-query(xs) {
+            content: ''
+        }
+    }
+}
+
+.bm-tab {
+    border: 2px solid $color-input-borders;
+    border-radius: 10px;
+    background-color: $color-background-secondary;
+    width: 100%;
+
+    &__wrapper {
+        margin-bottom: 5px;
+    }
+
+    &__content {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        width: 100%;
+    }
+
+    &__image {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        margin-left: 8px;
+        border: 2px solid $color-table-borders;
+        border-radius: 10px;
+        width: 46px;
+        height: 45px;
+        background-color: $color-background-primary;
+
+        svg {
+            width: 100%;
+        }
+    }
+
+    &__image-count {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: $color-accent;
+        top: 10px;
+        left: 20px;
+    }
+
+    &__data-wrapper {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        margin: 10px;
+        width: 100%;
+        max-width: calc(100% - 140px );
+        height: 55px;
+    }
+
+    &__data {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    &__button-row {
+        margin-right: 8px;
+        margin-left: auto;
+    }
+}

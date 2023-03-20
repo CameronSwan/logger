@@ -1,0 +1,23 @@
+.login {
+
+    &__title {
+        font-size: 50px;
+        margin-bottom: 14px;
+        text-shadow: $button-shadow;
+    }
+
+    &__image {
+        max-width: 100px;
+        filter: drop-shadow($button-shadow);
+    }
+
+    &__logo-topper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background: linear-gradient($color-background-header, $color-background-primary);
+        margin-bottom: 50px;
+    }
+}

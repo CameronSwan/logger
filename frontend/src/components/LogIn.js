@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import authService from '../services/authService';
+import logo from '../img/Logo.png';
 
 const LogIn = () => {
 
@@ -16,15 +17,21 @@ const LogIn = () => {
         setErrors({})
 
         authService.login({ email, password }, error => {
-
+            if (!error) {
+                navigate('/');
+            }
         })
     }
 
 
     return (
         <div className='form__wrapper'>
+            <div className='login__logo-topper'>
+                <h1 className='logo login__title'>Logger</h1>
+                <img className='login__image' src={logo} alt='Logger Logo'/>
+                <p className='h2'>a tracking app.</p>
+            </div>
             <form className='form' onSubmit={handleSubmit}>
-
                 <div className='form__row'>
                     <label htmlFor='inputEmail'>
                         Email

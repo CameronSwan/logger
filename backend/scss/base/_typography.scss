@@ -53,6 +53,10 @@ $datetime-input-font-sizes: (
 	s: 20px
 );
 
+$logo-font-sizes: (
+	null: (32px, 1.5)
+);
+
 $cta-font-sizes: (
 	null: 20px
 );
@@ -75,7 +79,7 @@ h1, .h1 {
 h2, .h2 {
 	@include font-size($h2-font-sizes);
 	font-family: $font-family-heading;
-	font-weight: bold;
+	font-weight: 600;
 }
 
 h3, .h3 {
@@ -119,6 +123,13 @@ strong, .strong {
 	font-weight: bolder;
 }
 
+.logo {
+	@include font-size($logo-font-sizes);
+	font-weight: 600;
+	color: $color-logo;
+	text-decoration: none;
+}
+
 .error {
 	@include font-size($p-font-sizes);
 	font-family: $font-family-accent;
@@ -150,7 +161,7 @@ strong, .strong {
 
 .link {
     font-family: inherit;
-    font-weight: bold;
+    font-weight: 600;
     color: inherit;
     text-decoration: none;
 }
