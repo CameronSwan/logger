@@ -35,9 +35,9 @@ const Register = () => {
             setTOSMessage('You must agree to the Terms of Service')
         } else {
             authService.register({ username, email, password }, error => {
-                // if (!error) {
-                //   navigate('/');
-                // }
+                if (!error) {
+                  navigate('/');
+                }
             })
         }
     }
@@ -45,7 +45,7 @@ const Register = () => {
     return (
         <div className='form__wrapper'>
             <form className='form' onSubmit={handleSubmit}>
-
+                <h1 className='underlined form__row'>Registration</h1>
                 <div className='form__row'>
                     <label htmlFor='inputUsername'>
                         Username
