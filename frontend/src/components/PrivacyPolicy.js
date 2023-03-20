@@ -96,8 +96,7 @@ return (
                     our Service or when You access the Service by or through a mobile device. 
                 </p>
 
-                <h3>Use of Your Personal Data</h3>
-            
+                <h3>Use of Your Personal Data</h3>           
                 <p>
                     The Company may use Personal Data for the following purposes: 
                 </p>
