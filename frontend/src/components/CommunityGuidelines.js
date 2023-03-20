@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
 const CommunityGuidelines = () => {
 
 return (
-        <div>
+        <div className="outside-spacing">
                 
-            <h1>Community Guidelines</h1>
+            <h1 className='underlined bottom-spacing'>Community Guidelines</h1>
                 
                 <h2>Poop Logger Community Guidelines and Anti-Harassment Policy</h2>
                 <p>

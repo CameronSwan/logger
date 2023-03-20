@@ -1,16 +1,18 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const NavBar = () => {
-	const navigate = useNavigate();
+	const location = useLocation();
+	let className = location.pathname === '/login' ? 'navbar--hidden' : 'navbar';
 
 	return (
-		<nav className='navbar'>
-			<div className='navbar__logo'>
-				<Link to='/' className='navbar__logo-title logo'>
-					<strong>Logger</strong>
-				</Link>
-			</div>
+		<nav className={className}>
+			{location.pathname !== '/login' &&
+				<div className='navbar__logo'>
+					<Link to='/' className='navbar__logo-title logo'>
+						Logger
+					</Link>
+				</div>}
 		</nav>
 	);
 };

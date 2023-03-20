@@ -64,7 +64,7 @@ router.post('/', [
         notes: req.body.notes || "", // Check If Notes Exists, Otherwise Add EMPTY Value.
         date: req.body.date,
         time: req.body.time,
-        stoolTypes: req.body.stooltypes,
+        stoolTypes: req.body.stoolTypes,
         colors: req.body.colors,
         symptoms: req.body.symptoms,
         userId: "6404e3ddf3eb44e1bc6c8b30" // Add Current Authenticated User ID.
@@ -97,7 +97,16 @@ router.put('/:id', [
     body('date').trim().escape(),
     body('time').trim().escape()
 ], (req, res) => {
-    const bowelMovementValidator = new BowelMovement(req.body)
+    const bowelMovementData = {
+        notes: req.body.notes || "", // Check If Notes Exists, Otherwise Add EMPTY Value.
+        date: req.body.date,
+        time: req.body.time,
+        stoolTypes: req.body.stoolTypes,
+        colors: req.body.colors,
+        symptoms: req.body.symptoms,
+        userId: "6404e3ddf3eb44e1bc6c8b30" // Add Current Authenticated User ID.
+    }
+    const bowelMovementValidator = new BowelMovement(bowelMovementData)
     const e = bowelMovementValidator.validateSync()
     if (e) res.status(422).send(e.errors)
     else {

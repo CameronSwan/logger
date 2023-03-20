@@ -1,6 +1,10 @@
 .button {
     $this: &;
 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: $transition;
     box-shadow: $button-shadow;
     border: none;
@@ -34,6 +38,29 @@
         background-color: $color-error;
     }
 
+    &--cancel {
+        background-color: $color-cancel;
+    }
+
+    &--half-size {
+        @include media-query(xs) {
+            width: 162px;
+        }
+    }
+
+    &--new-entry {
+        gap: 8px;
+        &:before {
+            content: '';
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background-image: url('../img/icons/new-entry.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+    }
 
     &--info {
         position: absolute;

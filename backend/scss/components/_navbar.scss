@@ -8,12 +8,16 @@
     padding: 5px 10px;
     background-color: $color-background-header;
 
+    &--hidden {
+        height: 60px;
+        background-color: $color-background-header;
+    }
+
     &__logo-title {
         transition: $transition;
         text-shadow: $button-shadow;
         display: flex;
         gap: 10px;
-        justify-content: baseline;
 
         &:hover {
             text-shadow: $button-shadow-hover;
@@ -22,7 +26,7 @@
         &:before {
             display: inline-block;
             content: '';
-            height: 42px;
+            height:48px;
             width: 42px;
             background-image: url('../../public/Logger.png');
             background-size: contain;

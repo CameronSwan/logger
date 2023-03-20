@@ -2,8 +2,11 @@
     &__explore-tabs {
         display: grid;
         text-align: center;
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
         gap: 14px;
+       
+        @include media-query(xs) {
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+        }
     }
 }
