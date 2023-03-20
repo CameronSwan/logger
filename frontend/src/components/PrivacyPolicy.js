@@ -213,7 +213,7 @@ return (
                 <h3>Disclosure of Your Personal Data</h3>
                 <h4>Business Transactions</h4>
                 <p>
-                If the Company is involved in a merger, acquisition or asset sale, Your Personal Data may be transferred. 
+                    If the Company is involved in a merger, acquisition or asset sale, Your Personal Data may be transferred. 
                     We will provide notice before Your Personal Data is transferred and becomes subject to a different Privacy Policy.
                 </p>
                     
@@ -223,8 +223,10 @@ return (
                     in response to valid requests by public authorities (e.g. a court or a government agency). 
 
                 <h4>Other legal requirements</h4>
-                <ul>
+                <p>
                     The Company may disclose Your Personal Data in the good faith belief that such action is necessary to: 
+                </p>
+                <ul>
                     <li>Comply with a legal obligation </li>
                     <li>Protect and defend the rights or property of the Company </li>
                     <li>Prevent or investigate possible wrongdoing in connection with the Service </li>
