@@ -7,23 +7,64 @@ import {
     Title,
     Tooltip,
     Legend,
+    defaults
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import dataService from '../services/dataService';
 
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend
-);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ChartDataLabels);
+defaults.font.family = 'Poppins';
+
+// Set Chrt Options
+let typesPerMonthOptions = {
+    indexAxis: 'y',
+    elements: {
+        bar: {
+            borderWidth: 0,
+        },
+    },
+    responsive: true,
+    plugins: {
+        legend: {
+            position: 'bottom',
+            labels: {
+                usePointStyle: true
+            },
+            maxHeight: 100
+        },
+        title: {
+            display: false,
+            text: 'Types of Bowel Movements per Month',
+        },
+        datalabels: {
+            display: function (context) {
+                return context.dataset.data[context.dataIndex] !== 0;
+            },
+            color: 'black',
+            formatter: Math.round,
+        },
+    },
+    maintainAspectRatio: false,
+};
+
+let bmChartColors = {
+    type1 : '#B4EEB4',
+    type2 : '#008080',
+    type3 : '#DAA520',
+    type4 : '#DD0808',
+    type5 : '#FAEBD7',
+    type6 : '#66CDAA',
+    type7 : '#9E5148',
+    mixed : '#959F94'
+}
+
 const Analysis = () => {
     const [bowelmovements, setBowelmovements] = useState([]);
     const [bmDates, setBMDates] = useState([]);
     const bmCount = bowelmovements.length
 
+    // Count # of Bowel Movements recorded for each date
     const bmByDayCount = bmDates.reduce((bmsByDay, bmDate) => {
         if (!bmsByDay[bmDate]) {
             bmsByDay[bmDate] = 0;
@@ -32,15 +73,15 @@ const Analysis = () => {
         return bmsByDay
     }, {});
 
-    const bmByDayCountSorted = Object.entries(bmByDayCount).sort(([, a], [, b]) => a - b).reverse()
-
+    // Count number of days with recorded data
     const bmDaysCount = Object.keys(bmByDayCount).length;
 
+    // Sort by highest amount
+    const bmByDayCountSorted = Object.entries(bmByDayCount).sort(([, a], [, b]) => a - b).reverse()
     const highestBmCountDate = Object.keys(bmByDayCount).reduce((a, b) => bmByDayCount[a] > bmByDayCount[b] ? a : b, {});
-
     const highestbmByDayCount = bmByDayCount[highestBmCountDate]
 
-    /* Charts */
+    // Sort bowel movements by month 
     const bmByMonth = bowelmovements.reduce((bmsByYearMonth, bm) => {
         const yearMonth = bm.date.substring(0, 7); // e.g. 2023-03
         if (!bmsByYearMonth[yearMonth]) {
@@ -50,145 +91,94 @@ const Analysis = () => {
         return bmsByYearMonth
     }, {});
 
-    let options = {
-        indexAxis: 'y',
-        elements: {
-            bar: {
-                borderWidth: 2,
-            },
-        },
-        responsive: true,
-        plugins: {
-            legend: {
-                position: 'bottom',
-            },
-            title: {
-                display: true,
-                text: 'Types of Bowel Movements per Month',
-            },
-        },
-        maintainAspectRatio: false
-    };
+    /* Charts */
+    const monthLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-    const labels = ['2023-03', '2023-02', '2023-01'];
+    const getTypeCount = (month, type) => {
+        month = new Date(` ${month} 2023`).toISOString().substring(0, 7)
+        let bms = bmByMonth[month]
+        let countType = 0
 
-    console.log()
-    let data = {
-        labels,
+        if (bms) {
+            if (type === 'Mixed') {
+                countType = bms.filter(bm => bm.stoolTypes.length > 1).length
+            } else {
+                countType = bms.filter(bm =>
+                    bm.stoolTypes.length === 1 && bm.stoolTypes.some(stoolType => stoolType.name === type)).length
+            }
+        }
+        return countType;
+    }
+
+    let typesPerMonthData = {
+        labels: monthLabels,
         datasets: [
             {
                 label: 'Type 1',
-                data: labels.map(label => {
-                    let bms = bmByMonth[label]
-                    if (bms) {
-                        let countType = bms.filter(bm =>
-                            bm.stoolTypes.length === 1 && bm.stoolTypes.some(stoolType => stoolType.name === 'Type 1')).length
-                        return countType
-                    } else return 0
+                data: monthLabels.map(label => {
+                    return getTypeCount(label, 'Type 1')
                 }),
-                backgroundColor: '#B4EEB4',
+                backgroundColor: bmChartColors.type1,
                 stack: 'Stack 0',
             },
             {
                 label: 'Type 2',
-                data: labels.map(label => {
-                    let bms = bmByMonth[label]
-                    if (bms) {
-                        let countType = bms.filter(bm =>
-                            bm.stoolTypes.length === 1 && bm.stoolTypes.some(stoolType => stoolType.name === 'Type 2')).length
-                        return countType
-                    } else return 0
+                data: monthLabels.map(label => {
+                    return getTypeCount(label, 'Type 2')
                 }),
-                backgroundColor: '#008080',
+                backgroundColor: bmChartColors.type2,
                 stack: 'Stack 0',
             },
             {
                 label: 'Type 3',
-                data: labels.map(label => {
-                    let bms = bmByMonth[label]
-                    if (bms) {
-                        let countType = bms.filter(bm =>
-                            bm.stoolTypes.length === 1 && bm.stoolTypes.some(stoolType => stoolType.name === 'Type 3')).length
-                        return countType
-                    } else return 0
+                data: monthLabels.map(label => {
+                    return getTypeCount(label, 'Type 3')
                 }),
-                backgroundColor: '#DAA520',
+                backgroundColor: bmChartColors.type3,
                 stack: 'Stack 0',
             },
             {
                 label: 'Type 4',
-                data: labels.map(label => {
-                    let bms = bmByMonth[label]
-                    if (bms) {
-                        let countType = bms.filter(bm =>
-                            bm.stoolTypes.length === 1 && bm.stoolTypes.some(stoolType => stoolType.name === 'Type 4')).length
-                        return countType
-                    } else return 0
+                data: monthLabels.map(label => {
+                    return getTypeCount(label, 'Type 4')
                 }),
-                backgroundColor: '#DD0808',
+                backgroundColor: bmChartColors.type4,
                 stack: 'Stack 0',
             },
             {
                 label: 'Type 5',
-                data: labels.map(label => {
-                    let bms = bmByMonth[label]
-                    if (bms) {
-                        let countType = bms.filter(bm =>
-                            bm.stoolTypes.length === 1 && bm.stoolTypes.some(stoolType => stoolType.name === 'Type 5')).length
-                        return countType
-                    } else return 0
+                data: monthLabels.map(label => {
+                    return getTypeCount(label, 'Type 5')
                 }),
-                backgroundColor: '#FAEBD7',
+                backgroundColor: bmChartColors.type5,
                 stack: 'Stack 0',
             },
             {
                 label: 'Type 6',
-                data: labels.map(label => {
-                    let bms = bmByMonth[label]
-                    if (bms) {
-                        let countType = bms.filter(bm =>
-                            bm.stoolTypes.length === 1 && bm.stoolTypes.some(stoolType => stoolType.name === 'Type 6')).length
-                        return countType
-                    } else return 0
+                data: monthLabels.map(label => {
+                    return getTypeCount(label, 'Type 6')
                 }),
-                backgroundColor: '#66CDAA',
+                backgroundColor: bmChartColors.type6,
                 stack: 'Stack 0',
             },
             {
                 label: 'Type 7',
-                data: labels.map(label => {
-                    let bms = bmByMonth[label]
-                    if (bms) {
-                        let countType = bms.filter(bm =>
-                            bm.stoolTypes.length === 1 && bm.stoolTypes.some(stoolType => stoolType.name === 'Type 7')).length
-                        return countType
-                    } else return 0
+                data: monthLabels.map(label => {
+                    return getTypeCount(label, 'Type 7')
                 }),
-                backgroundColor: '#9E5148',
+                backgroundColor: bmChartColors.type7,
                 stack: 'Stack 0',
             },
             {
                 label: 'Mixed',
-                data: labels.map(label => {
-                    let bms = bmByMonth[label]
-                    if (bms) {
-                        let countType = bms.filter(bm => bm.stoolTypes.length > 1)
-                        return countType
-                    } else return 0
+                data: monthLabels.map(label => {
+                    return getTypeCount(label, 'Mixed')
                 }),
-                backgroundColor: '#000000',
+                backgroundColor: bmChartColors.mixed,
                 stack: 'Stack 0',
             }
         ],
     };
-
-    // console.log(bmByDayCountSorted)
-    // console.log(highestBmCountDate)
-    //console.log(Object.keys(bmByDayCount).find(day => bmByDayCount[day] === highestbmByDayCount))
-
-    // console.log(Object.keys(bmByDayCount).filter(count => bmByDayCount[count] === highestbmByDayCount))
-
-    // console.log(bmByMonthCount)
 
     useEffect(() => {
         dataService.getBowelMovements(bowelmovements => {
@@ -201,19 +191,23 @@ const Analysis = () => {
     return (
         <div className='outside-spacing analysis'>
             <h1 className='underlined bottom-spacing'>Analysis</h1>
-            <div className='analysis__counts'>
+            <div className='analysis__counts bottom-spacing'>
                 <div>
-                    <div>{bmCount}</div>
-                    <span className='label'>Entries Recorded </span>
+                    <div><span className='label'>Entries Recorded: </span> {bmCount}</div>
+                    
                 </div>
 
                 <div>
-                    <div>{bmDaysCount}</div>
-                    <span className='label'>Days Recorded</span>
+                    <div><span className='label'>Days Recorded</span>: {bmDaysCount}</div>   
                 </div>
+
             </div>
-            <div>
-                <Bar options={options} data={data} height={300} />
+            <div className='analysis__type-bm-per-month'>
+                <h2 className='analysis__chart-title bottom-spacing outside-spacing'>Types of Bowel Movements per Month</h2>
+                <Bar options={typesPerMonthOptions} 
+                    data={typesPerMonthData} 
+                    height={500}
+                    title='Types of Bowel Movements per Month Chart'/>
             </div>
         </div>
     )
