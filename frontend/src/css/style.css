@@ -47,6 +47,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+/* Font sizes */
+/* Media Queries */
+/* Lightmode vs Darkmode Themes*/
 /*Colors*/
 /* Typography */
 body {
@@ -673,6 +676,15 @@ body {
       background-repeat: no-repeat;
       background-position: center; }
 
+.main__explore-tabs {
+  display: grid;
+  text-align: center;
+  gap: 14px; }
+  @media screen and (min-width: 360px) {
+    .main__explore-tabs {
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr; } }
+
 .login__title {
   font-size: 50px;
   margin-bottom: 14px;
@@ -757,11 +769,9 @@ body {
       position: absolute;
       left: 6px; }
 
-.main__explore-tabs {
-  display: grid;
-  text-align: center;
-  gap: 14px; }
-  @media screen and (min-width: 360px) {
-    .main__explore-tabs {
-      grid-template-rows: 1fr 1fr;
-      grid-template-columns: 1fr 1fr; } }
+.analysis__chart-title {
+  text-align: center; }
+
+.analysis__type-bm-per-month {
+  font-family: "Poppins", sans-serif;
+  height: 500px; }

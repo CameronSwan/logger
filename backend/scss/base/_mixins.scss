@@ -1,3 +1,4 @@
+/* Font sizes */
 // Source: https://www.smashingmagazine.com/2015/06/responsive-typography-with-sass-maps/
 
 @mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
@@ -38,6 +39,7 @@
     }
   }
   
+  /* Media Queries */
   //Source: https://jonsuh.com/blog/managing-responsive-breakpoints-with-sass-maps/
   
   @mixin media-query($mq-breakpoint, $mq-breakpoints: $breakpoints) {
@@ -50,4 +52,28 @@
     @media screen and (min-width: #{$mq-breakpoint}) {
       @content;
     }
+  }
+
+  /* Lightmode vs Darkmode Themes*/
+  //Source: https://medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
+  
+  @mixin themify($themes: $themes) {
+    @each $theme, $map in $themes {
+  
+      .theme-#{$theme} & {
+        $theme-map: () !global;
+        @each $key, $submap in $map {
+          $value: map-get(map-get($themes, $theme), '#{$key}');
+          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+        }
+  
+        @content;
+        $theme-map: null !global;
+      }
+  
+    }
+  }
+
+  @function themed($key) {
+    @return map-get($theme-map, $key);
   }
