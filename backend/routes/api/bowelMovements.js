@@ -1,7 +1,3 @@
-/**
- * @TODO Change 500 Errors => { serverMessage: "An Error Occured."}
- */
-
 const express = require('express')
 const router = express.Router()
 const { body } = require('express-validator')
@@ -18,9 +14,9 @@ router.get('/', (req, res) => {
 })
 
 /**
- * @param {ObjectId} req.params.id - User ID.
+ * @param {ObjectId} req.params.id - BowelMovement ID.
  * 
- * Retrieve All BowelMovements Created By User With Provided _id.
+ * Retrieve BowelMovement With Provided ID.
  */
 router.get('/:id', (req, res) => {
     BowelMovement.findById(req.params.id, (e, bowelMovement) => {
@@ -31,13 +27,12 @@ router.get('/:id', (req, res) => {
 })
 
 /**
- * @param {Object} req.body - Data For The BowelMovement Object.
  * @param {String} [req.body.notes] - Notes Provided By User About The BowelMovement.
  * @param {String} req.body.date - Date BowelMovement Was Created. YYYY-MM-DD.
  * @param {String} req.body.time - Time BowelMovement Was Created. HH:MM.
- * @param {Array} req.body.stooltypes - StoolTypes Related To BowelMovement.
- * @param {Array} req.body.colors - Colors Related To BowelMovement.
- * @param {Array} req.body.symptoms - Symptoms Related To BowelMovement.
+ * @param {Array[StoolType]} req.body.stooltypes - StoolTypes Related To BowelMovement.
+ * @param {Array[Color]} req.body.colors - Colors Related To BowelMovement.
+ * @param {Array[Symptom]} req.body.symptoms - Symptoms Related To BowelMovement.
  * 
  * Create New BowelMovement.
  */
@@ -73,15 +68,14 @@ router.post('/', [
 
 /**
  * @param {ObjectId} req.params.id - BowelMovement ID.
- * @param {Object} req.body - Data For The BowelMovement Object.
  * @param {String} [req.body.notes] - Notes Provided By User About The BowelMovement.
  * @param {String} req.body.date - Date BowelMovement Was Created. YYYY-MM-DD.
  * @param {String} req.body.time - Time BowelMovement Was Created. HH:MM.
- * @param {Array} req.body.stooltypes - StoolTypes Related To BowelMovement.
- * @param {Array} req.body.colors - Colors Related To BowelMovement.
- * @param {Array} req.body.symptoms - Symptoms Related To BowelMovement.
+ * @param {Array[StoolType]} req.body.stooltypes - StoolTypes Related To BowelMovement.
+ * @param {Array[Color]} req.body.colors - Colors Related To BowelMovement.
+ * @param {Array[Symptom]} req.body.symptoms - Symptoms Related To BowelMovement.
  * 
- * Update BowelMovement With Provided _id.
+ * Update BowelMovement With Provided ID.
  */
 router.put('/:id', [
     body('notes').trim().escape(),
@@ -103,7 +97,7 @@ router.put('/:id', [
 /**
  * @param {ObjectId} req.params.id - BowelMovement ID.
  * 
- * Delete BowelMovement With Provided _id.
+ * Delete BowelMovement With Provided ID.
  */
 router.delete('/:id', (req, res) => {
     BowelMovement.findByIdAndDelete(req.params.id, (e, bowelMovement) => {
