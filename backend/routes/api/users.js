@@ -38,16 +38,16 @@ router.post('/login', [
     body('password').trim().escape()
 ], (req, res) => {
     const userData = {
-        username: "aaaaa",
+        username: null,
         password: req.body.password,
-        phoneNumber: "902-123-4567",
+        phoneNumber: null,
         roleId: "6404db71f3eb44e1bc50b361", // User Role
         email: req.body.email,
         isVerified: false,
         userSymptoms: [],
-        verifiedBy: "aaaaa",
-        verifiedAt: Date.now(),
-        createdBy: "aaaaa",
+        verifiedBy: null,
+        verifiedAt: null,
+        createdBy: null,
         createdAt: Date.now()
     }
     const userValidator = new User(userData)
