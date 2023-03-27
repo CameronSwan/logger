@@ -4,7 +4,8 @@ const { Schema } = mongoose;
 const roleSchema = new Schema ({
 
     description: {
-        type: String
+        type: String,
+        maxLength: 512
     },
     name: {
         // enum is used any time you need to represent a fixed set of constants

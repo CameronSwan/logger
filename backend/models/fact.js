@@ -5,12 +5,14 @@ const factSchema = new Schema ({
 
     title: {
         type: String,
-        required: [true, 'Title is Required']
+        required: [true, 'Title is Required'],
+        maxLength: 32
     },
     description: {
         type: String,
         required: [true, 'Description is Required'],
-        unique: true
+        unique: true,
+        maxLength: 512
     }
 });
 

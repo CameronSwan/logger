@@ -37,15 +37,28 @@ router.post('/login', [
     body('email').trim().escape(),
     body('password').trim().escape()
 ], (req, res) => {
-    const userValidator = new User(req.body)
+    const userData = {
+        username: null,
+        password: req.body.password,
+        phoneNumber: null,
+        roleId: "6404db71f3eb44e1bc50b361", // User Role
+        email: req.body.email,
+        isVerified: false,
+        userSymptoms: [],
+        verifiedBy: null,
+        verifiedAt: null,
+        createdBy: null,
+        createdAt: null
+    }
+    const userValidator = new User(userData)
     const e = userValidator.validateSync()
     if (e) res.status(422).send(e.errors)
     else {
-        User.find({email: req.body.email}, (e, users) => {
+        User.find({email: userData.email}, (e, users) => {
             if (e) res.status(500).send({ serverMessage: "An Error Occured." })
             else if (users.length === 0) res.status(404).send({ serverMessage: "User Not Found."})
             else {
-                bcrypt.compare(req.body.password, users[0].password, (e, result) => {
+                bcrypt.compare(userData.password, users[0].password, (e, result) => {
                     if (e) res.status(500).send({ serverMessage: "An Error Occured." })
                     else if (!result) res.status(401).send({ serverMessage: "Invalid Login." })
                     else res.status(200).send()
