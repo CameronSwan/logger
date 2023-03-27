@@ -59,7 +59,6 @@ router.post('/login', [
  * @param {String} [req.body.username] - User Username.
  * @param {String} req.body.password - User Password, Encrypted.
  * @param {int} [req.body.phoneNumber] - User Phone Number.
- * @param {int} req.body.roleId - User Role ID.
  * @param {String} req.body.email - User Email.
  * @param {int} req.body.createdAt - Date User Was Created.
  * 
@@ -69,21 +68,33 @@ router.post('/register', [
     body('username').trim().escape(),
     body('password').trim().escape(),
     body('phoneNumber').trim().escape(),
-    body('roleId').trim().escape(),
     body('email').trim().escape()
 ], (req, res) => {
-    const userValidator = new User(req.body)
+    const userData = {
+        username: req.body.username,
+        password: req.body.password,
+        phoneNumber: req.body.phoneNumber,
+        roleId: "6404db71f3eb44e1bc50b361", // User Role
+        email: req.body.email,
+        isVerified: false,
+        userSymptoms: [],
+        verifiedBy: null,
+        verifiedAt: null,
+        createdBy: null,
+        createdAt: Date.now()
+    }
+    const userValidator = new User(userData)
     const e = userValidator.validateSync()
     if (e) res.status(422).send(e.errors)
     else {
-        User.find({email: req.body.email}, (e, user) => {
+        User.find({email: userData.email}, (e, user) => {
             if (e) res.status(500).send({ serverMessage: "An Error Occured." })
             else if (user.length > 0) res.status(400).send({ serverMessage: "Cannot Create User." })
             else {
-                bcrypt.hash(req.body.password, 10, (e, hash) => {
+                bcrypt.hash(userData.password, 10, (e, hash) => {
                     if (e) res.status(500).send({ serverMessage: "An Error Occured." })
-                    req.body.password = hash
-                    User.create(req.body, (e, user) => {
+                    userData.password = hash
+                    User.create(userData, (e, user) => {
                         if (e) res.status(500).send({ serverMessage: "An Error Occured." })
                         else if (!user) res.status(422).send(e.errors)
                         else res.status(201).send()
@@ -112,22 +123,35 @@ router.post('/create', [
     body('username').trim().escape(),
     body('password').trim().escape(),
     body('phoneNumber').trim().escape(),
-    body('roleId').trim().escape(),
     body('email').trim().escape(),
+    body('roleId').trim().escape(),
     body('isVerified').trim().escape()
 ], (req, res) => {
-    const userValidator = new User(req.body)
+    const userData = {
+        username: req.body.username,
+        password: req.body.password,
+        phoneNumber: req.body.phoneNumber,
+        roleId: req.body.roleId,
+        email: req.body.email,
+        isVerified: req.body.isVerified,
+        userSymptoms: [],
+        verifiedBy: req.body.verifiedBy || null,
+        verifiedAt: req.body.verifiedAt || null,
+        createdBy: req.body.createdBy || null,
+        createdAt: Date.now()
+    }
+    const userValidator = new User(userData)
     const e = userValidator.validateSync()
     if (e) res.status(422).send(e.errors)
     else {
-        User.find({email: req.body.email}, (e, user) => {
+        User.find({email: userData.email}, (e, user) => {
             if (e) res.status(500).send({ serverMessage: "An Error Occured." })
             else if (user.length > 0) res.status(400).send({ serverMessage: "Cannot Create User." })
             else {
-                bcrypt.hash(req.body.password, 10, (e, hash) => {
+                bcrypt.hash(userData.password, 10, (e, hash) => {
                     if (e) res.status(500).send({ serverMessage: "An Error Occured." })
-                    req.body.password = hash
-                    User.create(req.body, (e, user) => {
+                    userData.password = hash
+                    User.create(userData, (e, user) => {
                         if (e) res.status(500).send({ serverMessage: "An Error Occured." })
                         else if (!user) res.status(422).send(e.errors)
                         else res.status(201).send()
@@ -186,3 +210,5 @@ router.delete('/:id', (req, res) => {
         else res.status(404).send({ serverMessage: "User Not Found." })
     })
 })
+
+module.exports = router

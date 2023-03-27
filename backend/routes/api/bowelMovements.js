@@ -47,7 +47,7 @@ router.post('/', [
      * @TODO Change Hardcoded User To Variable
      */
     const bowelMovementData = {
-        notes: req.body.notes || "", // Check If Notes Exists, Otherwise Add EMPTY Value.
+        notes: req.body.notes || null,
         date: req.body.date,
         time: req.body.time,
         stoolTypes: req.body.stooltypes,
