@@ -47,12 +47,8 @@ router.post('/login', [
             else {
                 bcrypt.compare(req.body.password, users[0].password, (e, result) => {
                     if (e) res.status(500).send({ serverMessage: "An Error Occured." })
-                    else if (!result) res.status(401).send({ serverMessage: "Invalid Password." })
-                    else {
-                        /**
-                         * @TODO Authenticate User.
-                         */
-                    }
+                    else if (!result) res.status(401).send({ serverMessage: "Invalid Login." })
+                    else res.status(200).send()
                 })
             }
         })
@@ -82,19 +78,15 @@ router.post('/register', [
     else {
         User.find({email: req.body.email}, (e, user) => {
             if (e) res.status(500).send({ serverMessage: "An Error Occured." })
-            else if (user.length > 0) res.status(400).send({ serverMessage: "User Already Exists" })
+            else if (user.length > 0) res.status(400).send({ serverMessage: "Cannot Create User." })
             else {
                 bcrypt.hash(req.body.password, 10, (e, hash) => {
-                    if (e) res.status(500).send({ serverMessage: "Am Error Occured." })
+                    if (e) res.status(500).send({ serverMessage: "An Error Occured." })
                     req.body.password = hash
                     User.create(req.body, (e, user) => {
                         if (e) res.status(500).send({ serverMessage: "An Error Occured." })
                         else if (!user) res.status(422).send(e.errors)
-                        else {
-                            /**
-                             * @TODO Either Authenticate User Or Redirect To Login.
-                             */
-                        }
+                        else res.status(201).send()
                     })
                 })
             }
@@ -122,7 +114,7 @@ router.post('/create', [
     body('phoneNumber').trim().escape(),
     body('roleId').trim().escape(),
     body('email').trim().escape(),
-    body('isVErified').trim().escape()
+    body('isVerified').trim().escape()
 ], (req, res) => {
     const userValidator = new User(req.body)
     const e = userValidator.validateSync()
@@ -130,10 +122,10 @@ router.post('/create', [
     else {
         User.find({email: req.body.email}, (e, user) => {
             if (e) res.status(500).send({ serverMessage: "An Error Occured." })
-            else if (user.length > 0) res.status(400).send({ serverMessage: "User Already Exists" })
+            else if (user.length > 0) res.status(400).send({ serverMessage: "Cannot Create User." })
             else {
                 bcrypt.hash(req.body.password, 10, (e, hash) => {
-                    if (e) res.status(500).send({ serverMessage: "Am Error Occured." })
+                    if (e) res.status(500).send({ serverMessage: "An Error Occured." })
                     req.body.password = hash
                     User.create(req.body, (e, user) => {
                         if (e) res.status(500).send({ serverMessage: "An Error Occured." })
@@ -156,7 +148,6 @@ router.post('/create', [
  * @param {boolean} req.body.isVerified - Represents User Being Verified As A Doctor.
  * @param {Array[String]} req.body.userSymptoms - List Of Symptoms Created By This User.
  * @param {int} [req.body.verifiedBy] - User ID Of User Who Verified This User.
- * @param {Date} [req.body.verifiedAt] - Date User Was Verified.
  * @param {int} [req.body.createdBy] - If User Was Created By An Admin, User ID Of User Who Created This User.
  * @param {int} req.body.createdAt - Date User Was Created.
  * 
@@ -168,7 +159,7 @@ router.put('/:id', [
     body('phoneNumber').trim().escape(),
     body('roleId').trim().escape(),
     body('email').trim().escape(),
-    body('isVErified').trim().escape(),
+    body('isVerified').trim().escape(),
     // body('userSymptoms').trim().escape()
 ], (req, res) => {
     const userValidator = new User(req.body)

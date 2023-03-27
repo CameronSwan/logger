@@ -19,8 +19,7 @@ const userSchema = new Schema ({
     roleId: {
         type: Schema.Types.ObjectId,
         ref: 'Role',
-        required: [true, 'Role ID is Required'],
-        default: new ObjectId('6404ac4cf3eb44e1bcba7b43')
+        required: [true, 'Role ID is Required']
     },
     email: {
         type: String,
