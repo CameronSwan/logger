@@ -46,9 +46,9 @@ router.post('/login', [
         isVerified: false,
         userSymptoms: [],
         verifiedBy: "aaaaa",
-        verifiedAt: "aaaaa",
+        verifiedAt: Date.now(),
         createdBy: "aaaaa",
-        createdAt: "aaaaa"
+        createdAt: Date.now()
     }
     const userValidator = new User(userData)
     const e = userValidator.validateSync()
