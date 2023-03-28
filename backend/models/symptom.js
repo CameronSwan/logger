@@ -5,10 +5,12 @@ const symptomSchema = new Schema ({
 
     name: {
         type: String,
-        required: [true, 'Symptom Name is Required']
+        required: [true, 'Symptom Name is Required'],
+        maxLength: 32
     },
     description: {
-        type: String
+        type: String,
+        maxLength: 512
     },
     userId: {
         type: Schema.Types.ObjectId, 

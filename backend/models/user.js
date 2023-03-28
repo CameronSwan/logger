@@ -4,14 +4,12 @@ const { Schema } = mongoose;
 const userSchema = new Schema ({
     username: {
         type: String,
-        min: [5,'Must be at least 5'],
-        max: 20
+        maxLength: 20
     },
     password: {
         type: String,
         required: [true, 'Password is required'],
-        min: [7,'Must be at least 7'],
-        max: 20
+        minLength: [7, 'Must Be At Least 7 Characters.']
     },
     phoneNumber: {
         type: Number
@@ -19,8 +17,7 @@ const userSchema = new Schema ({
     roleId: {
         type: Schema.Types.ObjectId,
         ref: 'Role',
-        required: [true, 'Role ID is Required'],
-        default: new ObjectId('6404ac4cf3eb44e1bcba7b43')
+        required: [true, 'Role ID is Required']
     },
     email: {
         type: String,
@@ -31,7 +28,8 @@ const userSchema = new Schema ({
                 return /[A-Za-z0-9.-]@[A-Za-z0-9.-]+\.[a-z]/.test(v)
             },
             message: "Must be a valid email address"
-        }
+        },
+        maxLength: 32
     },
     verifiedBy: {
         type: Schema.Types.ObjectId

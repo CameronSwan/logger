@@ -5,11 +5,13 @@ const postSchema = new Schema ({
 
     title: {
         type: String,
-        required: [true, 'Post title is Required']
+        required: [true, 'Post title is Required'],
+        maxLength: 32
     },
     description: {
         type: String,
-        unique: true
+        unique: true,
+        maxLength: 512
     }
 });
 

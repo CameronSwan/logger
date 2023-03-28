@@ -2,8 +2,8 @@ const express = require('express')
 const router = express.Router();
 
 /* USERS */
-// const usersRouter = require('./users');
-// router.use('/users', usersRouter)
+const usersRouter = require('./users');
+router.use('/users', usersRouter)
 
 /* BOWEL MOVEMENTS */
 const bowelMovementsRouter = require('./bowelmovements');
@@ -26,8 +26,8 @@ const symptomsRouter = require('./symptoms');
 router.use('/symptoms', symptomsRouter)
 
 /* FACTS */
-// const factsRouter = require('./facts');
-// router.use('/facts', factsRouter)
+const factsRouter = require('./facts');
+router.use('/facts', factsRouter)
 
 /* POSTS */
 // const postsRouter = require('./posts');

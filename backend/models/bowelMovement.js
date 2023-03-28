@@ -10,7 +10,8 @@ const bowelMovementSchema = new Schema({
                 return v == new Date(v).toISOString().split('T')[0]
             },
             message: "Select a valid date."
-        }
+        },
+        maxLength: 8
     },
     time: {
         type: String,
@@ -20,7 +21,8 @@ const bowelMovementSchema = new Schema({
                 return /^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])/.test(v);
             },
             message: "Select a valid time."
-        }
+        },
+        maxLength: 8
     },
     userId: {
         type: Schema.Types.ObjectId,
@@ -28,7 +30,8 @@ const bowelMovementSchema = new Schema({
         required: [true, 'UserID is Required']
     },
     notes: {
-        type: String
+        type: String,
+        maxLength: 512
     },
     stoolTypes: {
         type: [{
