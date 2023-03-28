@@ -41,7 +41,7 @@ router.post('/login', [
         username: null,
         password: req.body.password,
         phoneNumber: null,
-        roleId: "6404db71f3eb44e1bc50b361", // User Role
+        roleId: "6404db71f3eb44e1bc50b361",
         email: req.body.email,
         isVerified: false,
         userSymptoms: [],

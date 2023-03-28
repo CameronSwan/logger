@@ -26,8 +26,8 @@ const symptomsRouter = require('./symptoms');
 router.use('/symptoms', symptomsRouter)
 
 /* FACTS */
-// const factsRouter = require('./facts');
-// router.use('/facts', factsRouter)
+const factsRouter = require('./facts');
+router.use('/facts', factsRouter)
 
 /* POSTS */
 // const postsRouter = require('./posts');
