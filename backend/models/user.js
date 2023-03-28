@@ -9,7 +9,7 @@ const userSchema = new Schema ({
     password: {
         type: String,
         required: [true, 'Password is required'],
-        minLength: 7
+        minLength: [7, 'Must Be At Least 7 Characters.']
     },
     phoneNumber: {
         type: Number
