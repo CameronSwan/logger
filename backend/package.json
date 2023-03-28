@@ -6,7 +6,8 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "frontend": "grunt build && cd ../frontend && npm start",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\" \"grunt watch\" --kill-others --kill-others-on-fail"
+    "dev": "concurrently \"npm run server\" \"npm run frontend\" \"grunt watch\" --kill-others --kill-others-on-fail",
+    "build": "concurrently \"npm run start\" \"npm run frontend\" --kill-others --kill-others-on-fail"
   },
   "dependencies": {
     "@types/jest": "^29.4.0",

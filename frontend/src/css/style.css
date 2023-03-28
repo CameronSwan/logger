@@ -194,9 +194,6 @@ body {
   min-height: 100vh;
   background: #fff; }
 
-#main-content {
-  padding-bottom: 20px; }
-
 .outside-spacing {
   margin: 0 1em; }
   @media screen and (min-width: 360px) {
@@ -791,16 +788,26 @@ body {
       left: 6px; }
 
 .analysis__chart-title {
-  text-align: center; }
+  position: relative;
+  text-align: center;
+  padding: 0 24px; }
+
+.analysis__wrapper {
+  position: relative;
+  width: 100%; }
 
 .analysis__chart {
   position: relative;
-  height: 400px; }
+  height: 400px;
+  cursor: pointer; }
+  @media screen and (min-width: 360px) {
+    .analysis__chart {
+      margin: 0 24px; } }
   .analysis__chart--doughnut {
     height: 300px; }
     @media screen and (min-width: 481px) {
       .analysis__chart--doughnut {
-        height: 500px; } }
+        height: 400px; } }
 
 .analysis__data-split {
   display: flex;
@@ -809,3 +816,9 @@ body {
   @media screen and (min-width: 360px) {
     .analysis__data-split {
       flex-direction: row; } }
+
+.analysis__toggle-mixed {
+  position: sticky;
+  bottom: 0;
+  padding: 10px;
+  background-color: #22A09F; }

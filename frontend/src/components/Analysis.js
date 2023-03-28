@@ -1,13 +1,32 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend, defaults } from 'chart.js';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import dataService from '../services/dataService';
 import Checkbox from './Checkbox';
+import Modal from 'react-modal';
 
+// Modal Init
+Modal.setAppElement(document.getElementById('root'));
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        border: '2px solid black',
+        overflow: 'hidden',
+        padding: '0'
+    },
+};
+
+// Chart Init
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend, ChartDataLabels);
 defaults.font.family = 'Poppins';
-defaults.font.size = '10'
+defaults.font.size = '12'
 
 const bmChartColors = {
     'Type 1': '#B4EEB4',
@@ -21,19 +40,17 @@ const bmChartColors = {
 }
 
 const monthLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
 const weekLabels = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
 const typeLabels = ['Type 1', 'Type 2', 'Type 3', 'Type 4', 'Type 5', 'Type 6', 'Type 7', 'Mixed'];
-
-const currentYear = new Date().getFullYear();
 
 const Analysis = () => {
     const [bowelmovements, setBowelmovements] = useState([]);
     const [bmDates, setBMDates] = useState([]);
     const [hideMixed, setHideMixed] = useState(false);
     const [scaleLabel, setScaleLabel] = useState('# of Bowel Movements');
-
+    const [stoolTypes, setStoolTypes] = useState([])
+    const [stoolTypeModalIsOpen, setStoolTypeModalIsOpen] = useState(false);
+    const currentYear = new Date().getFullYear();
     const bmCount = bowelmovements.length;
 
     // Toggle mixed type data
@@ -80,8 +97,7 @@ const Analysis = () => {
     }, {});
 
     /* Charts */
-
-    // --------- Types of Bowel Movements -----------
+    // --------- Types of Bowel Movements Logged -----------
     // Set Chart Options
     let typesByPercentageOptions = {
         responsive: true,
@@ -194,15 +210,8 @@ const Analysis = () => {
                     display: true,
                     text: scaleLabel //Change label based on data displayed.
                 },
-                
+
             },
-            y: {
-                ticks: {
-                    font: {
-                        size: 8,
-                    }
-                }
-            }
         },
         plugins: {
             legend: {
@@ -450,15 +459,18 @@ const Analysis = () => {
             setBowelmovements(bowelmovements)
             setBMDates(bowelmovements.map(bm => bm.date))
         })
+
+        dataService.getStoolTypes(stoolTypes => {
+            setStoolTypes(stoolTypes);
+        })
     }, [])
 
     return (
-        <div className='outside-spacing analysis'>
-            <h1 className='underlined bottom-spacing'>Analysis</h1>
-            <div className='analysis__counts bottom-spacing underlined'>
+        <div className='analysis'>
+            <h1 className='underlined outside-spacing  bottom-spacing'>Analysis</h1>
 
+            <div className='analysis__counts outside-spacing bottom-spacing underlined'>
                 <div className='analysis__data-split bottom-spacing'>
-
                     <div className='bm-tab'>
                         <div className='bm-tab__content'>
                             <div className='bm-tab__number-data h2'>
@@ -481,32 +493,30 @@ const Analysis = () => {
                 </div>
                 <div className='bottom-spacing'>
                     <div className='label underlined bottom-spacing'>Insights:</div>
-
-                    <p><span className='strong'>Highest Daily Count:</span> {highestbmByDayCount} - {new Date(highestBmCountDate).toString().substring(0, 15)}</p>
-
-
+                    <div className='analysis__insight-row'>
+                        {highestBmCountDate && <p><span className='strong'>Highest Daily Count:</span> {highestbmByDayCount} - {new Date(highestBmCountDate).toString().substring(0, 15)}</p>}
+                    </div>
                 </div>
             </div>
 
-            <div className='form__row'>
-                <Checkbox
-                    label='Show Type value of Mixed Bowel Movements'
-                    value={hideMixed}
-                    onChange={handleHideMixed}
-                    className={'form__checkbox-row form__checkbox--classic'}
-                />
-            </div>
-
             <div className='bottom-spacing underlined'>
-                <h2 className='analysis__chart-title bottom-spacing'>Types of Bowel Movements Logged</h2>
-                <div className='analysis__chart--doughnut'>
+
+                <h2 className='analysis__chart-title bottom-spacing outside-spacing'>Types of Bowel Movements Logged
+                    <button onClick={() => setStoolTypeModalIsOpen(true)} type='button' aria-label='Open Bristol Stool Scale Details' title='Bristol Stool Scale Details' className='button--info button'>?</button>
+                </h2>
+
+
+
+                <div className='analysis__chart analysis__chart--doughnut'>
                     <Doughnut options={typesByPercentageOptions}
                         data={typesByPercentageData} />
                 </div>
             </div>
 
             <div className='bottom-spacing underlined'>
-                <h2 className='analysis__chart-title bottom-spacing outside-spacing'>Types of Bowel Movements per Month</h2>
+                <h2 className='analysis__chart-title bottom-spacing outside-spacing'>Types of Bowel Movements per Month
+                    <button onClick={() => setStoolTypeModalIsOpen(true)} type='button' aria-label='Open Bristol Stool Scale Details' title='Bristol Stool Scale Details' className='button--info button'>?</button>
+                </h2>
                 <div className='analysis__chart'>
                     <Bar options={typesPerMonthOptions}
                         data={typesPerMonthData}
@@ -516,9 +526,10 @@ const Analysis = () => {
                 </div>
             </div>
 
-
             <div className='bottom-spacing underlined'>
-                <h2 className='analysis__chart-title bottom-spacing outside-spacing'>Amount and Type of Bowel Movements per Weekday</h2>
+                <h2 className='analysis__chart-title bottom-spacing outside-spacing'>Amount and Type of Bowel Movements per Weekday
+                    <button onClick={() => setStoolTypeModalIsOpen(true)} type='button' aria-label='Open Bristol Stool Scale Details' title='Bristol Stool Scale Details' className='button--info button'>?</button>
+                </h2>
                 <div className='analysis__chart'>
                     <Bar options={typesPerWeekdayOptions}
                         data={typesPerWeekdayData}
@@ -527,6 +538,45 @@ const Analysis = () => {
                 </div>
             </div>
 
+            <div className='analysis__toggle-mixed'>
+                <Checkbox
+                    label='Display Types of Mixed Bowel Movements'
+                    value={hideMixed}
+                    onChange={handleHideMixed}
+                    className={'form__checkbox-row form__checkbox--classic outside-spacing'}
+                />
+            </div>
+
+            <div className='modals'>
+                <Modal key='stoolTypeModal'
+                    isOpen={stoolTypeModalIsOpen}
+                    onRequestClose={() => setStoolTypeModalIsOpen(false)}
+                    style={customStyles}
+                    contentLabel='Bristol Stool Chart Details'
+                    contentClassName='custom-modal'
+                >
+                    <div className='modal'>
+                        <div className='modal__header'>
+                            <h2 className='modal__title'>Bistol Stool Scale</h2>
+                            <button className='modal__close-button' type='button' onClick={() => setStoolTypeModalIsOpen(false)} aria-label='Close' title='Close'>✖</button>
+                        </div>
+                        <div className='modal__table modal__table--stooltypes'>
+                            {stoolTypes.map(stoolType => {
+                                return (
+                                    <div key={stoolType.name} className='modal__table-row'>
+                                        <div className='modal__image' dangerouslySetInnerHTML={{ __html: stoolType.svg }}></div>
+                                        <div className='modal__subtitle label'>{stoolType.name}</div>
+                                        <div className='modal__info small'>{stoolType.description}</div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        <div className='modal__footer'>
+                            <Link to='/info' relative='path' className='modal__link link link--with-arrow'>Learn More</Link>
+                        </div>
+                    </div>
+                </Modal>
+            </div>
         </div>
     )
 }
