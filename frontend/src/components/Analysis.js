@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, defaults } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend, defaults } from 'chart.js';
+import { Bar, Doughnut } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import dataService from '../services/dataService';
 import Checkbox from './Checkbox';
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ChartDataLabels);
+ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend, ChartDataLabels);
 defaults.font.family = 'Poppins';
 defaults.font.size = '10'
 
 const bmChartColors = {
-    type1: '#B4EEB4',
-    type2: '#008080',
-    type3: '#DAA520',
-    type4: '#DD0808',
-    type5: '#FAEBD7',
-    type6: '#66CDAA',
-    type7: '#9E5148',
-    mixed: '#959F94'
+    'Type 1': '#B4EEB4',
+    'Type 2': '#008080',
+    'Type 3': '#DAA520',
+    'Type 4': '#DD0808',
+    'Type 5': '#FAEBD7',
+    'Type 6': '#66CDAA',
+    'Type 7': '#9E5148',
+    'Mixed': '#959F94'
 }
 
 const monthLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 const weekLabels = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-const typeLabels = ['Type 1', 'Type 2', 'Type 3', 'Type 4', 'Type 5', 'Type 6', 'Type 7']
+const typeLabels = ['Type 1', 'Type 2', 'Type 3', 'Type 4', 'Type 5', 'Type 6', 'Type 7', 'Mixed']
 
 const currentYear = new Date().getFullYear();
 
@@ -58,6 +58,17 @@ const Analysis = () => {
     const highestBmCountDate = Object.keys(bmByDayCount).reduce((a, b) => bmByDayCount[a] > bmByDayCount[b] ? a : b, {});
     const highestbmByDayCount = bmByDayCount[highestBmCountDate]
 
+    //Sort bowel movements by type
+    const bmByType = bowelmovements.reduce((bmsByType, bm) => {
+        const type = bm.stoolTypes.length > 1 ? 'Mixed' : bm.stoolTypes[0].name;
+        if (!bmsByType[type]) {
+            bmsByType[type] = [];
+        }
+        bmsByType[type].push(bm)
+        return bmsByType
+    }, {});
+
+    console.log(bmByType)
     // Sort bowel movements by month 
     const bmByMonth = bowelmovements.reduce((bmsByYearMonth, bm) => {
         const yearMonth = bm.date.substring(0, 7); // e.g. 2023-03
@@ -78,20 +89,64 @@ const Analysis = () => {
         return bmsByWeekday
     }, {});
 
-    //Sort bowel movements by type
-    const bmByType = bowelmovements.reduce((bmsByType, bm) => {
-        const type = bm.stoolTypes.length > 1? 'Mixed' : bm.stoolTypes[0].name;
-        if (!bmsByType[type]) {
-            bmsByType[type] = [];
-        }
-        bmsByType[type].push(bm)
-        return bmsByType
-    }, {});
-
-console.log(bmByType)
+    //console.log(bmByType['Mixed'].length)
 
     /* Charts */
-    // --------- Types of Bowel Movements per Month-----------
+    // --------- Types of Bowel Movements -----------
+    let typesByPercentageOptions = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    usePointStyle: true,
+                },
+                maxHeight: 100
+            },
+            title: {
+                display: false,
+                text: 'Types of Bowel Movements Logged',
+            },
+            datalabels: {
+                display: function (context) {
+                    return context.dataset.data[context.dataIndex] !== 0;
+                },
+                color: 'black',
+                formatter: (value, ctx) => {
+                    //https://stackoverflow.com/questions/52044013/chartjs-datalabels-show-percentage-value-in-pie-piece
+                    let sum = 0;
+                    let dataArr = ctx.chart.data.datasets[0].data;
+                    dataArr.map(data => {
+                        sum += data;
+                    });
+                    let percentage = (value * 100 / sum).toFixed(2) + "%";
+                    return percentage;
+                }
+            },
+        },
+        maintainAspectRatio: false,
+    };
+
+    const typesByPercentageDataSet = [
+        {
+            data: typeLabels.map(type => {
+                return bmByType[type].length
+            }),
+            backgroundColor: typeLabels.map(type => {
+                return bmChartColors[type]
+            })
+        },
+    ]
+
+    console.log(typeLabels.map(type => {
+        return bmByType[type].length
+    }))
+    const typesByPercentageData = {
+        labels: typeLabels,
+        datasets: typesByPercentageDataSet
+    }
+
+    // --------- Types of Bowel Movements per Month -----------
 
     // Count Bowel Movements per month by Type
     const getTypeCountPerMonth = (month, type) => {
@@ -163,7 +218,7 @@ console.log(bmByType)
             data: monthLabels.map(label => {
                 return getTypeCountPerMonth(label, 'Type 1')
             }),
-            backgroundColor: bmChartColors.type1,
+            backgroundColor: bmChartColors['Type 1'],
             stack: 'Stack 0',
         },
         {
@@ -171,7 +226,7 @@ console.log(bmByType)
             data: monthLabels.map(label => {
                 return getTypeCountPerMonth(label, 'Type 2')
             }),
-            backgroundColor: bmChartColors.type2,
+            backgroundColor: bmChartColors['Type 2'],
             stack: 'Stack 0',
         },
         {
@@ -179,7 +234,7 @@ console.log(bmByType)
             data: monthLabels.map(label => {
                 return getTypeCountPerMonth(label, 'Type 3')
             }),
-            backgroundColor: bmChartColors.type3,
+            backgroundColor: bmChartColors['Type 3'],
             stack: 'Stack 0',
         },
         {
@@ -187,7 +242,7 @@ console.log(bmByType)
             data: monthLabels.map(label => {
                 return getTypeCountPerMonth(label, 'Type 4')
             }),
-            backgroundColor: bmChartColors.type4,
+            backgroundColor: bmChartColors['Type 4'],
             stack: 'Stack 0',
         },
         {
@@ -195,7 +250,7 @@ console.log(bmByType)
             data: monthLabels.map(label => {
                 return getTypeCountPerMonth(label, 'Type 5')
             }),
-            backgroundColor: bmChartColors.type5,
+            backgroundColor: bmChartColors['Type 5'],
             stack: 'Stack 0',
         },
         {
@@ -203,7 +258,7 @@ console.log(bmByType)
             data: monthLabels.map(label => {
                 return getTypeCountPerMonth(label, 'Type 6')
             }),
-            backgroundColor: bmChartColors.type6,
+            backgroundColor: bmChartColors['Type 6'],
             stack: 'Stack 0',
         },
         {
@@ -211,7 +266,7 @@ console.log(bmByType)
             data: monthLabels.map(label => {
                 return getTypeCountPerMonth(label, 'Type 7')
             }),
-            backgroundColor: bmChartColors.type7,
+            backgroundColor: bmChartColors['Type 7'],
             stack: 'Stack 0',
         },
         {
@@ -221,7 +276,7 @@ console.log(bmByType)
                     return getTypeCountPerMonth(label, 'Mixed')
                 })
             ,
-            backgroundColor: bmChartColors.mixed,
+            backgroundColor: bmChartColors['Mixed'],
             stack: 'Stack 0',
         }
     ]
@@ -302,7 +357,7 @@ console.log(bmByType)
             data: weekLabels.map(label => {
                 return getTypeCountPerWeekday(label, 'Type 1')
             }),
-            backgroundColor: bmChartColors.type1,
+            backgroundColor: bmChartColors['Type 1'],
             stack: 'Stack 0',
         },
         {
@@ -310,7 +365,7 @@ console.log(bmByType)
             data: weekLabels.map(label => {
                 return getTypeCountPerWeekday(label, 'Type 2')
             }),
-            backgroundColor: bmChartColors.type2,
+            backgroundColor: bmChartColors['Type 2'],
             stack: 'Stack 0',
         },
         {
@@ -318,7 +373,7 @@ console.log(bmByType)
             data: weekLabels.map(label => {
                 return getTypeCountPerWeekday(label, 'Type 3')
             }),
-            backgroundColor: bmChartColors.type3,
+            backgroundColor: bmChartColors['Type 3'],
             stack: 'Stack 0',
         },
         {
@@ -326,7 +381,7 @@ console.log(bmByType)
             data: weekLabels.map(label => {
                 return getTypeCountPerWeekday(label, 'Type 4')
             }),
-            backgroundColor: bmChartColors.type4,
+            backgroundColor: bmChartColors['Type 4'],
             stack: 'Stack 0',
         },
         {
@@ -334,7 +389,7 @@ console.log(bmByType)
             data: weekLabels.map(label => {
                 return getTypeCountPerWeekday(label, 'Type 5')
             }),
-            backgroundColor: bmChartColors.type5,
+            backgroundColor: bmChartColors['Type 5'],
             stack: 'Stack 0',
         },
         {
@@ -342,7 +397,7 @@ console.log(bmByType)
             data: weekLabels.map(label => {
                 return getTypeCountPerWeekday(label, 'Type 6')
             }),
-            backgroundColor: bmChartColors.type6,
+            backgroundColor: bmChartColors['Type 6'],
             stack: 'Stack 0',
         },
         {
@@ -350,7 +405,7 @@ console.log(bmByType)
             data: weekLabels.map(label => {
                 return getTypeCountPerWeekday(label, 'Type 7')
             }),
-            backgroundColor: bmChartColors.type7,
+            backgroundColor: bmChartColors['Type 7'],
             stack: 'Stack 0',
         },
         {
@@ -360,7 +415,7 @@ console.log(bmByType)
                     return getTypeCountPerWeekday(label, 'Mixed')
                 })
             ,
-            backgroundColor: bmChartColors.mixed,
+            backgroundColor: bmChartColors['Mixed'],
             stack: 'Stack 0',
         }
     ]
@@ -423,6 +478,13 @@ console.log(bmByType)
                     onChange={handleHideMixed}
                     className={'form__checkbox-row form__checkbox--classic'}
                 />
+            </div>
+
+            <div>
+                <h2>Bowel Movement Type Percentage</h2>
+                <div className='analysis__chart'>
+                    <Doughnut options={typesByPercentageOptions} data={typesByPercentageData} />
+                </div>
             </div>
 
             <div className='bottom-spacing underlined'>
