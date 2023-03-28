@@ -18,6 +18,7 @@ import History from './components/History';
 import Analysis from './components/Analysis';
 import Community from './components/Community';
 import Info from './components/Info';
+import About from './components/About';
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
           <Routes>
             <Route path='/register' element={ <Register />}/>
             <Route path='/login' element={ <LogIn />}/>
+            <Route path='/about' element={ <About />}/>
             <Route path='/privacypolicy' element={ <PrivacyPolicy />}/>
             <Route path='/termsofservice' element={ <TermsOfService />}/>
             <Route path='/communityguidelines' element={<CommunityGuidelines />} />

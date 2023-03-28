@@ -1,4 +1,7 @@
 .tab {
+
+    $this: &;
+
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -12,6 +15,7 @@
         flex-direction: column;
     }
 
+
     &:hover {
         background-color: $color-background-secondary;
     }
@@ -22,6 +26,11 @@
 
         @include media-query(xs) {
             width: 90px;
+        }
+
+        #{$this}--small & {
+            width: 40px;
+            margin-right: 10px;
         }
     }
 
@@ -36,7 +45,15 @@
         color: $color-input-borders;
 
         @include media-query(xs) {
-            content: ''
+            content: '';
+        }
+    }
+
+    &--small {
+        flex-direction: row;
+
+        &:after {
+            content: '>';
         }
     }
 }

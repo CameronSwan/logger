@@ -108,6 +108,9 @@ p, .p, li, textarea {
     p, .p, li, textarea {
       font-size: 16px; } }
 
+p:last-of-type {
+  margin-bottom: 0; }
+
 label, .label {
   font-size: 16px;
   line-height: 1.5;
@@ -584,6 +587,9 @@ body {
     @media screen and (min-width: 360px) {
       .tab__icon {
         width: 90px; } }
+    .tab--small .tab__icon {
+      width: 40px;
+      margin-right: 10px; }
   .tab:after {
     content: '>';
     position: absolute;
@@ -596,6 +602,10 @@ body {
     @media screen and (min-width: 360px) {
       .tab:after {
         content: ''; } }
+  .tab--small {
+    flex-direction: row; }
+    .tab--small:after {
+      content: '>'; }
 
 .bm-tab {
   border: 2px solid #22A09F;
@@ -822,3 +832,8 @@ body {
   bottom: 0;
   padding: 10px;
   background-color: #22A09F; }
+
+.info__links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; }
