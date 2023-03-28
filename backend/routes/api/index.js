@@ -10,7 +10,7 @@ const bowelMovementsRouter = require('./bowelMovements');
 router.use('/bowelmovements', bowelMovementsRouter)
 
 /* STOOL TYPES */
-const stoolTypesRouter = require('./stooltypes');
+const stoolTypesRouter = require('./stoolTypes');
 router.use('/stooltypes', stoolTypesRouter)
 
 /* COLORS */
