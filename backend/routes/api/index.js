@@ -6,7 +6,7 @@ const usersRouter = require('./users');
 router.use('/users', usersRouter)
 
 /* BOWEL MOVEMENTS */
-const bowelMovementsRouter = require('./bowelmovements');
+const bowelMovementsRouter = require('./bowelMovements');
 router.use('/bowelmovements', bowelMovementsRouter)
 
 /* STOOL TYPES */
