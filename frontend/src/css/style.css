@@ -790,8 +790,8 @@ body {
 .analysis__chart-title {
   text-align: center; }
 
-.analysis__type-bm-per-month {
-  font-family: "Poppins", sans-serif;
+.analysis__chart {
+  position: relative;
   height: 500px; }
 
 .analysis__data-split {
