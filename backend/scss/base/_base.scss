@@ -10,12 +10,12 @@ body {
     background: $color-background-primary;
 }
 
-#main-content {
-    padding-bottom: 20px;
-}
-
 .outside-spacing {
-	margin: $container-margin
+	margin: 0 1em;
+
+    @include media-query(xs) {
+        margin: 0 24px;
+    }
 }
 
 .bottom-spacing {

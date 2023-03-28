@@ -101,6 +101,10 @@ p, .p, li, textarea {
 	font-family: $font-family-base;
 }
 
+p:last-of-type {
+	margin-bottom: 0
+}
+
 label, .label {
 	@include font-size($label-font-sizes);
 	font-family: $font-family-base;

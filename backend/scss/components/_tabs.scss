@@ -1,8 +1,11 @@
 .tab {
+
+    $this: &;
+
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap:8px;
+    gap: 8px;
     border: 2px solid $color-input-borders;
     border-radius: 10px;
     padding: 10px;
@@ -11,6 +14,7 @@
     @include media-query(xs) {
         flex-direction: column;
     }
+
 
     &:hover {
         background-color: $color-background-secondary;
@@ -23,6 +27,11 @@
         @include media-query(xs) {
             width: 90px;
         }
+
+        #{$this}--small & {
+            width: 40px;
+            margin-right: 10px;
+        }
     }
 
     &:after {
@@ -34,8 +43,17 @@
         font-size: 30px;
         font-weight: 100;
         color: $color-input-borders;
+
         @include media-query(xs) {
-            content: ''
+            content: '';
+        }
+    }
+
+    &--small {
+        flex-direction: row;
+
+        &:after {
+            content: '>';
         }
     }
 }
@@ -75,13 +93,34 @@
         }
     }
 
-    &__image-count {
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        background-color: $color-accent;
-        top: 10px;
-        left: 20px;
+    &__number-data {
+        flex-basis: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 4px 0 4px 8px;
+        border: 2px solid $color-input-borders;
+        border-radius: 10px;
+        width: 35px;
+        height: 35px;
+        background-color: $color-background-primary;
+
+        @include media-query(xs) {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 45px;
+            height: 45px;
+        }
+    }
+
+    &__data-label {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin: 10px;
+        width: 100%;
     }
 
     &__data-wrapper {
@@ -91,7 +130,7 @@
         justify-content: center;
         margin: 10px;
         width: 100%;
-        max-width: calc(100% - 140px );
+        max-width: calc(100% - 140px);
         height: 55px;
     }
 
