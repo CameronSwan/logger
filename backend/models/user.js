@@ -4,14 +4,13 @@ const { Schema } = mongoose;
 const userSchema = new Schema ({
     username: {
         type: String,
-        minLength: 5,
         maxLength: 20
     },
     password: {
         type: String,
         required: [true, 'Password is required'],
-        min: 7,
-        max: 20
+        minLength: 7,
+        maxLength: 20
     },
     phoneNumber: {
         type: Number
