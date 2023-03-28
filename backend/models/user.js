@@ -9,8 +9,7 @@ const userSchema = new Schema ({
     password: {
         type: String,
         required: [true, 'Password is required'],
-        minLength: 7,
-        maxLength: 20
+        minLength: 7
     },
     phoneNumber: {
         type: Number

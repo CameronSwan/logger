@@ -108,7 +108,7 @@ router.post('/register', [
                     if (e) res.status(500).send({ serverMessage: "An Error Occured." })
                     userData.password = hash
                     User.create(userData, (e, user) => {
-                        if (e) res.status(500).send({ serverMessage: "An Error Occured." })
+                        if (e) res.status(500).send({ serverMessage: "An Error Occured."})
                         else if (!user) res.status(422).send(e.errors)
                         else res.status(201).send()
                     })
