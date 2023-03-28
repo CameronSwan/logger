@@ -24,7 +24,7 @@ const monthLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'Ju
 
 const weekLabels = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-const typeLabels = ['Type 1', 'Type 2', 'Type 3', 'Type 4', 'Type 5', 'Type 6', 'Type 7', 'Mixed']
+const typeLabels = ['Type 1', 'Type 2', 'Type 3', 'Type 4', 'Type 5', 'Type 6', 'Type 7', 'Mixed'];
 
 const currentYear = new Date().getFullYear();
 
@@ -33,6 +33,7 @@ const Analysis = () => {
     const [bmDates, setBMDates] = useState([]);
     const [hideMixed, setHideMixed] = useState(false);
     const [scaleLabel, setScaleLabel] = useState('# of Bowel Movements');
+
     const bmCount = bowelmovements.length;
 
     // Toggle mixed type data
@@ -58,17 +59,6 @@ const Analysis = () => {
     const highestBmCountDate = Object.keys(bmByDayCount).reduce((a, b) => bmByDayCount[a] > bmByDayCount[b] ? a : b, {});
     const highestbmByDayCount = bmByDayCount[highestBmCountDate]
 
-    //Sort bowel movements by type
-    const bmByType = bowelmovements.reduce((bmsByType, bm) => {
-        const type = bm.stoolTypes.length > 1 ? 'Mixed' : bm.stoolTypes[0].name;
-        if (!bmsByType[type]) {
-            bmsByType[type] = [];
-        }
-        bmsByType[type].push(bm)
-        return bmsByType
-    }, {});
-
-    console.log(bmByType)
     // Sort bowel movements by month 
     const bmByMonth = bowelmovements.reduce((bmsByYearMonth, bm) => {
         const yearMonth = bm.date.substring(0, 7); // e.g. 2023-03
@@ -89,10 +79,10 @@ const Analysis = () => {
         return bmsByWeekday
     }, {});
 
-    //console.log(bmByType['Mixed'].length)
-
     /* Charts */
+
     // --------- Types of Bowel Movements -----------
+    // Set Chart Options
     let typesByPercentageOptions = {
         responsive: true,
         plugins: {
@@ -113,6 +103,7 @@ const Analysis = () => {
                 },
                 color: 'black',
                 formatter: (value, ctx) => {
+                    //Display values as percentages
                     //https://stackoverflow.com/questions/52044013/chartjs-datalabels-show-percentage-value-in-pie-piece
                     let sum = 0;
                     let dataArr = ctx.chart.data.datasets[0].data;
@@ -127,10 +118,30 @@ const Analysis = () => {
         maintainAspectRatio: false,
     };
 
+    // Count bowel movements by type
+    const getTypeCount = (type) => {
+        let bms = bowelmovements;
+        let countType = 0;
+        // If displaying mixed, count all mixed Data
+        if (type === 'Mixed' && !hideMixed) {
+            countType = bms.filter(bm => bm.stoolTypes.length > 1).length
+        } else if (hideMixed) {
+            //Count each type, even if the Bowel Movement was Mixed
+            countType = bms.filter(bm =>
+                bm.stoolTypes.some(stoolType => stoolType.name === type)).length
+        } else {
+            //Count each Bowel Movement by Type, if Mixed, display as "Mixed"
+            countType = bms.filter(bm =>
+                bm.stoolTypes.length === 1 && bm.stoolTypes.some(stoolType => stoolType.name === type)).length
+        }
+        return countType;
+    }
+
+    // Dataset display for Types of Bowel Movements Per Month Chart
     const typesByPercentageDataSet = [
         {
             data: typeLabels.map(type => {
-                return bmByType[type].length
+                return getTypeCount(type)
             }),
             backgroundColor: typeLabels.map(type => {
                 return bmChartColors[type]
@@ -138,12 +149,10 @@ const Analysis = () => {
         },
     ]
 
-    console.log(typeLabels.map(type => {
-        return bmByType[type].length
-    }))
+    // Hide the Mixed dataset when the mixed is hidden.
     const typesByPercentageData = {
-        labels: typeLabels,
-        datasets: typesByPercentageDataSet
+        labels: !hideMixed ? typeLabels : typeLabels.filter(label => label !== 'Mixed'),
+        datasets: !hideMixed ? typesByPercentageDataSet : typesByPercentageDataSet.filter(data => data.label !== 'Mixed')
     }
 
     // --------- Types of Bowel Movements per Month -----------
@@ -184,6 +193,14 @@ const Analysis = () => {
                 title: {
                     display: true,
                     text: scaleLabel //Change label based on data displayed.
+                },
+                
+            },
+            y: {
+                ticks: {
+                    font: {
+                        size: 8,
+                    }
                 }
             }
         },
@@ -480,10 +497,11 @@ const Analysis = () => {
                 />
             </div>
 
-            <div>
-                <h2>Bowel Movement Type Percentage</h2>
-                <div className='analysis__chart'>
-                    <Doughnut options={typesByPercentageOptions} data={typesByPercentageData} />
+            <div className='bottom-spacing underlined'>
+                <h2 className='analysis__chart-title bottom-spacing'>Types of Bowel Movements Logged</h2>
+                <div className='analysis__chart--doughnut'>
+                    <Doughnut options={typesByPercentageOptions}
+                        data={typesByPercentageData} />
                 </div>
             </div>
 

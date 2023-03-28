@@ -1,16 +1,28 @@
 .analysis {
-
     &__chart-title {
         text-align: center;
     }
 
     &__chart {
         position: relative;
-        height: 500px;
+        height: 400px;
+
+        &--doughnut {
+            height: 300px;
+
+            @include media-query(s) {
+                height: 500px;
+            }
+        }
     }
 
     &__data-split {
         display: flex;
+        flex-direction: column;
         gap: 10px;
+
+        @include media-query(xs) {
+            flex-direction: row;
+        }
     }
 }

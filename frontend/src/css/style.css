@@ -198,7 +198,10 @@ body {
   padding-bottom: 20px; }
 
 .outside-spacing {
-  margin: 0 24px; }
+  margin: 0 1em; }
+  @media screen and (min-width: 360px) {
+    .outside-spacing {
+      margin: 0 24px; } }
 
 .bottom-spacing {
   margin-bottom: 14px; }
@@ -628,7 +631,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 8px;
+    margin: 4px 0 4px 8px;
     border: 2px solid #22A09F;
     border-radius: 10px;
     width: 35px;
@@ -792,8 +795,17 @@ body {
 
 .analysis__chart {
   position: relative;
-  height: 500px; }
+  height: 400px; }
+  .analysis__chart--doughnut {
+    height: 300px; }
+    @media screen and (min-width: 481px) {
+      .analysis__chart--doughnut {
+        height: 500px; } }
 
 .analysis__data-split {
   display: flex;
+  flex-direction: column;
   gap: 10px; }
+  @media screen and (min-width: 360px) {
+    .analysis__data-split {
+      flex-direction: row; } }

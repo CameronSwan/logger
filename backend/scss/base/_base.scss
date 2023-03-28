@@ -15,7 +15,11 @@ body {
 }
 
 .outside-spacing {
-	margin: $container-margin
+	margin: 0 1em;
+
+    @include media-query(xs) {
+        margin: 0 24px;
+    }
 }
 
 .bottom-spacing {
