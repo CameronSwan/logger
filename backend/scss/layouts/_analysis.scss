@@ -8,4 +8,9 @@
         font-family: $font-family-base;
         height: 500px;
     }
+
+    &__data-split {
+        display: flex;
+        gap: 10px;
+    }
 }

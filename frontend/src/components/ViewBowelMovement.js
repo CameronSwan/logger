@@ -22,7 +22,7 @@ const ViewBowelMovement = () => {
             setSymptoms(bm.symptoms)
             setNotes(bm.notes)
         })
-    }, [])
+    }, [params.id])
 
     return (
         <div>

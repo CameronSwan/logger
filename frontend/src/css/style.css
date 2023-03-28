@@ -623,13 +623,31 @@ body {
     background-color: #fff; }
     .bm-tab__image svg {
       width: 100%; }
-  .bm-tab__image-count {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #FF8D13;
-    top: 10px;
-    left: 20px; }
+  .bm-tab__number-data {
+    flex-basis: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+    border: 2px solid #22A09F;
+    border-radius: 10px;
+    width: 35px;
+    height: 35px;
+    background-color: #fff; }
+    @media screen and (min-width: 360px) {
+      .bm-tab__number-data {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 45px;
+        height: 45px; } }
+  .bm-tab__data-label {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 10px;
+    width: 100%; }
   .bm-tab__data-wrapper {
     display: flex;
     flex: 1;
@@ -775,3 +793,7 @@ body {
 .analysis__type-bm-per-month {
   font-family: "Poppins", sans-serif;
   height: 500px; }
+
+.analysis__data-split {
+  display: flex;
+  gap: 10px; }
