@@ -80,11 +80,11 @@ const Analysis = () => {
 
     //Sort bowel movements by type
     const bmByType = bowelmovements.reduce((bmsByType, bm) => {
-        const singletype = bm.stoolTypes[0].name;
-        if (!bmsByType[singletype]) {
-            bmsByType[singletype] = [];
+        const type = bm.stoolTypes.length > 1? 'Mixed' : bm.stoolTypes[0].name;
+        if (!bmsByType[type]) {
+            bmsByType[type] = [];
         }
-        bmsByType[singletype].push(bm)
+        bmsByType[type].push(bm)
         return bmsByType
     }, {});
 
