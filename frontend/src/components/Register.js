@@ -2,8 +2,34 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import authService from '../services/authService';
 import Checkbox from './Checkbox';
+import Modal from 'react-modal';
+import TOS from './TermsOfService';
+import PP from './PrivacyPolicy';
+import CG from './CommunityGuidelines';
 
 const Register = () => {
+
+    //Terms and Conditions Modals
+    const [TOSModalIsOpen, setTOSModalIsOpen] = useState(false);
+    const [PPModalIsOpen, setPPModalIsOpen] = useState(false);
+    const [CGModalIsOpen, setCGModalIsOpen] = useState(false);
+
+
+    Modal.setAppElement(document.getElementById('root'));
+
+    const customStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+            border: '2px solid black',
+            overflow: 'hidden',
+            padding: '0'
+        },
+    };
 
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -135,6 +161,9 @@ const Register = () => {
                         onChange={handleChecked}
                         className='form__checkbox-row form__checkbox--classic form__checkbox--large-label'
                     />
+                    <div className='form__checkbox-custom-label'>I have read and agree to the <button className='button--link link' type='button' onClick={() => setTOSModalIsOpen(true)} aria-label='Open Terms of Service' title='Terms of Service'>Terms of Service</button>, <button className='button--link link' type='button' onClick={() => setPPModalIsOpen(true)} aria-label='Open Terms of Service' title='Terms of Service'>Privacy Policy</button> and <button className='button--link link' type='button' onClick={() => setCGModalIsOpen(true)} aria-label='Open Terms of Service' title='Terms of Service'>Community Guidelines</button>.</div>
+
+
 
                     <Checkbox
                         id='Email Subscription'
@@ -161,7 +190,59 @@ const Register = () => {
                 Already have an account? <Link to='/login' relative='path'>Log in</Link>
             </div>
 
-        </div>
+            <div className='modals'>
+                <Modal key='TOSModal'
+                    isOpen={TOSModalIsOpen}
+                    onRequestClose={() => setTOSModalIsOpen(false)}
+                    style={customStyles}
+                    contentLabel='Terms of Service'
+                >
+                    <div className='modal'>
+                        <div className='modal__header'>
+                            <h2 className='modal__title'>Terms of Service</h2>
+                            <button className='modal__close-button' type='button' onClick={() => setTOSModalIsOpen(false)} aria-label='Close' title='Close'>✖</button>
+                        </div>
+                        <div className='modal__large-content'>
+                            <TOS />
+                        </div>
+                    </div>
+                </Modal>
+
+                <Modal key='PPModal'
+                    isOpen={PPModalIsOpen}
+                    onRequestClose={() => setPPModalIsOpen(false)}
+                    style={customStyles}
+                    contentLabel='Privacy Policy'
+                >
+                    <div className='modal'>
+                        <div className='modal__header'>
+                            <h2 className='modal__title'>Privacy Policy</h2>
+                            <button className='modal__close-button' type='button' onClick={() => setPPModalIsOpen(false)} aria-label='Close' title='Close'>✖</button>
+                        </div>
+                        <div className='modal__large-content'>
+                            <PP />
+                        </div>
+                    </div>
+                </Modal>
+
+                <Modal key='CGModal'
+                    isOpen={CGModalIsOpen}
+                    onRequestClose={() => setPPModalIsOpen(false)}
+                    style={customStyles}
+                    contentLabel='Privacy Policy'
+                >
+                    <div className='modal'>
+                        <div className='modal__header'>
+                            <h2 className='modal__title'>Community Guidelines</h2>
+                            <button className='modal__close-button' type='button' onClick={() => setCGModalIsOpen(false)} aria-label='Close' title='Close'>✖</button>
+                        </div>
+                        <div className='modal__large-content'>
+                            <CG />
+                        </div>
+                    </div>
+                </Modal>
+            </div >
+        </div >
     )
 }
 export default Register;
