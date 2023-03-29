@@ -17,8 +17,8 @@ const PORT = process.env.PORT|| 5000;
 
 mongoose.set("strictQuery", true);
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
-  .catch((error) => console.log(`${error} did not connect`));
+ // .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
+  //.catch((error) => console.log(`${error} did not connect`));
 
 //import routers
 var indexRouter = require('./routes/index');
@@ -37,7 +37,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'frontend/public')));
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
@@ -57,5 +57,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.get('/', (req, res) => {
+  res.sendStatus(200)
+})
 
 module.exports = app;
