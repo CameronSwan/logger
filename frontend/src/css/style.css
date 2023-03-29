@@ -705,6 +705,11 @@ body {
   .navbar--hidden {
     height: 60px;
     background-color: #22A09F; }
+  .navbar__content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center; }
   .navbar__logo-title {
     transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);

@@ -13,6 +13,12 @@
         background-color: $color-background-header;
     }
 
+    &__content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+    }
     &__logo-title {
         transition: $transition;
         text-shadow: $button-shadow;
