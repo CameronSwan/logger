@@ -175,7 +175,9 @@ const Analysis = () => {
 
     // Count Bowel Movements per month by Type
     const getTypeCountPerMonth = (month, type) => {
-        month = new Date(` ${month} ${currentYear}`).toISOString().substring(0, 7)
+        
+        //month = Date(` ${month} ${currentYear}`).toISOString().substring(0, 7)
+    
         let bms = bmByMonth[month]
         let countType = 0
         if (bms) {
