@@ -4,11 +4,13 @@ const Color = require('../../models/color')
 
 // Return All Colors
 router.get('/', (req, res) => {
-    Color.find({}, (e, colors) => {
-        if (e) res.status(400).send()
-        else if (colors) res.status(200).json(colors)
-        else res.status(404).send()
-    })
+    Color.find({})
+        .sort('_id')
+        .exec((e, colors) => {
+            if (e) res.status(400).send()
+            else if (colors) res.status(200).json(colors)
+            else res.status(404).send()
+        })
 })
 
 // Return Color With Provided _id
