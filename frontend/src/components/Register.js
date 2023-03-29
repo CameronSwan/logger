@@ -159,9 +159,10 @@ const Register = () => {
                         id='Terms Of Service'
                         value={agreeTOS}
                         onChange={handleChecked}
-                        className='form__checkbox-row form__checkbox--classic form__checkbox--large-label'
+                        className='form__checkbox-row form__checkbox--classic form__checkbox--hidden-label'
+                        customLabel={<div className='form__checkbox-custom-label'>I have read and agree to the <button className='button--link link' type='button' onClick={() => setTOSModalIsOpen(true)} aria-label='Open Terms of Service' title='Terms of Service'>Terms of Service</button>, <button className='button--link link' type='button' onClick={() => setPPModalIsOpen(true)} aria-label='Open Terms of Service' title='Terms of Service'>Privacy Policy</button> and <button className='button--link link' type='button' onClick={() => setCGModalIsOpen(true)} aria-label='Open Terms of Service' title='Terms of Service'>Community Guidelines</button>.</div>}
                     />
-                    <div className='form__checkbox-custom-label'>I have read and agree to the <button className='button--link link' type='button' onClick={() => setTOSModalIsOpen(true)} aria-label='Open Terms of Service' title='Terms of Service'>Terms of Service</button>, <button className='button--link link' type='button' onClick={() => setPPModalIsOpen(true)} aria-label='Open Terms of Service' title='Terms of Service'>Privacy Policy</button> and <button className='button--link link' type='button' onClick={() => setCGModalIsOpen(true)} aria-label='Open Terms of Service' title='Terms of Service'>Community Guidelines</button>.</div>
+                    
 
 
 

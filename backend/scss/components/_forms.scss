@@ -150,7 +150,6 @@
 
     // Checkboxes with classic box inputs
     &__checkbox--classic {
-
         input {
             flex-shrink: 0;
             width: 18px;
@@ -174,6 +173,21 @@
             font-size: 14px;
             font-weight: 500;
         }
+    }
+
+    &__checkbox--hidden-label {
+        align-items: flex-start;
+        margin-bottom: 15px;
+
+        & label {
+            display: none;
+        }
+    }
+
+    &__checkbox-custom-label {
+        margin-left: 20px;
+        font-size: 14px;
+        font-weight: 500;
     }
 
     // Checkboxes with image inputs

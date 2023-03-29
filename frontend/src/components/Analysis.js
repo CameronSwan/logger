@@ -546,7 +546,7 @@ const Analysis = () => {
                     label='Display Types of Mixed Bowel Movements'
                     value={hideMixed}
                     onChange={handleHideMixed}
-                    className={'form__checkbox-row form__checkbox--classic outside-spacing'}
+                    className={'form__checkbox-row form__checkbox--classic form__checkbox--large-label outside-spacing'}
                 />
             </div>
 

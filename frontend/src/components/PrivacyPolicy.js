@@ -283,10 +283,10 @@ const PrivacyPolicy = () => {
             </p>
 
             <h2>Contact Us</h2>
-            <ul>
+            <p>
                 If you have any questions about this Privacy Policy, you can contact us:
-                <li>By email: w04558541@nscc.ca</li>
-            </ul>
+                By email: w04558541@nscc.ca
+            </p>
         </div>
     );
 }

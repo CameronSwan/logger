@@ -20,9 +20,11 @@
 
     &--link {
         display: inline-block;
-        text-align: center;
-        vertical-align: middle;
-        line-height: 60px;
+        border: none;
+        padding: 0;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: inherit;
     }
 
     &--submit {
