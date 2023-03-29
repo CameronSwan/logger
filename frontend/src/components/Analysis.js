@@ -28,6 +28,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tool
 defaults.font.family = 'Poppins';
 defaults.font.size = '12'
 
+// Colors used in all charts 
 const bmChartColors = {
     'Type 1': '#B4EEB4',
     'Type 2': '#008080',
@@ -39,6 +40,7 @@ const bmChartColors = {
     'Mixed': '#959F94'
 }
 
+//Chart labels
 const monthLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const weekLabels = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const typeLabels = ['Type 1', 'Type 2', 'Type 3', 'Type 4', 'Type 5', 'Type 6', 'Type 7', 'Mixed'];
@@ -72,7 +74,7 @@ const Analysis = () => {
     const bmDaysCount = Object.keys(bmByDayCount).length;
 
     // Sort by highest amount
-    const bmByDayCountSorted = Object.entries(bmByDayCount).sort(([, a], [, b]) => a - b).reverse()
+    // const bmByDayCountSorted = Object.entries(bmByDayCount).sort(([, a], [, b]) => a - b).reverse()
     const highestBmCountDate = Object.keys(bmByDayCount).reduce((a, b) => bmByDayCount[a] > bmByDayCount[b] ? a : b, {});
     const highestbmByDayCount = bmByDayCount[highestBmCountDate]
 
@@ -124,7 +126,7 @@ const Analysis = () => {
                     let sum = 0;
                     let dataArr = ctx.chart.data.datasets[0].data;
                     dataArr.map(data => {
-                        sum += data;
+                        return sum += data;
                     });
                     let percentage = (value * 100 / sum).toFixed(2) + "%";
                     return percentage;
