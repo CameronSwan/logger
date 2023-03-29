@@ -58,4 +58,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.get('/', (req, res) => {
+  res.sendStatus(200)
+})
+
 module.exports = app;
