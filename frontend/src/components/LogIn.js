@@ -18,8 +18,12 @@ const LogIn = () => {
 
         authService.login({ email, password }, error => {
             if (!error) {
-                navigate('/');
+                navigate('/', { auth: true });
+            } else {
+                setErrors(error.data);
+                console.log(error)
             }
+
         })
     }
 
@@ -28,7 +32,7 @@ const LogIn = () => {
         <div className='form__wrapper'>
             <div className='login__logo-topper'>
                 <h1 className='logo login__title'>Logger</h1>
-                <img className='login__image' src={logo} alt='Logger Logo'/>
+                <img className='login__image' src={logo} alt='Logger Logo' />
                 <p className='h2'>a tracking app.</p>
             </div>
             <form className='form' onSubmit={handleSubmit}>
@@ -45,7 +49,7 @@ const LogIn = () => {
                             className='form__text-input'
                         />
                         <div className='form__help'>
-                            <Link to="#" relative="path">Forgot login?</Link>
+                            <Link to="/login/help" relative="path">Forgot login?</Link>
                         </div>
                     </div>
                 </div>
@@ -69,7 +73,13 @@ const LogIn = () => {
 
                 <div className='form__error form__error--final'>
                     {
-                        errors.serverMessage && <span>{errors.serverMessage}</span>
+                        errors.email && <span className='error form__row'>{errors.email.message}<br/></span>
+                    }
+                    {
+                        errors.password &&  <span className='error form__row'>{errors.password.message}<br/></span>
+                    }
+                    {
+                        errors.serverMessage && <span className='error form__row'>{errors.serverMessage}</span>
                     }
                 </div>
 

@@ -36,7 +36,10 @@ const Register = () => {
         } else {
             authService.register({ username, email, password }, error => {
                 if (!error) {
-                  navigate('/');
+                    navigate('/login');
+                } else {
+                    //save our validation errors in state
+                    setErrors(error.data)
                 }
             })
         }
