@@ -11,7 +11,7 @@ const bowelMovementSchema = new Schema({
             },
             message: "Select a valid date."
         },
-        maxLength: 8
+        maxLength: 10
     },
     time: {
         type: String,
@@ -22,7 +22,7 @@ const bowelMovementSchema = new Schema({
             },
             message: "Select a valid time."
         },
-        maxLength: 8
+        maxLength: 10
     },
     userId: {
         type: Schema.Types.ObjectId,
