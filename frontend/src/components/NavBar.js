@@ -59,7 +59,7 @@ const NavBar = () => {
 	const ref = useOutsideClick(handleClickOutside);
 
 	return (
-		<nav className={navbarClassName}>
+		<nav className={navbarClassName} ref={ref} >
 			{location.pathname !== '/login' &&
 				<div className='navbar__content'>
 					<button className='button--link navbar__icon-wrapper' type='button' aria-label='Back' onClick={handleBack}>
@@ -75,7 +75,7 @@ const NavBar = () => {
 						<img src={dropdownOpen ? navIconClose : navIcon} className='navbar__icon' alt='menu icon' id='toggle-dropdown' />
 					</button>
 					<div className={dropdownClassName}>
-						<div ref={ref} onClick={handleDropdown}>
+						<div onClick={handleDropdown}>
 							{
 								!authService.isAuthenticated() &&
 								<div className='navbar__item'>
