@@ -9,7 +9,7 @@ const Info = () => {
 
     return (
         <div className='info outside-spacing'>
-            <h1 className='underlined'>Information</h1>
+            <h1 className='underlined bottom-spacing'>Information</h1>
 
             <div className='info__links'>
                 <Link to='/about' className='tab tab--small h2 link'>
