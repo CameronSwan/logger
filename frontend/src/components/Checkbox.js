@@ -1,4 +1,4 @@
-const Checkbox = ({ id, label, checked, value, onChange, className, name, title }) => {
+const Checkbox = ({ id, label, checked, value, onChange, className, name, title, customLabel }) => {
 	return (
 		<div className={className}>
 			<input
@@ -11,6 +11,7 @@ const Checkbox = ({ id, label, checked, value, onChange, className, name, title 
 				title={title}
 			/>
 			<label htmlFor={id} title={title}>{label}</label>
+			<div>{customLabel}</div>
 		</div>
 	);
 };

@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import Main from './components/Main';
 import Register from './components/Register';
 import LogIn from './components/LogIn';
+import ForgotLogin from './components/ForgotLogin';
 import CommunityGuidelines from './components/CommunityGuidelines';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
@@ -28,11 +29,12 @@ const App = () => {
         <NavBar />
         <div id="main-content">
           <Routes>
-            <Route path='/register' element={ <Register />}/>
-            <Route path='/login' element={ <LogIn />}/>
-            <Route path='/about' element={ <About />}/>
-            <Route path='/privacypolicy' element={ <PrivacyPolicy />}/>
-            <Route path='/termsofservice' element={ <TermsOfService />}/>
+            <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<LogIn />} />
+            <Route path='/login/help' element={<ForgotLogin />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/privacypolicy' element={<PrivacyPolicy />} />
+            <Route path='/termsofservice' element={<TermsOfService />} />
             <Route path='/communityguidelines' element={<CommunityGuidelines />} />
             <Route element={<ProtectedRoutes />}>
               <Route path='/' element={<Main />} />

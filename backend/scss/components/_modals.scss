@@ -6,11 +6,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        min-height: 10px;
         width: 100%;
         border-bottom: 2px solid $color-table-borders;
         background-color: $color-background-header;
         padding: 10px 0;
     }
+
+    
 
     &__close-button {
         position: absolute;
@@ -32,6 +35,16 @@
         max-width: 300px;
         padding: 24px;
         text-align: center;
+    }
+
+    &__large-content {
+        max-width: 500px;
+        max-height: 90vh;
+        overflow-y: scroll;
+
+        h1 {
+            display: none;
+        }
     }
 
     &__image {

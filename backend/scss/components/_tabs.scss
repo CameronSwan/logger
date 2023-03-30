@@ -1,5 +1,4 @@
 .tab {
-
     $this: &;
 
     display: flex;
@@ -15,8 +14,8 @@
         flex-direction: column;
     }
 
-
     &:hover {
+        cursor: pointer;
         background-color: $color-background-secondary;
     }
 
@@ -143,5 +142,9 @@
     &__button-row {
         margin-right: 8px;
         margin-left: auto;
+    }
+
+    &__pencil {
+        height: 20px;
     }
 }

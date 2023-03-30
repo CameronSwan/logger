@@ -8,13 +8,14 @@ const BowelMovement = require('../../models/bowelMovement')
  */
 router.get('/', (req, res) => {
     BowelMovement.find({})
-    .populate('colors')
-    .populate('stoolTypes')
-    .populate('symptoms')
-    .exec((e, bowelMovements) => {
-        if (e) res.status(500).send({ serverMessage: "An Error Occured." })
-        else res.json(bowelMovements)
-    })
+        .populate('colors')
+        .populate('stoolTypes')
+        .populate('symptoms')
+        .sort({ "date": 1, "time": 1 })
+        .exec((e, bowelMovements) => {
+            if (e) res.status(500).send({ serverMessage: "An Error Occured." })
+            else res.json(bowelMovements)
+        })
 })
 
 /**
@@ -24,14 +25,14 @@ router.get('/', (req, res) => {
  */
 router.get('/:id', (req, res) => {
     BowelMovement.findById(req.params.id)
-    .populate('colors')
-    .populate('stoolTypes')
-    .populate('symptoms')
-    .exec((e, bowelMovement) => {
-        if (e) res.status(500).send({ serverMessage: "An Error Occured." })
-        else if (bowelMovement) res.send(bowelMovement)
-        else res.status(404).send({ serverMessage: "Bowel Movement Not Found." })
-    })
+        .populate('colors')
+        .populate('stoolTypes')
+        .populate('symptoms')
+        .exec((e, bowelMovement) => {
+            if (e) res.status(500).send({ serverMessage: "An Error Occured." })
+            else if (bowelMovement) res.send(bowelMovement)
+            else res.status(404).send({ serverMessage: "Bowel Movement Not Found." })
+        })
 })
 
 
@@ -69,7 +70,7 @@ router.post('/', [
     if (e) res.status(422).send(e.errors)
     else {
         BowelMovement.create(bowelMovementData, (e, bowelMovement) => {
-            if (e) res.status(500).send({ serverMessage: "An Error Occured."})
+            if (e) res.status(500).send({ serverMessage: "An Error Occured." })
             else res.status(201).send()
         })
     }

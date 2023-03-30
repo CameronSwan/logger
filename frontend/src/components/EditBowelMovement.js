@@ -131,7 +131,6 @@ const EditBowelMovement = (props) => {
                     navigate('/');
                 } else {
                     setErrors(error.data);
-                    console.log(error)
                 }
             })
         }

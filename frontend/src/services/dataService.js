@@ -2,6 +2,11 @@ import axios from 'axios';
 
 class dataService {
 
+    getFacts(callback) {
+        axios.get(`${process.env.REACT_APP_API_URL}/facts`)
+            .then(response => callback(response.data))
+    }
+
     getColors(callback) {
         axios.get(`${process.env.REACT_APP_API_URL}/colors`)
             .then(response => callback(response.data))
