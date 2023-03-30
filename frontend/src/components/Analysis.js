@@ -503,12 +503,9 @@ const Analysis = () => {
             </div>
 
             <div className='bottom-spacing underlined'>
-
                 <h2 className='analysis__chart-title bottom-spacing outside-spacing'>Types of Bowel Movements Logged
                     <button onClick={() => setStoolTypeModalIsOpen(true)} type='button' aria-label='Open Bristol Stool Scale Details' title='Bristol Stool Scale Details' className='button--info button'>?</button>
                 </h2>
-
-
 
                 <div className='analysis__chart analysis__chart--doughnut'>
                     <Doughnut options={typesByPercentageOptions}
@@ -541,15 +538,6 @@ const Analysis = () => {
                 </div>
             </div>
 
-            <div className='analysis__toggle-mixed'>
-                <Checkbox
-                    label='Display Types of Mixed Bowel Movements'
-                    value={hideMixed}
-                    onChange={handleHideMixed}
-                    className={'form__checkbox-row form__checkbox--classic form__checkbox--large-label outside-spacing'}
-                />
-            </div>
-
             <div className='modals'>
                 <Modal key='stoolTypeModal'
                     isOpen={stoolTypeModalIsOpen}
@@ -579,6 +567,15 @@ const Analysis = () => {
                         </div>
                     </div>
                 </Modal>
+            </div>
+
+            <div className='analysis__toggle-mixed'>
+                <Checkbox
+                    label='Display Types of Mixed Bowel Movements'
+                    value={hideMixed}
+                    onChange={handleHideMixed}
+                    className={'form__checkbox--classic form__checkbox--large-label outside-spacing'}
+                />
             </div>
         </div>
     )

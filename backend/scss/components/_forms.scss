@@ -67,6 +67,7 @@
     }
 
     &__datetime {
+        width: 100%;
         padding: 0 10px;
     }
 
@@ -139,17 +140,21 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-around;
-            gap: 10px;
             margin-bottom: 2px;
             border-top: 2px solid $color-background-secondary;
             border-bottom: 2px solid $color-background-secondary;
             background-color: $color-accent-CTA;
             padding: 12px 0;
+
+            @include media-query(s) {
+                gap: 10px;
+            }
         }
     }
 
     // Checkboxes with classic box inputs
     &__checkbox--classic {
+        display: flex;
         input {
             flex-shrink: 0;
             width: 18px;
@@ -193,10 +198,19 @@
     // Checkboxes with image inputs
     &__checkbox--styled {
         position: relative;
-        width: 46px;
-        height: 45px;
+        width: 40px;
+        height: 40px;
         border-radius: 10px;
 
+        @include media-query(xs) {
+            width: 45px;
+            height: 45px;
+        }
+
+        @include media-query(m) {
+            width: 55px;
+            height: 55px;
+        }
 
         label {
             position: relative;
@@ -235,6 +249,7 @@
 
         svg {
             width: 100%;
+            height: 80%;
         }
     }
 }

@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Brown",
+        "hexCode": "#6F4218"
+    },
+    {
+        "name": "Green",
+        "hexCode": "#086736"
+    },
+    {
+        "name": "Yellowish",
+        "hexCode": "#BFA72B"
+    },
+    {
+        "name": "Red",
+        "hexCode": "#D7272D"
+    },
+    {
+        "name": "Maroon",
+        "hexCode": "#5B0C10"
+    },
+    {
+        "name": "Black",
+        "hexCode": "#2D2019"
+    },
+    {
+        "name": "Pale",
+        "hexCode": "#DED3C3"
+    }
+]
