@@ -10,3 +10,27 @@
         }
     }
 }
+
+.fun-fact {
+    position: relative;
+    padding: 18px;
+    border: 2px solid $color-input-borders;
+    border-radius: 10px;
+    background-color: $color-background-secondary;
+
+    &__refresh {
+        position: absolute;
+        top: 2px;
+        right: 5px;
+        font-size: 30px;
+    }
+
+    &__title {
+        margin-bottom: 8px;
+    }
+
+    &__fact {
+        line-height: 1.2;
+    }
+}
+

@@ -798,6 +798,22 @@ body {
       grid-template-rows: 1fr 1fr;
       grid-template-columns: 1fr 1fr; } }
 
+.fun-fact {
+  position: relative;
+  padding: 18px;
+  border: 2px solid #22A09F;
+  border-radius: 10px;
+  background-color: #DAF8F4; }
+  .fun-fact__refresh {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    font-size: 30px; }
+  .fun-fact__title {
+    margin-bottom: 8px; }
+  .fun-fact__fact {
+    line-height: 1.2; }
+
 .login__title {
   font-size: 50px;
   margin-bottom: 14px;
