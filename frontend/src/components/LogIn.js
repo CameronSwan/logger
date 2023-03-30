@@ -18,10 +18,9 @@ const LogIn = () => {
 
         authService.login({ email, password }, error => {
             if (!error) {
-                navigate('/', { auth: true });
+                navigate('/');
             } else {
                 setErrors(error.data);
-                console.log(error)
             }
 
         })

@@ -699,6 +699,8 @@ body {
   .bm-tab__button-row {
     margin-right: 8px;
     margin-left: auto; }
+  .bm-tab__pencil {
+    height: 20px; }
 
 .navbar {
   display: flex;
@@ -718,6 +720,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-content: center; }
+  .navbar__icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
   .navbar__icon {
     width: 30px;
     height: 20px;

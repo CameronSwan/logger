@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import pencil from '../img/icons/pencil.svg';
 
 export const BowelMovementTab = (props) => {
     const displayTime = new Date(`${props.bm.date} ${props.bm.time}`).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
@@ -46,7 +47,7 @@ export const BowelMovementTab = (props) => {
                         </div>
                     </div>
                     <div className='bm-tab__button-row'>
-                        <Link to={`/bowelmovement/edit/${props.bm._id}`} relative="path" title='Edit' className='button button--edit button--submit cta'>✎</Link>
+                        <Link to={`/bowelmovement/edit/${props.bm._id}`} relative="path" title='Edit' className='button button--edit button--submit cta'><img src={pencil} className='bm-tab__pencil'/></Link>
                     </div>
                 </div>
             </div>
