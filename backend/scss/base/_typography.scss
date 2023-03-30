@@ -54,7 +54,8 @@ $datetime-input-font-sizes: (
 );
 
 $logo-font-sizes: (
-	null: (32px, 1.5)
+	null: (30px, 1.5),
+	xs: 32px
 );
 
 $cta-font-sizes: (
@@ -161,6 +162,10 @@ strong, .strong {
 
 .underlined {
 	border-bottom: 2px solid $color-input-borders;
+}
+
+.dotted-underlined {
+	border-bottom: 2px dotted $color-accent;
 }
 
 .link {

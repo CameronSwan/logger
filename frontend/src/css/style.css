@@ -141,11 +141,14 @@ strong, .strong {
   font-weight: bolder; }
 
 .logo {
-  font-size: 32px;
+  font-size: 30px;
   line-height: 1.5;
   font-weight: 600;
   color: #FFFAF1;
   text-decoration: none; }
+  @media screen and (min-width: 360px) {
+    .logo {
+      font-size: 32px; } }
 
 .error {
   font-size: 14px;
@@ -173,6 +176,9 @@ strong, .strong {
 
 .underlined {
   border-bottom: 2px solid #22A09F; }
+
+.dotted-underlined {
+  border-bottom: 2px dotted #FF8D13; }
 
 .link {
   font-family: inherit;
@@ -598,6 +604,7 @@ body {
     .tab {
       flex-direction: column; } }
   .tab:hover {
+    cursor: pointer;
     background-color: #DAF8F4; }
   .tab__icon {
     width: 40px;
@@ -700,16 +707,60 @@ body {
   margin-bottom: 10px;
   height: 60px;
   border-bottom: 2px solid #0E0E0E;
-  padding: 5px 10px;
   background-color: #22A09F; }
   .navbar--hidden {
     height: 60px;
     background-color: #22A09F; }
   .navbar__content {
+    padding: 5px 10px;
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-content: center; }
+  .navbar__icon {
+    width: 30px;
+    height: 20px;
+    transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s; }
+  .navbar__dropdown {
+    position: absolute;
+    z-index: 10;
+    top: 61px;
+    right: 0;
+    transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
+    width: 100%;
+    background-color: #22A09F; }
+    @media screen and (min-width: 481px) {
+      .navbar__dropdown {
+        width: 80%; } }
+    .navbar__dropdown--hidden {
+      visibility: hidden;
+      opacity: 0; }
+  .navbar__item {
+    align-items: center;
+    position: relative;
+    transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
+    width: 100%;
+    height: 45px;
+    border-bottom: 2px solid #0E0E0E; }
+    .navbar__item:hover {
+      background-color: #DAF8F4; }
+    .navbar__item:after {
+      content: '>';
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      font-family: monospace;
+      font-size: 30px;
+      font-weight: 100;
+      color: #0E0E0E; }
+  .navbar__link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
+    text-align: left; }
   .navbar__logo-title {
     transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
@@ -718,14 +769,19 @@ body {
     .navbar__logo-title:hover {
       text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5); }
     .navbar__logo-title:before {
-      display: inline-block;
       content: '';
-      height: 48px;
-      width: 42px;
+      display: inline-block;
+      transition: all 0.4s ease-in-out, box-shadow ease-in-out 0.4s;
+      width: 40px;
+      height: 46px;
       background-image: url("../../public/Logger.png");
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center; }
+      @media screen and (min-width: 481px) {
+        .navbar__logo-title:before {
+          height: 48px;
+          width: 42px; } }
 
 .main__explore-tabs {
   display: grid;
