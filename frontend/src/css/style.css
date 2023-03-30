@@ -56,86 +56,113 @@ body {
   font-family: "Poppins", sans-serif;
   color: #252020; }
 
-h1, .h1 {
+h1,
+.h1 {
   font-size: 24px;
   line-height: 1.5;
   font-family: "Poppins", sans-serif;
   font-weight: 500; }
   @media screen and (min-width: 1024px) {
-    h1, .h1 {
+    h1,
+    .h1 {
       font-size: 35px; } }
 
-h2, .h2 {
+h2,
+.h2 {
   font-size: 20px;
   line-height: 1.2;
   font-family: "Poppins", sans-serif;
   font-weight: 600; }
   @media screen and (min-width: 1024px) {
-    h2, .h2 {
+    h2,
+    .h2 {
       font-size: 30px; } }
 
-h3, .h3 {
+h3,
+.h3 {
   font-size: 18px;
   line-height: 1.2;
   font-family: "Poppins", sans-serif;
   font-weight: bold; }
   @media screen and (min-width: 360px) {
-    h3, .h3 {
+    h3,
+    .h3 {
       font-size: 18px; } }
   @media screen and (min-width: 1024px) {
-    h3, .h3 {
+    h3,
+    .h3 {
       font-size: 20px; } }
   @media screen and (min-width: 1280px) {
-    h3, .h3 {
+    h3,
+    .h3 {
       font-size: 25px; } }
 
-h4, .h4, h5, .h5 {
+h4,
+.h4,
+h5,
+.h5 {
   margin-bottom: 2px;
   font-size: 14px;
   line-height: 1.2;
   font-weight: bold;
   font-family: "Poppins", sans-serif; }
   @media screen and (min-width: 1280px) {
-    h4, .h4, h5, .h5 {
+    h4,
+    .h4,
+    h5,
+    .h5 {
       font-size: 16px; } }
 
-p, .p, li, textarea {
+p,
+.p,
+li,
+textarea {
   font-size: 14px;
   line-height: 1.2;
   font-weight: 500;
   font-family: "Poppins", sans-serif; }
   @media screen and (min-width: 1280px) {
-    p, .p, li, textarea {
+    p,
+    .p,
+    li,
+    textarea {
       font-size: 16px; } }
 
 p:last-of-type {
   margin-bottom: 0; }
 
-label, .label {
+label,
+.label {
   font-size: 16px;
   line-height: 1.5;
   font-family: "Poppins", sans-serif;
   font-weight: 600; }
   @media screen and (min-width: 768px) {
-    label, .label {
+    label,
+    .label {
       font-size: 18px; } }
   @media screen and (min-width: 1280px) {
-    label, .label {
+    label,
+    .label {
       font-size: 22px; } }
 
-input, .input {
+input,
+.input {
   font-size: 20px;
   line-height: 1.5;
   font-family: "Poppins", sans-serif;
   font-weight: 600; }
 
-input[type=time], input[type=date] {
+input[type=time],
+input[type=date] {
   font-size: 16px; }
   @media screen and (min-width: 481px) {
-    input[type=time], input[type=date] {
+    input[type=time],
+    input[type=date] {
       font-size: 20px; } }
 
-strong, .strong {
+strong,
+.strong {
   font-size: inherit;
   font-family: inherit;
   font-weight: bolder; }
@@ -193,12 +220,15 @@ a:not([class]) {
   font-weight: 600;
   color: inherit; }
 
+li {
+  word-break: break-word; }
+
 html {
   background-color: grey; }
 
 body {
   margin: 0 auto;
-  max-width: 500px;
+  max-width: 700px;
   height: 100%;
   min-height: 100vh;
   background: #fff; }
@@ -344,6 +374,7 @@ body {
     resize: none;
     padding-top: 4px; }
   .form__datetime {
+    width: 100%;
     padding: 0 10px; }
   .form__button-row {
     display: flex;
@@ -393,21 +424,25 @@ body {
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-around;
-      gap: 10px;
       margin-bottom: 2px;
       border-top: 2px solid #DAF8F4;
       border-bottom: 2px solid #DAF8F4;
       background-color: #07CEB5;
       padding: 12px 0; }
-  .form__checkbox--classic input {
-    flex-shrink: 0;
-    width: 18px;
-    height: 18px;
-    cursor: pointer; }
-  .form__checkbox--classic label {
-    margin-left: 10px;
-    font-size: 12px;
-    font-weight: 600; }
+      @media screen and (min-width: 481px) {
+        .form__checkbox-row--styled {
+          gap: 10px; } }
+  .form__checkbox--classic {
+    display: flex; }
+    .form__checkbox--classic input {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      cursor: pointer; }
+    .form__checkbox--classic label {
+      margin-left: 10px;
+      font-size: 12px;
+      font-weight: 600; }
   .form__checkbox--large-label {
     align-items: flex-start;
     margin-bottom: 15px; }
@@ -426,9 +461,17 @@ body {
     font-weight: 500; }
   .form__checkbox--styled {
     position: relative;
-    width: 46px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 10px; }
+    @media screen and (min-width: 360px) {
+      .form__checkbox--styled {
+        width: 45px;
+        height: 45px; } }
+    @media screen and (min-width: 768px) {
+      .form__checkbox--styled {
+        width: 55px;
+        height: 55px; } }
     .form__checkbox--styled label {
       position: relative;
       display: block;
@@ -454,7 +497,8 @@ body {
     width: 100%;
     height: 100%; }
     .form__checkbox--image svg {
-      width: 100%; }
+      width: 100%;
+      height: 80%; }
 
 .react-calendar {
   width: 100%;
@@ -483,8 +527,10 @@ body {
     font-family: "Poppins", sans-serif;
     font-size: 20px;
     font-weight: 600;
-    background-color: transparent; }
+    background-color: transparent;
+    color: #252020; }
   .react-calendar__tile {
+    margin: 0;
     border: 0;
     box-sizing: border-box;
     outline: 2px solid #0E0E0E;
@@ -492,6 +538,7 @@ body {
     height: 50px;
     text-align: center;
     background-color: #FFFAF1;
+    color: #252020;
     cursor: pointer; }
     .react-calendar__tile:hover {
       background-color: #07CEB5; }
@@ -804,10 +851,16 @@ body {
   border-radius: 10px;
   background-color: #DAF8F4; }
   .fun-fact__refresh {
+    content: '';
     position: absolute;
     top: 2px;
-    right: 5px;
-    font-size: 30px; }
+    right: 2px;
+    width: 30px;
+    height: 30px;
+    background-image: url("../img/icons/refresh.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat; }
   .fun-fact__title {
     margin-bottom: 8px; }
   .fun-fact__fact {
@@ -836,7 +889,7 @@ body {
   .history__date {
     margin-bottom: 14px; }
   .history__results {
-    margin-bottom: 25px; }
+    margin-bottom: 18px; }
   .history__button-row {
     display: flex;
     justify-content: center;

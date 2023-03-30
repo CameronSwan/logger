@@ -39,14 +39,15 @@
     }
 
     &__navigation__label {
-
         font-family: $font-family-base;
         font-size: 20px;
         font-weight: 600;
         background-color: transparent;
+        color: $color-font-primary;
     }
 
     &__tile {
+        margin:0;
         border: 0;
         box-sizing: border-box;
         outline: 2px solid $color-table-borders;
@@ -54,6 +55,7 @@
         height: 50px;
         text-align: center;
         background-color: $color-background-tertiary;
+        color: $color-font-primary;
         cursor: pointer;
 
         &:hover {
@@ -105,5 +107,4 @@
             text-transform: uppercase;
         }
     }
-
 }

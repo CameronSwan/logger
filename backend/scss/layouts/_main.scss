@@ -19,10 +19,16 @@
     background-color: $color-background-secondary;
 
     &__refresh {
+        content: '';
         position: absolute;
         top: 2px;
-        right: 5px;
-        font-size: 30px;
+        right: 2px;
+        width: 30px;
+        height: 30px;
+        background-image: url('../img/icons/refresh.svg');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
     &__title {
@@ -33,4 +39,3 @@
         line-height: 1.2;
     }
 }
-

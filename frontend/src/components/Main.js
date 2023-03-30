@@ -55,9 +55,9 @@ const Main = () => {
 
             {randomFact &&
                 <div className='fun-fact'>
-                    <button onClick={getRandomFact} className='fun-fact__refresh button--link'>↻</button>
+                    <button onClick={getRandomFact} className='fun-fact__refresh button--link'></button>
                     <div className='fun-fact__content'>
-                            <div className='fun-fact__title h2'>FunFact:</div>
+                            <div className='fun-fact__title h2'>Fun Fact:</div>
                         <div className='fun-fact__fact'>{randomFact.description}</div>
                     </div>
                 </div>

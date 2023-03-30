@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Gas",
+        "description": "Passing flatulence"
+    },
+    {
+        "name": "Constipation",
+        "description": "Difficulty passing stool/ emptying the bowels"
+    },
+    {
+        "name": "Nausea",
+        "description": "Feeling of uneasiness in the stomach"
+    },
+    {
+        "name": "Cramps",
+        "description": "Pain in the lower abdomen"
+    },
+    {
+        "name": "Bloating",
+        "description": "Feeling of fullness or distension in the abdomen"
+    }
+]
