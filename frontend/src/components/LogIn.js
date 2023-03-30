@@ -47,9 +47,9 @@ const LogIn = () => {
                             placeholder='Email address'
                             className='form__text-input'
                         />
-                        <div className='form__help'>
+                        {/* <div className='form__help'>
                             <Link to='/login/help' relative='path'>Forgot login?</Link>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
