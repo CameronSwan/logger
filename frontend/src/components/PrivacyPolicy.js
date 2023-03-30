@@ -68,7 +68,7 @@ const PrivacyPolicy = () => {
             </ul>
 
 
-            <h2>Collecting and Using Your Personal Data</h2>
+            <h2 className='bottom-spacing'>Collecting and Using Your Personal Data</h2>
             <h3>Types of Data Collected </h3>
             <h4>Personal Data</h4>
             <p>
@@ -142,8 +142,9 @@ const PrivacyPolicy = () => {
                 </li>
             </ul>
 
+            <p>We may share Your personal information in the following situations:</p>
             <ul>
-                We may share Your personal information in the following situations:
+
                 <li><strong>With Service Providers: </strong>
                     We may share Your personal information with Service Providers
                     to monitor and analyze the use of our Service, to contact You.

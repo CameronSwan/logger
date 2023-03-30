@@ -4,8 +4,7 @@ class authService {
 
     isAuthenticated() {
         //TODO: Return true if authenticated
-        //return localStorage.getItem('logger-token') !== null;
-        return true;
+        return localStorage.getItem('logger-token') !== null;
     }
 
     register(credentials, callback) {

@@ -56,86 +56,113 @@ body {
   font-family: "Poppins", sans-serif;
   color: #252020; }
 
-h1, .h1 {
+h1,
+.h1 {
   font-size: 24px;
   line-height: 1.5;
   font-family: "Poppins", sans-serif;
   font-weight: 500; }
   @media screen and (min-width: 1024px) {
-    h1, .h1 {
+    h1,
+    .h1 {
       font-size: 35px; } }
 
-h2, .h2 {
+h2,
+.h2 {
   font-size: 20px;
   line-height: 1.2;
   font-family: "Poppins", sans-serif;
   font-weight: 600; }
   @media screen and (min-width: 1024px) {
-    h2, .h2 {
+    h2,
+    .h2 {
       font-size: 30px; } }
 
-h3, .h3 {
+h3,
+.h3 {
   font-size: 18px;
   line-height: 1.2;
   font-family: "Poppins", sans-serif;
   font-weight: bold; }
   @media screen and (min-width: 360px) {
-    h3, .h3 {
+    h3,
+    .h3 {
       font-size: 18px; } }
   @media screen and (min-width: 1024px) {
-    h3, .h3 {
+    h3,
+    .h3 {
       font-size: 20px; } }
   @media screen and (min-width: 1280px) {
-    h3, .h3 {
+    h3,
+    .h3 {
       font-size: 25px; } }
 
-h4, .h4, h5, .h5 {
+h4,
+.h4,
+h5,
+.h5 {
   margin-bottom: 2px;
   font-size: 14px;
   line-height: 1.2;
   font-weight: bold;
   font-family: "Poppins", sans-serif; }
   @media screen and (min-width: 1280px) {
-    h4, .h4, h5, .h5 {
+    h4,
+    .h4,
+    h5,
+    .h5 {
       font-size: 16px; } }
 
-p, .p, li, textarea {
+p,
+.p,
+li,
+textarea {
   font-size: 14px;
   line-height: 1.2;
   font-weight: 500;
   font-family: "Poppins", sans-serif; }
   @media screen and (min-width: 1280px) {
-    p, .p, li, textarea {
+    p,
+    .p,
+    li,
+    textarea {
       font-size: 16px; } }
 
 p:last-of-type {
   margin-bottom: 0; }
 
-label, .label {
+label,
+.label {
   font-size: 16px;
   line-height: 1.5;
   font-family: "Poppins", sans-serif;
   font-weight: 600; }
   @media screen and (min-width: 768px) {
-    label, .label {
+    label,
+    .label {
       font-size: 18px; } }
   @media screen and (min-width: 1280px) {
-    label, .label {
+    label,
+    .label {
       font-size: 22px; } }
 
-input, .input {
+input,
+.input {
   font-size: 20px;
   line-height: 1.5;
   font-family: "Poppins", sans-serif;
   font-weight: 600; }
 
-input[type=time], input[type=date] {
+input[type=time],
+input[type=date] {
   font-size: 16px; }
   @media screen and (min-width: 481px) {
-    input[type=time], input[type=date] {
+    input[type=time],
+    input[type=date] {
       font-size: 20px; } }
 
-strong, .strong {
+strong,
+.strong {
   font-size: inherit;
   font-family: inherit;
   font-weight: bolder; }
@@ -192,6 +219,9 @@ a:not([class]) {
   text-decoration: underline;
   font-weight: 600;
   color: inherit; }
+
+li {
+  word-break: break-word; }
 
 html {
   background-color: grey; }

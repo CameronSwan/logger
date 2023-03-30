@@ -571,7 +571,7 @@ const Analysis = () => {
 
             <div className='analysis__toggle-mixed'>
                 <Checkbox
-                    label='Display Types of Mixed Bowel Movements'
+                    label='Divide Mixed Bowel Movements into Types'
                     value={hideMixed}
                     onChange={handleHideMixed}
                     className={'form__checkbox--classic form__checkbox--large-label outside-spacing'}

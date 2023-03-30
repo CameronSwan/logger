@@ -21,8 +21,6 @@ const About = () => {
                     <p><span className='strong'>Front-end Development</span><br />Christina Hemeon and Maya Pierre</p>
                     <p><span className='strong'>Product Design</span><br />Bryan Steiss and Matt Lemos Champion</p>
                 </div>
-
-
             </div>
 
 
@@ -30,8 +28,12 @@ const About = () => {
                 <h2 className='dotted-underlined bottom-spacing'>Credits</h2>
                 <h3>Imagery</h3>
                 <ul>
-                    <li>Logger logo designed by Byran Stiess and Matt Lemos Champion</li>
-                    <li>Bristol Stool Chart images and poop icons designed by Matt Lemos Champion.</li>
+                    <li>
+                        Logger logo designed by Bryan Steiss and Matt Lemos Champion
+                    </li>
+                    <li>
+                        Bristol Stool Chart images and poop icons designed by Matt Lemos Champion.
+                    </li>
                     <li>
                         All other icons from www.svgrepo.com under public domain license.
                     </li>
