@@ -1,4 +1,122 @@
 .button {
+    $this: &;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: $transition;
+    box-shadow: $button-shadow;
+    border: none;
+    border-radius: 100px;
+    width: 210px;
+    height: 60px;
     cursor: pointer;
-    font-family: $font-family-CTA;
+
+    &:hover,
+    &:focus {
+        box-shadow: $button-shadow-hover;
+    }
+
+    &--link {
+        display: inline-block;
+        border: none;
+        padding: 0;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: inherit;
+    }
+
+    &--submit {
+        background-color: $color-accent-CTA;
+
+        &:hover,
+        &:focus {
+            background-color: $color-accent-CTA-hover;
+        }
+    }
+
+    &--warning {
+        background-color: $color-error;
+    }
+
+    &--cancel {
+        background-color: $color-cancel;
+    }
+
+    &--half-size {
+        @include media-query(xs) {
+            width: 162px;
+        }
+    }
+
+    &--new-entry {
+        gap: 8px;
+        &:before {
+            content: '';
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background-image: url('../img/icons/new-entry.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+    }
+
+    &--info {
+        position: absolute;
+        top: -3px;
+        right: -8px;
+        border-radius: 50px;
+        box-sizing: content-box;
+        border: 2px solid $color-accent;
+        width: 15px;
+        height: 15px;
+        text-align: center;
+        padding: 1px;
+        background-color: $color-background-primary;
+        font-family: $font-family-base;
+        line-height: 1;
+        font-weight: 600;
+        color: $color-accent;
+    }
+
+    &--edit {
+        border-radius: 100px;
+        width: 50px;
+        height: 27px;
+        line-height: normal;
+    }
+}
+
+.link {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+
+    &--with-arrow {
+        padding-right: 55px;
+
+        &::after {
+            content: ' →';
+            position: absolute;
+            top: calc(50% - 2px);
+            right: 25px;
+            transform: translateY(-50%);
+            transition: $transition;
+            font-size: 25px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        &--focus,
+        &:hover {
+            transition: $transition;
+
+            &::after {
+                right: 20px;
+            }
+        }
+    }
 }

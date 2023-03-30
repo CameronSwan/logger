@@ -1,7 +1,19 @@
 @import './base/reset';
 @import './base/mixins';
-@import './base/colors';
 @import './base/variables';
+@import './base/colors';
 @import './base/typography';
+@import './base/base';
 
 @import './components/buttons';
+@import './components/forms';
+@import './components/react-calendar';
+@import './components/modals';
+@import './components/tabs';
+@import './components/navbar';
+
+@import './layouts/main';
+@import './layouts/login';
+@import './layouts/history';
+@import './layouts/analysis';
+@import './layouts/information';

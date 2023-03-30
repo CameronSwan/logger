@@ -1,38 +1,29 @@
-// Typography
+/* Typography */
 
 // Font imports
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet');
-@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Red+Hat+Display:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 
 
 // Font Families
 $poppins: 'Poppins', sans-serif;
 $montserrat: 'Montserrat', sans-serif;
-$red-hat: 'Red Hat Display', sans-serif;
-$anonymous-pro: 'Anonymous Pro', monospace;
 
 // Font assignments 
 $font-family-heading: $poppins;
-$font-family-nav: $red-hat;
-$font-family-base: $red-hat;
-$font-family-CTA: $montserrat;
+$font-family-nav: $poppins;
+$font-family-base: $poppins;
+$font-family-accent: $montserrat;
 
 // Font sizes
 $h1-font-sizes: (
-	null: (25px, 1.2),
-	xs: 25px,
-	s: 30px,
+	null: (24px, 1.5),
 	l: 35px,
-	xl: 40px,
 );
 
 $h2-font-sizes: (
-	null: (25px, 1.2),
-	xs: 25px,
+	null: (20px, 1.2),
 	l: 30px,
-	xl: 40px,
 );
 
 $h3-font-sizes: (
@@ -43,74 +34,168 @@ $h3-font-sizes: (
 );
 
 $p-font-sizes: (
-	null: (14px, 1.5),
-	m: 16px,
-	xl: 20px,
-);
-
-$small-font-sizes: (
-	null: (12px, 1.5),
-	m: 14px,
+	null: (14px, 1.2),
 	xl: 16px,
 );
 
+$label-font-sizes: (
+	null: (16px, 1.5),
+	m: 18px,
+	xl: 22px,
+);
+
+$text-input-font-sizes: (
+	null: (20px, 1.5)
+);
+
+$datetime-input-font-sizes: (
+	null: (16px),
+	s: 20px
+);
+
+$logo-font-sizes: (
+	null: (30px, 1.5),
+	xs: 32px
+);
+
 $cta-font-sizes: (
-	null: 16px
+	null: 20px
+);
+
+$small-font-sizes: (
+	null: 12px
 );
 
 body {
 	font-family: $font-family-base;
+	color: $color-font-primary;
 }
 
-
-h1, .h1 {
+h1,
+.h1 {
 	@include font-size($h1-font-sizes);
 	font-family: $font-family-heading;
-	color: $color-font-primary;
+	font-weight: 500;
 }
 
-h2, .h2 {
+h2,
+.h2 {
 	@include font-size($h2-font-sizes);
 	font-family: $font-family-heading;
-	color: $color-font-primary;
+	font-weight: 600;
 }
 
-h3, .h3 {
+h3,
+.h3 {
 	@include font-size($h3-font-sizes);
 	font-family: $font-family-base;
 	font-weight: bold;
-	color: $color-font-primary;
 }
 
-h4, .h4, h5, .h5 {
+h4,
+.h4,
+h5,
+.h5 {
 	margin-bottom: 2px;
 	@include font-size($p-font-sizes);
 	font-weight: bold;
 	font-family: $font-family-base;
 }
 
-p, .p, li {
+p,
+.p,
+li,
+textarea {
 	@include font-size($p-font-sizes);
+	font-weight: 500;
 	font-family: $font-family-base;
-	color: $color-font-primary;
+}
+
+p:last-of-type {
+	margin-bottom: 0
+}
+
+label,
+.label {
+	@include font-size($label-font-sizes);
+	font-family: $font-family-base;
+	font-weight: 600;
+}
+
+input,
+.input {
+	@include font-size($text-input-font-sizes);
+	font-family: $font-family-base;
+	font-weight: 600;
+}
+
+input[type=time],
+input[type=date] {
+	@include font-size($datetime-input-font-sizes)
+}
+
+strong,
+.strong {
+	font-size: inherit;
+	font-family: inherit;
+	font-weight: bolder;
+}
+
+.logo {
+	@include font-size($logo-font-sizes);
+	font-weight: 600;
+	color: $color-logo;
+	text-decoration: none;
+}
+
+.error {
+	@include font-size($p-font-sizes);
+	font-family: $font-family-accent;
+	font-weight: 600;
 }
 
 .cta {
 	@include font-size($cta-font-sizes);
-	font-family: $font-family-CTA;
+	font-family: $font-family-accent;
+	font-weight: 500;
 	text-transform: uppercase;
 	text-decoration: none;
-	color: $color-font-secondary;
+	color: $color-font-primary;
 
 	&:hover {
 		color: $color-font-primary;
 	}
 }
 
+.small {
+	@include font-size($small-font-sizes);
+	font-family: $font-family-base;
+	font-weight: 500;
+}
+
+.underlined {
+	border-bottom: 2px solid $color-input-borders;
+}
+
+.dotted-underlined {
+	border-bottom: 2px dotted $color-accent;
+}
+
+.link {
+	font-family: inherit;
+	font-weight: 600;
+	color: inherit;
+	text-decoration: none;
+}
+
 a:not([class]) {
 	font-size: inherit;
 	text-transform: none;
 	text-decoration: underline;
+	font-weight: 600;
 	color: inherit;
 }
 
+li {
+	word-break: break-word;
+}

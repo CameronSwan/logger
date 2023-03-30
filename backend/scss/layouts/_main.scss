@@ -1,0 +1,41 @@
+.main {
+    &__explore-tabs {
+        display: grid;
+        text-align: center;
+        gap: 14px;
+       
+        @include media-query(xs) {
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+.fun-fact {
+    position: relative;
+    padding: 18px;
+    border: 2px solid $color-input-borders;
+    border-radius: 10px;
+    background-color: $color-background-secondary;
+
+    &__refresh {
+        content: '';
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 30px;
+        height: 30px;
+        background-image: url('../img/icons/refresh.svg');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    &__title {
+        margin-bottom: 8px;
+    }
+
+    &__fact {
+        line-height: 1.2;
+    }
+}

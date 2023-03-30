@@ -1,0 +1,255 @@
+.form {
+    $this: &;
+    width: 100%;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    &__row {
+        margin: 0 24px 15px 24px;
+    }
+
+    &__row--large {
+        margin: 0 0 15px 0;
+    }
+
+    &__row--split {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        @include media-query(xs) {
+            flex-direction: row;
+        }
+
+        @include media-query(s) {
+            gap: 15px;
+        }
+    }
+
+    &__half-row {
+        flex: 100%;
+
+        @include media-query(xs) {
+            flex: calc(50% - 15px);
+        }
+    }
+
+    &__legend {
+        position: relative;
+    }
+
+    &__text-input,
+    &__textarea {
+        margin-bottom: 2px;
+        box-sizing: border-box;
+        border: 2px solid $color-input-borders;
+        border-radius: 15px;
+        width: 100%;
+        height: 55px;
+        padding: 0 12px;
+
+        &:focus {
+            outline: 2px solid $color-input-borders;
+            background-color: $color-background-secondary;
+        }
+    }
+
+    &__textarea {
+        height: 130px;
+        resize: none;
+        padding-top: 4px;
+    }
+
+    &__datetime {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    &__button-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 15px;
+
+        &--split {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+
+            @include media-query(xs) {
+                flex-direction: row;
+            }
+        }
+    }
+
+    &__error {
+        height: 21px;
+        color: $color-error;
+
+        &--final {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__help {
+        height: 21px;
+        font-family: $font-family-accent;
+        text-align: end;
+    }
+
+    /* Checkbox Styling */
+
+    &__checkbox-row {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+
+        // For classic checkbox rows with a background
+        &--classic-background {
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+            grid-auto-flow: column;
+            gap: 10px;
+            align-items: center;
+            background-color: $color-background-secondary;
+            border-top: 2px solid $color-input-borders;
+            border-bottom: 2px solid $color-input-borders;
+            padding: 10px 20px;
+
+
+            @include media-query(s) {
+                grid-template-rows: 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-auto-flow: column;
+                padding: 10px 24px;
+            }
+
+        }
+
+        // For checkbox rows with images
+        &--styled {
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 2px;
+            border-top: 2px solid $color-background-secondary;
+            border-bottom: 2px solid $color-background-secondary;
+            background-color: $color-accent-CTA;
+            padding: 12px 0;
+
+            @include media-query(s) {
+                gap: 10px;
+            }
+        }
+    }
+
+    // Checkboxes with classic box inputs
+    &__checkbox--classic {
+        display: flex;
+        input {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        & label {
+            margin-left: 10px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+    }
+
+    &__checkbox--large-label {
+        align-items: flex-start;
+        margin-bottom: 15px;
+
+        & label {
+            margin-left: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+
+    &__checkbox--hidden-label {
+        align-items: flex-start;
+        margin-bottom: 15px;
+
+        & label {
+            display: none;
+        }
+    }
+
+    &__checkbox-custom-label {
+        margin-left: 20px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    // Checkboxes with image inputs
+    &__checkbox--styled {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+
+        @include media-query(xs) {
+            width: 45px;
+            height: 45px;
+        }
+
+        @include media-query(m) {
+            width: 55px;
+            height: 55px;
+        }
+
+        label {
+            position: relative;
+            display: block;
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+            background-color: $color-background-primary;
+            outline: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        input {
+            display: none;
+        }
+
+        input:checked+label {
+            background-color: $color-accent;
+        }
+
+        input:hover+label,
+        input:focus+label {
+            outline: 1px solid $color-table-borders;
+        }
+    }
+
+    // The checkbox image being used
+    &__checkbox--image {
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        border: 2px solid $color-table-borders;
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+
+        svg {
+            width: 100%;
+            height: 80%;
+        }
+    }
+}

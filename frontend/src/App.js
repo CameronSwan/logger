@@ -5,6 +5,22 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Components
 import NavBar from './components/NavBar';
 import Main from './components/Main';
+import Register from './components/Register';
+import LogIn from './components/LogIn';
+import ForgotLogin from './components/ForgotLogin';
+import CommunityGuidelines from './components/CommunityGuidelines';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
+import ProtectedRoutes from './components/ProtectedRoutes';
+import CreateBowelMovement from './components/CreateBowelMovement';
+import EditBowelMovement from './components/EditBowelMovement';
+import ViewBowelMovement from './components/ViewBowelMovement';
+import History from './components/History';
+import Analysis from './components/Analysis';
+import Community from './components/Community';
+import Info from './components/Info';
+import About from './components/About';
+
 
 const App = () => {
   return (
@@ -13,10 +29,24 @@ const App = () => {
         <NavBar />
         <div id="main-content">
           <Routes>
-            <Route path='/' element={ <Main /> }/>
-            {/* <Route element={<ProtectedRoutes/>}>
-            </Route> */}
-            <Route path='*' element= {< NotFound />}/>
+            <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<LogIn />} />
+            <Route path='/login/help' element={<ForgotLogin />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/privacypolicy' element={<PrivacyPolicy />} />
+            <Route path='/termsofservice' element={<TermsOfService />} />
+            <Route path='/communityguidelines' element={<CommunityGuidelines />} />
+            <Route element={<ProtectedRoutes />}>
+              <Route path='/' element={<Main />} />
+              <Route path='/info' element={<Info />} />
+              <Route path='/community' element={<Community />} />
+              <Route path='/bowelmovement/create' element={<CreateBowelMovement />} />
+              <Route path='/bowelmovement/edit/:id' element={<EditBowelMovement />} />
+              <Route path='/bowelmovement/:id' element={<ViewBowelMovement />} />
+              <Route path='/bowelmovement/history' element={<History />} />
+              <Route path='/bowelmovement/analysis' element={<Analysis />} />
+            </Route>
+            <Route path='*' element={< NotFound />} />
           </Routes>
         </div>
       </BrowserRouter>

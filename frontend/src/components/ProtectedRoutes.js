@@ -3,7 +3,7 @@ import authService from '../services/authService';
 
 const ProtectedRoutes = () => {
     return (
-        authService.isAuthenticated() ? <Outlet /> : <Navigate to ='/signin' />
+        authService.isAuthenticated() ? <Outlet /> : <Navigate to ='/login' />
     )
 }
 
