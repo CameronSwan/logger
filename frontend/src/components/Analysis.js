@@ -74,7 +74,6 @@ const Analysis = () => {
     const bmDaysCount = Object.keys(bmByDayCount).length;
 
     // Sort by highest amount
-    // const bmByDayCountSorted = Object.entries(bmByDayCount).sort(([, a], [, b]) => a - b).reverse()
     const highestBmCountDate = Object.keys(bmByDayCount).reduce((a, b) => bmByDayCount[a] > bmByDayCount[b] ? a : b, {});
     const highestbmByDayCount = bmByDayCount[highestBmCountDate]
 
