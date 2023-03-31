@@ -33,9 +33,7 @@ REACT_APP_API_URL
 ```
 
 ## Database:
-```
 Sample data is provided in the sampledata folder. These can be uploaded to Mongo as starter information for the database. 
-```
 
 ## Example:
 
