@@ -38,7 +38,7 @@ Sample data is provided in the sampledata folder. These can be uploaded to Mongo
 ```
 
 ## Example:
-```
+
 Preview version of the app is available at:
 [poop-logger.onrender.com](https://poop-logger.onrender.com/)
-```
+
