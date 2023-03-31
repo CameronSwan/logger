@@ -46,6 +46,7 @@ const LogIn = () => {
                             onChange={e => setEmail(e.target.value)}
                             placeholder='Email address'
                             className='form__text-input'
+                            autoComplete='email'
                         />
                         {/* <div className='form__help'>
                             <Link to='/login/help' relative='path'>Forgot login?</Link>
@@ -63,6 +64,8 @@ const LogIn = () => {
                             name='password'
                             onChange={e => setPassword(e.target.value)}
                             className='form__text-input'
+                            placeholder='Password'
+                            autoComplete='current-password'
                         />
                         <div className='form__help'>
                             <Link to='/login/help' relative='path'>Forgot Password?</Link>
