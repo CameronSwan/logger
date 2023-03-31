@@ -86,6 +86,7 @@ const Register = () => {
                             onChange={e => setUsername(e.target.value)}
                             placeholder='Enter username'
                             className='form__text-input'
+                            autoComplete='username'
                         />
                         <div className='form__error'>
                             {
@@ -106,6 +107,7 @@ const Register = () => {
                             onChange={e => setEmail(e.target.value)}
                             placeholder='Enter email address'
                             className='form__text-input'
+                            autoComplete='email'
                         />
                         <div className='form__error'>
                             {
@@ -125,6 +127,8 @@ const Register = () => {
                             name='password'
                             onChange={e => setPassword(e.target.value)}
                             className='form__text-input'
+                            placeholder='Enter Password'
+                            autoComplete='new-password'
                         />
                         <div className='form__error'>
                             {
@@ -144,6 +148,8 @@ const Register = () => {
                             name='verifypassword'
                             onChange={e => setVerification(e.target.value)}
                             className='form__text-input'
+                            placeholder='Enter Password'
+                            autoComplete='new-password'
                         />
                         <div className='form__error'>
                             {

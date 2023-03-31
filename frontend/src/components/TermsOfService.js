@@ -180,18 +180,19 @@ const TermsOfService = () => {
                 Subject to your compliance with these Legal Terms, including the
                 "PROHIBITED ACTIVITIES" section below, we grant you a non-exclusive,
                 non-transferable, revocable license to:
-                <ul>
-                    <li>access the Services; and </li>
-                    <li>
-                        and download or print a copy of any portion of the Content to which
-                        you have properly gained access.
-                    </li>
-                    <li>
-                        solely for your personal, non-commercial use or internal business
-                        purpose.
-                    </li>
-                </ul>
             </p>
+            <ul>
+                <li>access the Services; and </li>
+                <li>
+                    and download or print a copy of any portion of the Content to which
+                    you have properly gained access.
+                </li>
+                <li>
+                    solely for your personal, non-commercial use or internal business
+                    purpose.
+                </li>
+            </ul>
+
 
             <p>
                 Except as set out in this section or elsewhere in our Legal Terms, no
@@ -232,7 +233,7 @@ const TermsOfService = () => {
                 compensation to you.
             </p>
             <p>
-                <strong>Contributions:</strong>The Services may invite you to chat,
+                <strong>Contributions: </strong>The Services may invite you to chat,
                 contribute to, or participate in blogs, message boards, online forums,
                 and other functionality during which you may create, submit, post,
                 display, transmit, publish, distribute, or broadcast content and
@@ -272,32 +273,34 @@ const TermsOfService = () => {
                 the Services or making Contributions accessible through the Services by
                 linking your account through the Services to any of your social
                 networking accounts, you:
-                <ul>
-                    <li>
-                        confirm that you have read and agree with our "PROHIBITED
-                        ACTIVITIES" and will not post, send, publish, upload, or transmit
-                        through the Services any Submission nor post any Contribution that
-                        is illegal, harassing, hateful, harmful, defamatory, obscene,
-                        bullying, abusive, discriminatory, threatening to any person or
-                        group, sexually explicit, false, inaccurate, deceitful, or
-                        misleading;
-                    </li>
-                    <li>
-                        to the extent permissible by applicable law, waive any and all moral
-                        rights to any such Submission and/or Contribution;
-                    </li>
-                    <li>
-                        warrant that any such Submission and/or Contributions are original
-                        to you or that you have the necessary rights and licenses to submit
-                        such Submissions and/or Contributions and that you have full
-                        authority to grant us the above-mentioned rights in relation to your
-                        Submissions and/or Contributions; and
-                    </li>
-                    <li>
-                        warrant and represent that your Submissions and/or Contributions do
-                        not constitute confidential information.
-                    </li>
-                </ul>
+            </p>
+            <ul>
+                <li>
+                    confirm that you have read and agree with our "PROHIBITED
+                    ACTIVITIES" and will not post, send, publish, upload, or transmit
+                    through the Services any Submission nor post any Contribution that
+                    is illegal, harassing, hateful, harmful, defamatory, obscene,
+                    bullying, abusive, discriminatory, threatening to any person or
+                    group, sexually explicit, false, inaccurate, deceitful, or
+                    misleading;
+                </li>
+                <li>
+                    to the extent permissible by applicable law, waive any and all moral
+                    rights to any such Submission and/or Contribution;
+                </li>
+                <li>
+                    warrant that any such Submission and/or Contributions are original
+                    to you or that you have the necessary rights and licenses to submit
+                    such Submissions and/or Contributions and that you have full
+                    authority to grant us the above-mentioned rights in relation to your
+                    Submissions and/or Contributions; and
+                </li>
+                <li>
+                    warrant and represent that your Submissions and/or Contributions do
+                    not constitute confidential information.
+                </li>
+            </ul>
+            <p>
                 You are solely responsible for your Submissions and/or Contributions and
                 you expressly agree to reimburse us for any and all losses that we may
                 suffer because of your breach of (a) this section, (b) any third party's
@@ -314,9 +317,7 @@ const TermsOfService = () => {
                 authorities.
             </p>
 
-            <h3>
-                <h3>Copyright infringement </h3>
-            </h3>
+            <h3> Copyright infringement </h3>
             <p>
                 We respect the intellectual property rights of others. If you believe
                 that any material available on or through the Services infringes upon
@@ -369,8 +370,8 @@ const TermsOfService = () => {
                 in connection with any commercial endeavors except those that are
                 specifically endorsed or approved by us.
             </p>
+            <p>As a user of the Services, you agree not to:</p>
             <ul>
-                As a user of the Services, you agree not to:
                 <li>
                     Systematically retrieve data or other content from the Services to
                     create or compile, directly or indirectly, a collection,
@@ -674,8 +675,8 @@ const TermsOfService = () => {
             </p>
 
             <h2 id="9">MOBILE APPLICATION LICENSE</h2>
+            <h3>Use License </h3>
             <p>
-                <h3>Use License </h3>
                 If you access the Services via the App, then we grant you a revocable,
                 non-exclusive, non-transferable, limited right to install and use the
                 App on wireless electronic devices owned or controlled by you, and to
